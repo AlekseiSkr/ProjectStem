@@ -19,4 +19,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/translateFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/translate_from"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerFrom"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toEndOf="@+id/translateFrom"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/translateTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/translation"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/translateFrom" />
+
+    <Spinner
+        android:id="@+id/spinnerTo"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@+id/translateTo"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFrom" />
+
+    <Button
+        android:id="@+id/buttonTranslate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/translate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/translateTo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

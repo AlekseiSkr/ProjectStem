@@ -4,4 +4,13 @@
     <string name="title_games">Games</string>
     <string name="title_translate">Translator</string>
     <string name="title_user">User Settings</string>
+    <string name="translate_from">Translate from</string>
+    <string name="translation">Translation</string>
+    <string name="translate">translate</string>
+
+    <string-array name="lCategory">
+        <item>Afrikaans</item>
+        <item>Arabic</item>
+        <item>Belarusian</item>
+    </string-array>
 </resources>
