@@ -7,6 +7,10 @@
     android:background="#03444C"
     tools:context=".ui.library.LibraryFragment">
 
+    <TextView
+        android:id="@+id/navigation_library"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="410dp"
         android:layout_height="579dp"
