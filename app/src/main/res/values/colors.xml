@@ -3,6 +3,9 @@
     <!--Stem Colors-->
     <color name="mint_200">#67FFDB</color>
     <color name="colorado_500">#7DB1FF</color>
+    <!--fragment_library_category Colors-->
+    <color name="greyBlackish">#3b3b3b</color>
+    <color name="SmoothGreen">#B2F77D</color>
 
 
     <!--Default Colors:-->

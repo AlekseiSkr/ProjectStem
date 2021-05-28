@@ -7,12 +7,30 @@
     <string name="translate_from">Translate from</string>
     <string name="translation">Translation</string>
     <string name="translate">translate</string>
+    <string name="title_listOfWords">Library</string>
+
 
     <string-array name="lCategory">
         <item>Afrikaans</item>
         <item>Arabic</item>
         <item>Belarusian</item>
     </string-array>
+
+    <string-array name="CategoryListOfWords">
+        <item name="word">корова | cow</item>
+        <item name="word">Кот | cat</item>
+        <item name="word">собака | dog</item>
+        <item name="word">буйвол | buffalo</item>
+        <item name="word">змея | snake</item>
+        <item name="word">паук | spider</item>
+        <item name="word">корова | cow</item>
+        <item name="word">Кот | cat</item>
+        <item name="word">собака | dog</item>
+        <item name="word">буйвол | buffalo</item>
+        <item name="word">змея | snake</item>
+        <item name="word">паук | spider</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
