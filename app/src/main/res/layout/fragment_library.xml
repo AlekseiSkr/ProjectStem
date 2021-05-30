@@ -11,23 +11,93 @@
         android:id="@+id/navigation_library"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <LinearLayout
         android:layout_width="410dp"
         android:layout_height="579dp"
         android:background="#547FC2C8"
         android:foregroundTint="#00BCD4"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="76dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="20sp"
+            android:text="English"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:text="German"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="20sp"
+            android:text="English"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:text="Netherlands"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="20sp"
+            android:text="English"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90sp"
+            android:layout_marginTop="20sp"
+            android:text="Hungarian"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:backgroundTint="#009688" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_add"
             android:text="+"
-
-            />
+            android:textColor="@android:color/white"
+            app:backgroundTint="#009688"
+            tools:layout_editor_absoluteX="322dp"
+            tools:layout_editor_absoluteY="570dp" />
 
     </LinearLayout>
 
@@ -40,16 +110,6 @@
         app:backgroundTint="#009688"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="669dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@android:drawable/ic_menu_add"
-        app:backgroundTint="#009688"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="570dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton3"
