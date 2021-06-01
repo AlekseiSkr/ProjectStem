@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,8 +55,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="English"
-                        android:textColor="#6f6f6f">
+                        android:text="English">
                     </TextView>
 
                     <TextView
@@ -63,8 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="German"
-                        android:textColor="#6f6f6f">
+                        android:text="German">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -108,8 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="Russian"
-                        android:textColor="#6f6f6f">
+                        android:text="Russian">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -153,8 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="German"
-                        android:textColor="#6f6f6f">
+                        android:text="German">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -189,8 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="English"
-                        android:textColor="#6f6f6f">
+                        android:text="English">
                     </TextView>
 
                     <TextView
@@ -198,8 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:testSize="18sp"
-                        android:text="Chinese"
-                        android:textColor="#6f6f6f">
+                        android:text="Chinese">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -211,7 +206,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:src="@android:drawable/ic_menu_add"
                 android:text="+"
                 android:textColor="@android:color/white"
                 app:backgroundTint="#009688"

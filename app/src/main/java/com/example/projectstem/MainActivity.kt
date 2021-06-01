@@ -34,8 +34,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //fragment_library: adding new boxes
-
-
+        //Fragment.libray: clicking on the button
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener{
+            Toast.makeText(this@MainActivity, "You clicked me!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
