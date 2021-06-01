@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,138 +8,208 @@
     android:background="#03444C"
     tools:context=".ui.library.LibraryFragment">
 
-    <TextView
-        android:id="@+id/navigation_library"
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="3"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="579dp"
-        android:background="#547FC2C8"
-        android:foregroundTint="#00BCD4"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="76dp">
-
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginTop="20sp"
-            android:text="English"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:src="@drawable/engdeu">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="English"
+                    android:textColor="#6f6f6f">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="German"
+                    android:textColor="#6f6f6f">
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90sp"
-            android:layout_marginTop="20sp"
-            android:text="German"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:src="@drawable/engrus">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="English"
+                    android:textColor="#6f6f6f">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="Russian"
+                    android:textColor="#6f6f6f">
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginTop="20sp"
-            android:text="English"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:src="@drawable/deufre">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="French"
+                    android:textColor="#6f6f6f">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="German"
+                    android:textColor="#6f6f6f">
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90sp"
-            android:layout_marginTop="20sp"
-            android:text="Netherlands"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginTop="20sp"
-            android:text="English"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="90sp"
-            android:layout_marginTop="20sp"
-            android:text="Hungarian"
-            android:textColor="#FFF"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:backgroundTint="#009688" />
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:src="@drawable/usch">
+                </ImageView>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:src="@android:drawable/ic_menu_add"
-            android:text="+"
-            android:textColor="@android:color/white"
-            app:backgroundTint="#009688"
-            tools:layout_editor_absoluteX="322dp"
-            tools:layout_editor_absoluteY="570dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="English"
+                    android:textColor="#6f6f6f">
+                </TextView>
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:testSize="18sp"
+                    android:text="Chinese"
+                    android:textColor="#6f6f6f">
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+<!--
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:src="@drawable/lib"
+        android:src="@android:drawable/ic_menu_add"
+        android:text="+"
+        android:textColor="@android:color/white"
         app:backgroundTint="#009688"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="669dp" />
+        tools:layout_editor_absoluteX="322dp"
+        tools:layout_editor_absoluteY="570dp" />
+-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/games"
-        app:backgroundTint="#009688"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="669dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/language"
-        app:backgroundTint="#009688"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="669dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/user"
-        app:backgroundTint="#009688"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="669dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
