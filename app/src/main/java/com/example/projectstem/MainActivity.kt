@@ -1,6 +1,7 @@
 package com.example.projectstem
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -33,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //fragment_library: click on the button
-        //button.setOnClickListener{
-            //
-        //}
+        //Fragment.libray: clicking on the button
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener{
+            Toast.makeText(this@MainActivity, "You clicked me!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
