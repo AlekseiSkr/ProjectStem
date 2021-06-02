@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //fragment_library: click on the button
-        button.setOnClickListener{
+        //button.setOnClickListener{
             //
-        }
+        //}
     }
 }
