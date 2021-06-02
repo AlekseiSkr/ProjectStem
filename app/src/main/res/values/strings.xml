@@ -10,6 +10,14 @@
     <string name="translate">translate</string>
     <string name="title_listOfWords">Library</string>
 
+    <string name="English">English</string>
+    <string name="Chinese">Chinese</string>
+    <string name="German">German</string>
+    <string name="French">French</string>
+    <string name="Russian">Russian</string>
+    <string name="Add">Add</string>
+    <string name="Flag">Flag</string>
+
 
     <string-array name="lCategory">
         <item>Afrikaans</item>

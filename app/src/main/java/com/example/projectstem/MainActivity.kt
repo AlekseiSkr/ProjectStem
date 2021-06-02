@@ -1,6 +1,7 @@
 package com.example.projectstem
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -11,7 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectstem.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -33,11 +34,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
 
-        //Fragment.libray: clicking on the button
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener{
-            Toast.makeText(this@MainActivity, "You clicked me!", Toast.LENGTH_SHORT).show()
-        }
+    //Fragment.libray: clicking on the button
+    protected fun onCreateByClick(savedValues: Bundle) {
+        val button: Button = findViewById(R.id.button)
+        button.setOnClickListener(this)
+        byClick()
+    }
+
+    // Implement the OnClickListener callback
+    fun byClick() {
+        Toast.makeText(MainActivity.this, "You clicked on me!", Toast.LENGTH_SHORT).show()
     }
 }
