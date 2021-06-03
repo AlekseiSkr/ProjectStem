@@ -9,6 +9,12 @@
     <string name="translation">Translation</string>
     <string name="translate">translate</string>
     <string name="title_listOfWords">Library</string>
+    <string name="search_icon">Search</string>
+    <string name="word_translation">RU | EN</string>
+    <string name="word_knowledge">Knowledge</string>
+    <string name="flag_icon">Flag icon</string>
+    <string name="knowledge_icon">Knowledge dot</string>
+
 
     <string name="English">English</string>
     <string name="Chinese">Chinese</string>

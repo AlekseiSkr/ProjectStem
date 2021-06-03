@@ -5,8 +5,10 @@
     <color name="colorado_500">#7DB1FF</color>
     <!--fragment_library_category Colors-->
     <color name="greyBlackish">#3b3b3b</color>
-    <color name="SmoothGreen">#B2F77D</color>
-
+    <color name="smoothGreen">#B2F77D</color>
+    <color name="mildGreen">#499c54</color>
+    <color name="darkGreen">#264d2b</color>
+    <color name="silkyMint_200">#E5FFFF</color>
 
     <!--Default Colors:-->
     <color name="purple_200">#FFBB86FC</color>
