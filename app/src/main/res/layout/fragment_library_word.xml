@@ -5,15 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    >
+    android:layout_margin="5dp"
+    android:background="@drawable/word_card">
 
     <TextView
 
-        android:id="@+id/tvTranslation2"
+        android:id="@+id/tvNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
         android:text="Note: "
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvWord" />
 
@@ -21,47 +24,37 @@
         android:id="@+id/tvWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:text="Word"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/knowledgeImg" />
-
-    <TextView
-        android:id="@+id/wordNote"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:text="kind of like _another word_ but not  "
-        android:textAlignment="center"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvTranslation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTranslation2" />
 
     <TextView
         android:id="@+id/tvTranslation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:text="Translation: "
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvWord" />
 
     <ImageView
         android:id="@+id/knowledgeImg"
-        android:layout_width="51dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/alert_light_frame" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDefinitionList"
-        android:layout_width="389dp"
-        android:layout_height="307dp"
+        android:layout_width="match_parent"
+        android:layout_height="301dp"
         android:paddingTop="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +62,33 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTranslation" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTags"
         android:layout_width="171dp"
         android:layout_height="21dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvWord"
-        app:layout_constraintEnd_toStartOf="@+id/tvWord"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvWord" />
+        android:layout_marginLeft="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvWord"
+        app:layout_constraintStart_toStartOf="parent" />
 
->>>>>>> Stashed changes
+    <Button
+        android:id="@+id/bPronounciation"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+
+        app:icon="@drawable/low_volume"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvWord"
+        app:layout_constraintTop_toBottomOf="@+id/knowledgeImg" />
+
+    <TextView
+        android:id="@+id/tvPhonetic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/bPronounciation"
+        app:layout_constraintStart_toEndOf="@+id/bPronounciation"
+        app:layout_constraintTop_toTopOf="@+id/bPronounciation"
+        app:layout_constraintVertical_bias="0.476" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

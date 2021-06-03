@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="120dp"
+    android:fadingEdge="horizontal|vertical">
 
     <TextView
         android:id="@+id/tvWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:text="word"
-        android:textSize="21sp"
+        android:autoSizeMaxTextSize="21sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="none"
+        android:text="BEEFPC"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,18 +40,21 @@
         android:text="speech or talk: to express one's emotion in words; Words mean little when action is called for."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tvWord"
-        app:layout_constraintTop_toBottomOf="@+id/tvWord" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWord"
+        app:layout_constraintVertical_bias="0.466" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="114dp"
-        android:layout_height="46dp"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
         android:paddingLeft="20dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/tvDefinition"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:icon="@drawable/low_volume"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWord"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/tvWord" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -59,12 +67,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="179dp"
-        android:layout_height="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvDefinition"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvWord"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        android:layout_width="140dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
