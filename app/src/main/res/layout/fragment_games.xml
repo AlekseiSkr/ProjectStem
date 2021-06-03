@@ -8,9 +8,6 @@
     tools:context=".MainActivity">
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#03444C"
@@ -30,9 +27,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
                 >
 
                 <LinearLayout
@@ -40,28 +37,14 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/engdeu">
-                    </ImageView>
+                    android:padding="16sp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="English">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="German">
+                        android:layout_marginTop="12sp"
+                        android:textSize="18sp"
+                        android:text="@string/FlashCards">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -71,9 +54,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
                 >
 
                 <LinearLayout
@@ -81,29 +64,14 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/engrus">
-                    </ImageView>
+                    android:padding="16sp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="English"
-                        android:textColor="#6f6f6f">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="Russian">
+                        android:layout_marginTop="12sp"
+                        android:textSize="18sp"
+                        android:text="@string/Multimatch">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -113,9 +81,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
                 >
 
                 <LinearLayout
@@ -123,29 +91,14 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/deufre">
-                    </ImageView>
+                    android:padding="16sp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="French"
-                        android:textColor="#6f6f6f">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="German">
+                        android:layout_marginTop="12sp"
+                        android:textSize="18sp"
+                        android:text="@string/Hangman">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -155,9 +108,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
+                app:cardElevation="6sp"
+                app:cardCornerRadius="12sp"
+                android:layout_margin="12sp"
                 >
 
                 <LinearLayout
@@ -165,28 +118,14 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/usch">
-                    </ImageView>
+                    android:padding="16sp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="English">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:testSize="18sp"
-                        android:text="Chinese">
+                        android:layout_marginTop="12sp"
+                        android:textSize="18sp"
+                        android:text="@string/Guess">
                     </TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

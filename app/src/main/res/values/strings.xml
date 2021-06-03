@@ -17,6 +17,10 @@
     <string name="Russian">Russian</string>
     <string name="Add">Add</string>
     <string name="Flag">Flag</string>
+    <string name="FlashCards">Flash Cards</string>
+    <string name="Multimatch">Multimatch</string>
+    <string name="Hangman">Hangman</string>
+    <string name="Guess">Guess</string>
 
 
     <string-array name="lCategory">
