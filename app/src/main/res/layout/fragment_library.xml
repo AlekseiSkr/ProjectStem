@@ -207,10 +207,8 @@
                 tools:layout_editor_absoluteY="570dp"
                 android:layout_gravity="bottom|end"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp"
-                android:onClick="getClicked"
-                >
+                android:layout_marginEnd="10dp">
+                <!--android:onClick="getClicked"-->
             </Button>
-
     
 </FrameLayout>
