@@ -16,9 +16,4 @@
         android:orderInCategory="100"
         android:title="Dutch"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_ron"
-        android:orderInCategory="100"
-        android:title="Romanian"
-        app:showAsAction="never" />
 </menu>

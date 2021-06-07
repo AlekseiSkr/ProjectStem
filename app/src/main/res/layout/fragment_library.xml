@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.library.LibraryFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -114,8 +114,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6sp"
                 app:cardCornerRadius="12sp"
-                android:layout_margin="12sp"
-                >
+                android:layout_margin="12sp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -157,8 +156,7 @@
                 android:layout_rowWeight="1"
                 app:cardElevation="6sp"
                 app:cardCornerRadius="12sp"
-                android:layout_margin="12sp"
-                >
+                android:layout_margin="12sp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

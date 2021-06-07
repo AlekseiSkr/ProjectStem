@@ -30,10 +30,6 @@ class LibraryFragment : Fragment() {
         _binding = FragmentLibraryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*val textView: TextView = binding.textLibrary
-        gamesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
         return root
     }
 
