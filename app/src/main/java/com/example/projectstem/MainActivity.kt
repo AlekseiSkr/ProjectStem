@@ -51,9 +51,7 @@ class MainActivity : AppCompatActivity() {
         // val array: Array<String> = resources.getStringArray(R.array.CategoryListOfWords)
 
         FileOutputStream(file).bufferedWriter().use { it.write(str) }
-
-        // FileOutputStream(file).bufferedWriter().use { it.write(text)}
-
+        
         Toast.makeText(this, "Saved to " + path + "/" + file.name, Toast.LENGTH_LONG).show()
     }
 
