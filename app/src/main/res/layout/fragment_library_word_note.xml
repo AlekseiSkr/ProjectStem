@@ -13,7 +13,7 @@
         android:background="#000000"
         android:padding="5dp"
         android:scaleType="fitXY"
-        app:icon="@drawable/chomker"
+        app:icon="@drawable/pencil"
         app:iconTint="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent" />
