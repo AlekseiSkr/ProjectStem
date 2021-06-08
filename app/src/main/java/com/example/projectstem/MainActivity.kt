@@ -74,17 +74,4 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Saved to " + path + "/" + file.name, Toast.LENGTH_LONG).show()
 
     }
-
-
-    /*   //Fragment.library: clicking on the button
-       protected fun onCreateByClick(savedValues: Bundle) {
-           val button: Button = findViewById(R.id.button)
-           button.setOnClickListener(this)
-           byClick()
-       }
-
-       // Implement the OnClickListener callback
-       fun byClick() {
-           Toast.makeText(this, "You clicked on me!", Toast.LENGTH_SHORT).show()
-       }*/
 }
