@@ -1,6 +1,10 @@
 package com.example.projectstem
 
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,6 +12,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectstem.databinding.ActivityMainBinding
+import com.example.projectstem.ui.home.HomeFragment
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,15 +42,31 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
- /*   //Fragment.library: clicking on the button
-    protected fun onCreateByClick(savedValues: Bundle) {
-        val button: Button = findViewById(R.id.button)
-        button.setOnClickListener(this)
-        byClick()
+    fun save(view: View) {
+        val path = this.getExternalFilesDir(null)
+        val letDirectory = File(path, "stem")
+        letDirectory.mkdirs()
+        val file = File(letDirectory, "savedWords.txt")
+        val str: String = getString(R.string.app_name)
+        // val array: Array<String> = resources.getStringArray(R.array.CategoryListOfWords)
+
+        FileOutputStream(file).bufferedWriter().use { it.write(str) }
+
+        // FileOutputStream(file).bufferedWriter().use { it.write(text)}
+
+        Toast.makeText(this, "Saved to " + path + "/" + file.name, Toast.LENGTH_LONG).show()
     }
 
-    // Implement the OnClickListener callback
-    fun byClick() {
-        Toast.makeText(this, "You clicked on me!", Toast.LENGTH_SHORT).show()
-    }*/
+
+    /*   //Fragment.library: clicking on the button
+       protected fun onCreateByClick(savedValues: Bundle) {
+           val button: Button = findViewById(R.id.button)
+           button.setOnClickListener(this)
+           byClick()
+       }
+
+       // Implement the OnClickListener callback
+       fun byClick() {
+           Toast.makeText(this, "You clicked on me!", Toast.LENGTH_SHORT).show()
+       }*/
 }
