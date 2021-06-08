@@ -8,9 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectstem.databinding.ActivityMainBinding
-/*import android.view.View
-import android.widget.Button
-import android.widget.Toast*/
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,13 +32,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-    /*
-    //FragmentLibrary: clicking on the button (onClickListener)
-    private val button = findViewById<Button>(R.id.button) as Button
-    val message = "You clicked on me!"
 
-    fun getClicked(view: View) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }*/
+    }
 }
