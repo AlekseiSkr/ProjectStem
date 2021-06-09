@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/navigation_library"
-        android:icon="@drawable/lib"
+        android:icon="@drawable/ic_baseline_library_books_24"
         android:title="@string/title_library" />
 
     <item
         android:id="@+id/navigation_games"
-        android:icon="@drawable/games"
+        android:icon="@drawable/ic_baseline_videogame_asset_24"
         android:title="@string/title_games" />
 
     <item
         android:id="@+id/navigation_translate"
-        android:icon="@drawable/language"
+        android:icon="@drawable/ic_baseline_textsms_24"
         android:title="@string/title_translate" />
 
     <item
         android:id="@+id/navigation_user"
-        android:icon="@drawable/user"
+        android:icon="@drawable/ic_baseline_eco_24"
         android:title="@string/title_user" />
 
 </menu>

@@ -12,6 +12,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectstem.databinding.ActivityMainBinding
+import com.example.projectstem.ui.home.HomeFragment
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +43,35 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun save(view: View) {
+        // Save txt file
+//        val path = this.getExternalFilesDir(null)
+//        val letDirectory = File(path, "stem")
+//        letDirectory.mkdirs()
+//        val file = File(letDirectory, "savedWords.txt")
+//        val str: String = getString(R.string.app_name)
+//
+//        FileOutputStream(file).bufferedWriter().use { it.write(str) }
+//        Toast.makeText(this, "Saved to " + path + "/" + file.name, Toast.LENGTH_LONG).show()
+
+        // Save json file
+        // Accessible files via View -> Tool Windows -> Device File Explorer (while running emulator) -> storage/emulated/0/Android/data/com.example.projectstem/files/stem
+        val array: Array<String> = resources.getStringArray(R.array.CategoryListOfWords)
+
+        val path = this.getExternalFilesDir(null)
+        val letDirectory = File(path, "stem")
+        letDirectory.mkdirs()
+        val file = File(letDirectory, "savedWords.json")
+
+        val gsonPretty = GsonBuilder().setPrettyPrinting().create()
+        val arrayToList = gsonPretty.toJson(array)
+
+        val arrayToPretty: String = gsonPretty.toJson(arrayToList)
+        file.writeText(arrayToPretty)
+
+        Toast.makeText(this, "Saved to " + path + "/" + file.name, Toast.LENGTH_LONG).show()
 
     }
 }

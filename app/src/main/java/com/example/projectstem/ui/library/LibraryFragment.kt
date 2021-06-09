@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 //import android.widget.TextView
 //import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 //import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentLibraryBinding
 import android.content.Intent
@@ -19,12 +22,7 @@ import androidx.navigation.Navigation
 
 class LibraryFragment : Fragment(){
 
-    private lateinit var gamesViewModel: LibraryViewModel
-    private var _binding: FragmentLibraryBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,32 +30,22 @@ class LibraryFragment : Fragment(){
         savedInstanceState: Bundle?
 
     ): View {
-        gamesViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
 
-        _binding = FragmentLibraryBinding.inflate(inflater, container, false)
+       val view = inflater.inflate(R.layout.fragment_library,container, false)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //val message = "You clicked on me!"
-        val buttonLang = view?.findViewById<Button>(R.id.button_lang)
-
-        Log.e("Virag", "click1 $view $buttonLang")
-        buttonLang?.setOnClickListener {
-            Log.e("Virag","click2 $context")
-            //Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-           // val intent = Intent(context, LibraryHover::class.java)
-           // startActivity(intent)
-            Navigation.findNavController(view).navigate(R.id.navigation_library_hover)
+        view?.findViewById<LinearLayout>(R.id.something)!!.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_grp2cat)
         }
+
+
+        val buttonLang = view?.findViewById<Button>(R.id.button_lang)
+        buttonLang?.setOnClickListener {
+        Navigation.findNavController(view).navigate(R.id.navigation_library_hover)
+        }
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 
 }

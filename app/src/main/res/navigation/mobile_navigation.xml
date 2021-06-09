@@ -15,7 +15,14 @@
         android:id="@+id/navigation_library"
         android:name="com.example.projectstem.ui.library.LibraryFragment"
         android:label="@string/title_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_grp2hvr"
+            app:destination="@id/libraryHover" />
+        <action
+            android:id="@+id/action_grp2cat"
+            app:destination="@id/libraryCategoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_library_hover"
@@ -40,4 +47,29 @@
         android:name="com.example.projectstem.ui.user.UserFragment"
         android:label="@string/title_user"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/libraryHover"
+        android:name="com.example.projectstem.ui.library.LibraryHover"
+        android:label="fragment_library_hover"
+        tools:layout="@layout/fragment_library_hover" >
+        <action
+            android:id="@+id/action_hvr2grp"
+            app:destination="@id/navigation_library" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryCategoryFragment"
+        android:name="com.example.projectstem.ui.library.LibraryCategoryFragment"
+        android:label="LibraryCategoryFragment" >
+        <action
+            android:id="@+id/action_libraryCategoryFragment_to_libraryWordFragment"
+            app:destination="@id/libraryWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryWordFragment"
+        android:name="com.example.projectstem.ui.library.LibraryWordFragment"
+        android:label="LibraryWordFragment" >
+        <action
+            android:id="@+id/action_libraryWordFragment_to_libraryCategoryFragment"
+            app:destination="@id/libraryCategoryFragment" />
+    </fragment>
 </navigation>

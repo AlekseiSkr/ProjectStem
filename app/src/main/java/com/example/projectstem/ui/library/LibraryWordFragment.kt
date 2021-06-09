@@ -6,27 +6,81 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.projectstem.R
+import com.example.projectstem.databinding.FragmentLibraryBinding
 
 class LibraryWordFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LibraryWordFragment()
-    }
+    private lateinit var libraryViewModel: LibraryWordViewModel
+    private var _binding: FragmentLibraryBinding? = null
 
-    private lateinit var viewModel: LibraryWordViewModel
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_library_word, container, false)
+        libraryViewModel =
+            ViewModelProvider(this).get(LibraryWordViewModel::class.java)
+
+        _binding = FragmentLibraryBinding.inflate(inflater, container, false)
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LibraryWordViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
+    fun getLanguageCode(language: String): String {
+        when(language)
+        {
+            "English" -> {
+                return "en_US"
+            }
+            "Hindi" -> {
+                return "hi"
+            }
+            "Spanish" -> {
+                return "es"
+            }
+            "French" -> {
+                return "fr"
+            }
+            "Japanese" -> {
+                return "ja"
+            }
+            "Russian" -> {
+                return "ru"
+            }
+            "German" -> {
+                return "it"
+            }
+            "Korean" -> {
+                return "ko"
+            }
+            "Brazilian" -> {
+                return "pt-BR"
+            }
+            "Portuguese" -> {
+                return "pt-BR"
+            }
+            "Arabic" -> {
+                return "ar"
+            }
+            "Turkish" -> {
+                return "tr"
+            }
+        }
+        return "Language code not found"
+    }
+
+    fun getWordInformation(languageCode: String, word: String)
+    {
+
+    }
 }
