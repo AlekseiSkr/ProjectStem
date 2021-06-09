@@ -23,8 +23,6 @@ class LibraryHover:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        gamesViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
 
 
 
@@ -32,30 +30,12 @@ class LibraryHover:Fragment() {
 /*
     Custom code
  */
-//        val languages = resources.getStringArray(R.array.lCategory)
-        val autoCompleteTextView: AutoCompleteTextView = root.findViewById(R.id.autoCompleteTextView)
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.lCategory,
-            android.R.layout.simple_dropdown_item_1line
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-            autoCompleteTextView.setAdapter(adapter)
-        }
-        val autoCompleteTextView2: AutoCompleteTextView = root.findViewById(R.id.autoCompleteTextView2)
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.lCategory,
-            android.R.layout.simple_dropdown_item_1line
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-            autoCompleteTextView2.setAdapter(adapter)
-        }
-        return root
+        val languages = resources.getStringArray(R.array.lCategory)
+        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item, languages)
+        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setAdapter(arrayAdapter)
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
