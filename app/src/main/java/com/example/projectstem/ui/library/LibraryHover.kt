@@ -25,7 +25,7 @@ class LibraryHover:Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         gamesViewModel =
             ViewModelProvider(this).get(LibraryViewModel::class.java)
 
@@ -34,7 +34,7 @@ class LibraryHover:Fragment() {
 /*
     Custom code
  */
-        val languages = resources.getStringArray(R.array.lCategory)
+//        val languages = resources.getStringArray(R.array.lCategory)
         val autoCompleteTextView: AutoCompleteTextView = root.findViewById(R.id.autoCompleteTextView)
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -53,9 +53,6 @@ class LibraryHover:Fragment() {
             adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
             autoCompleteTextView2.setAdapter(adapter)
         }
-
-
-
         return root
     }
 

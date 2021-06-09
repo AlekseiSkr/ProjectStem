@@ -42,21 +42,21 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/engdeu"></ImageView>
+                        android:src="@drawable/engdeu"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/English"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/German"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -80,7 +80,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/engrus"></ImageView>
+                        android:src="@drawable/engrus"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -88,14 +88,14 @@
                         android:layout_marginTop="12sp"
                         android:text="@string/English"
                         android:textColor="#6f6f6f"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/Russian"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -119,7 +119,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/deufre"></ImageView>
+                        android:src="@drawable/deufre"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -127,14 +127,14 @@
                         android:layout_marginTop="12sp"
                         android:text="@string/French"
                         android:textColor="#6f6f6f"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/German"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -158,21 +158,21 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/usch"></ImageView>
+                        android:src="@drawable/usch"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/English"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12sp"
                         android:text="@string/Chinese"
-                        android:textSize="18sp"></TextView>
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>
@@ -191,6 +191,6 @@
         android:textColor="@android:color/white"
         app:backgroundTint="#009688"
         tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="570dp"></Button>
-    
+        tools:layout_editor_absoluteY="570dp"/>
+
 </FrameLayout>
