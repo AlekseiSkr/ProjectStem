@@ -26,37 +26,23 @@ class LibraryHover:Fragment() {
 
 
 
-        val view = inflater.inflate(R.layout.fragment_library,container, false)
+        val view = inflater.inflate(R.layout.fragment_library_hover,container, false)
 /*
     Custom code
  */
-
-        val autoCompleteTextView: AutoCompleteTextView = view.findViewById(R.id.autoCompleteTextView)
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.lCategory,
-            android.R.layout.simple_dropdown_item_1line
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-            autoCompleteTextView.setAdapter(adapter)
-        }
-        val autoCompleteTextView2: AutoCompleteTextView = view.findViewById(R.id.autoCompleteTextView2)
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.lCategory,
-            android.R.layout.simple_dropdown_item_1line
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-            autoCompleteTextView2.setAdapter(adapter)
-        }
-
-
-            val buttonLang = view?.findViewById<Button>(R.id.bCancel)
-            buttonLang?.setOnClickListener {
+        val buttonLang = view?.findViewById<Button>(R.id.bCancel)
+            buttonLang!!.setOnClickListener {
                 Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
             }
+        val buttonLang2 = view?.findViewById<Button>(R.id.bCreate)
+        buttonLang2!!.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
+        }
 
-
+        val languages = resources.getStringArray(R.array.lCategory)
+        val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item, languages)
+        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setAdapter(arrayAdapter)
 
 
         return view
