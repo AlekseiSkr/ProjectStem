@@ -5,22 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 //import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 //import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentLibraryBinding
 
 class LibraryFragment : Fragment() {
 
-    private lateinit var gamesViewModel: LibraryViewModel
-    private var _binding: FragmentLibraryBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,23 +26,22 @@ class LibraryFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View {
-        gamesViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
 
-        _binding = FragmentLibraryBinding.inflate(inflater, container, false)
+       val view = inflater.inflate(R.layout.fragment_library,container, false)
 
-        /*val message = "You clicked on me!"
+        view?.findViewById<LinearLayout>(R.id.something)!!.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_grp2cat)
+        }
+
+
         val buttonLang = view?.findViewById<Button>(R.id.button_lang)
         buttonLang?.setOnClickListener {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-        }*/
+        Navigation.findNavController(view).navigate(R.id.action_grp2hvr)
+        }
 
-        return binding.root
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 
 }

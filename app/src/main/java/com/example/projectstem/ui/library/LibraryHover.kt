@@ -6,36 +6,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.projectstem.databinding.FragmentLibraryBinding
 import com.example.projectstem.R
 
 
 
 class LibraryHover:Fragment() {
-    private lateinit var gamesViewModel: LibraryViewModel
-    private var _binding: FragmentLibraryBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        gamesViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
 
-        _binding = FragmentLibraryBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
+
+        val view = inflater.inflate(R.layout.fragment_library,container, false)
 /*
     Custom code
  */
-        val languages = resources.getStringArray(R.array.lCategory)
-        val autoCompleteTextView: AutoCompleteTextView = root.findViewById(R.id.autoCompleteTextView)
+
+        val autoCompleteTextView: AutoCompleteTextView = view.findViewById(R.id.autoCompleteTextView)
         ArrayAdapter.createFromResource(
             requireContext(),
             R.array.lCategory,
@@ -44,7 +40,7 @@ class LibraryHover:Fragment() {
             adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
             autoCompleteTextView.setAdapter(adapter)
         }
-        val autoCompleteTextView2: AutoCompleteTextView = root.findViewById(R.id.autoCompleteTextView2)
+        val autoCompleteTextView2: AutoCompleteTextView = view.findViewById(R.id.autoCompleteTextView2)
         ArrayAdapter.createFromResource(
             requireContext(),
             R.array.lCategory,
@@ -55,12 +51,14 @@ class LibraryHover:Fragment() {
         }
 
 
+            val buttonLang = view?.findViewById<Button>(R.id.bCancel)
+            buttonLang?.setOnClickListener {
+                Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
+            }
 
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+
+
+        return view
     }
 }
