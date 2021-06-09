@@ -18,7 +18,6 @@ import com.example.projectstem.databinding.FragmentLibraryBinding
 import android.content.Intent
 import android.util.Log
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 
 class LibraryFragment : Fragment(){
 
