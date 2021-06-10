@@ -1,13 +1,8 @@
 package com.example.projectstem
 
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,16 +10,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.room.Room
 import com.example.projectstem.databinding.ActivityMainBinding
 import com.example.projectstem.model.AppDatabase
-import com.example.projectstem.model.GroupDao
-import com.example.projectstem.ui.home.HomeFragment
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import java.lang.Exception
 
@@ -49,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
         try {
-            AppDatabase.getInstance(this).isOpen
+            AppDatabase.getInstance(this)
             println(this.getDatabasePath("stem.db").absolutePath)
         } catch (e: Exception)
         {
