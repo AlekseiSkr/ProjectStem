@@ -1,6 +1,9 @@
 package com.example.projectstem
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -19,6 +22,7 @@ import java.io.FileOutputStream
 import java.io.OutputStreamWriter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +47,29 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        createJsonFile();
+
+    }
+
+    fun createJsonFile(){
+
+        val fileName = "stem_groups.json"
+        val path = this.getExternalFilesDir(null) //get the dir like Android/data/data/stem_package/
+        val letDirectory = File(path, "stem")
+        try{
+            letDirectory.mkdirs()
+            var fileObject = File(letDirectory, fileName)
+            // create a new file
+            val isNewFileCreated : Boolean = fileObject.createNewFile()
+            if(isNewFileCreated){
+                Log.i("FileStatus", "$fileName is created successfully on $fileObject")
+            } else {
+                Log.i("FileStatus", "$fileName already exists on $fileObject")
+            }
+
+        }catch (e : Exception) {
+            Log.e("creationCatch", "$e")
+        }
     }
 
     fun save(view: View) {

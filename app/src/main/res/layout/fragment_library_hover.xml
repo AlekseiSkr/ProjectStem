@@ -17,7 +17,7 @@
         android:background="#078DB6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="none"
-            android:text="AutoCompleteTextView"
+            android:text="Select a base Language"
             android:textColor="#FFFFFF" />
 
 
@@ -59,7 +59,7 @@
             android:layout_weight="1"
             android:background="#45871E"
             android:inputType="none"
-            android:text="AutoCompleteTextView2"
+            android:text="Select a second Language"
             android:textColor="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,4 +102,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
