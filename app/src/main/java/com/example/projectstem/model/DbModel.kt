@@ -10,8 +10,8 @@ data class Group(
 )
 
 @Entity(foreignKeys = [ForeignKey(entity = Group::class,
-    parentColumns = arrayOf("parentClassColumn"),
-    childColumns = arrayOf("childClassColumn"),
+    parentColumns = arrayOf("group_id"),
+    childColumns = arrayOf("group_language_id"),
     onDelete = ForeignKey.CASCADE)]
 )
 data class Word(
