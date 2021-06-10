@@ -1,5 +1,6 @@
 package com.example.projectstem
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -14,7 +15,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.room.Room
 import com.example.projectstem.databinding.ActivityMainBinding
+import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.GroupDao
 import com.example.projectstem.ui.home.HomeFragment
 import java.io.File
 import java.io.FileInputStream
@@ -31,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -45,10 +48,17 @@ class MainActivity : AppCompatActivity() {
                R.id.navigation_library, R.id.navigation_games, R.id.navigation_translate, R.id.navigation_user
             )
         )
+        try {
+            AppDatabase.getInstance(this).isOpen
+            println(this.getDatabasePath("stem.db").absolutePath)
+        } catch (e: Exception)
+        {
+            e.printStackTrace()
+        }
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         createJsonFile();
-
     }
 
     fun createJsonFile(){
