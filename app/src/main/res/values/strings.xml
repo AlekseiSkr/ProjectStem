@@ -14,6 +14,9 @@
     <string name="word_knowledge">Knowledge</string>
     <string name="flag_icon">Flag icon</string>
     <string name="knowledge_icon">Knowledge dot</string>
+    <string name="submit">Submit</string>
+    <string name="img_placeholder">Image</string>
+    <string name="finish">FINISH</string>
 
 
     <string name="English">English</string>
@@ -118,4 +121,24 @@
     <string name="multimatch">Multimatch</string>
     <string name="polyglots_hangman">Polyglots\' Hangman</string>
     <string name="guess_the_meaning">Guess the meaning</string>
+    <string name="welcome_to_stem">Welcome to Stem!</string>
+    <string name="personalize_your_library">Personalize your library</string>
+    <string name="test_your_skills_in_the_games">Test your skills in the games</string>
+    <string name="here_is_how_it_works">Here is how it works:</string>
+    <string name="enjoy_the_app_and_drink_water">Enjoy the app and drink water!</string>
+    <string name="translate_unknown_words_on_the_spot">Translate unknown words on the spot</string>
+    <string name="add_new_languages_to_learn">Add new languages to learn</string>
+    <string name="create_edit_and_study_notes">Create, edit and study notes</string>
+    <string name="watch_your_knowledge_improve">Watch your knowledge improve</string>
+    <string name="todo">TODO</string>
+    <string name="introduction_header">Introduction header</string>
+    <string name="todo2">TODO</string>
+    <string name="edit_icon">edit_icon</string>
+    <string name="games_icon">games_icon</string>
+    <string name="translate_icon">translate_icon</string>
+    <string name="library_icon">library_icon</string>
+    <string name="welcomeToStemBackground" />
+    <string name="line" />
+    <string name="welcomeheader">welcomeHeader</string>
+    <string name="stem_intro">stem intro</string>
 </resources>
