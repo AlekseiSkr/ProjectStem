@@ -20,16 +20,13 @@ class ResultActivity : AppCompatActivity() {
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        val userName = intent.getStringExtra(Constants.USER_NAME)
-        tv_name.text = userName
-
         val totalQuestions = intent.getIntExtra(Constants.TOTAL_QUESTIONS, 0)
         val correctAnswers = intent.getIntExtra(Constants.CORRECT_ANSWERS, 0)
 
         tv_score.text = "Your Score is $correctAnswers out of $totalQuestions."
 
         btn_finish.setOnClickListener {
-            startActivity(Intent(this@ResultActivity, GamesFragment::class.java))
+            startActivity(Intent(this@ResultActivity, MainActivity::class.java))
         }
         // END
     }
