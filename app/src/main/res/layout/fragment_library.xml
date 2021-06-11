@@ -44,7 +44,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/engdeu"/>
+                        android:src="@drawable/simpleflag"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/engrus"/>
+                        android:src="@drawable/simpleflag"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/deufre"/>
+                        android:src="@drawable/simpleflag"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                         android:layout_width="80sp"
                         android:layout_height="80sp"
                         android:contentDescription="@string/Flag"
-                        android:src="@drawable/usch"/>
+                        android:src="@drawable/simpleflag"/>
 
                     <TextView
                         android:layout_width="wrap_content"
