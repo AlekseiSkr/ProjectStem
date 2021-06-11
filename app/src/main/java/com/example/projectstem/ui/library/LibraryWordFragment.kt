@@ -38,7 +38,6 @@ class LibraryWordFragment : Fragment() {
             ViewModelProvider(this).get(LibraryWordViewModel::class.java)
 
         _binding = FragmentLibraryBinding.inflate(inflater, container, false)
-        getWordDefinition()
 
         return binding.root
     }
@@ -91,7 +90,7 @@ class LibraryWordFragment : Fragment() {
         return "Sorry, we don't support word definition in this language"
     }
 
-    fun getWordDefinition()
+    fun getWordDefinition(word: String)
     {
         val languageCode = "en_US"
         val word = "hello"

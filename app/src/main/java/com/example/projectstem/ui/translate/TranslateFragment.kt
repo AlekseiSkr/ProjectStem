@@ -78,6 +78,8 @@ class TranslateFragment : Fragment() {
                     translator.translate(wordToBeTranslated)
                         .addOnSuccessListener { translatedText ->
                             translateToField.setText(translatedText)
+
+                            ///Add data to database
                         }
                         .addOnFailureListener { exception ->
                             Log.e("s", Log.getStackTraceString(exception))

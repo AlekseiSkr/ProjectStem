@@ -6,14 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.projectstem.R
-import com.google.gson.GsonBuilder
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.File
 
 class LibraryFragment : Fragment(){
 
@@ -40,6 +35,4 @@ class LibraryFragment : Fragment(){
 
         return view
     }
-
-
 }

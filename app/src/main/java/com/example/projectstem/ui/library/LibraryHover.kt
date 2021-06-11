@@ -7,9 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projectstem.R
 import com.example.projectstem.model.Group
 import com.example.projectstem.model.Word
+import com.example.projectstem.model.group.GroupViewModel
+import com.example.projectstem.model.testdb.TestListAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -17,7 +23,6 @@ import java.io.File
 
 
 class LibraryHover: Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,28 +34,38 @@ class LibraryHover: Fragment() {
 /*
     Custom code
  */
-        val autoTextView1 = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2)
-        val autoTextView = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+        val baseLanguage = view.findViewById<AutoCompleteTextView>(R.id.baseLanguage)
+        val secondaryLanguage = view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage)
 
         val languages = resources.getStringArray(R.array.lCategory)
         val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item, languages)
-        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setAdapter(arrayAdapter)
-        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.baseLanguage).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage).setAdapter(arrayAdapter)
+
+        //TEST
+
+        view.findViewById<Button>(R.id.testButton).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.testFragment)
+        }
 
         //convert input to json on click
         view.findViewById<Button>(R.id.bCreate).
         setOnClickListener(View.OnClickListener {
 
             //Toast with values
-            val enteredText = autoTextView1.text.toString() + " " + autoTextView.text.toString()
+            val enteredText = secondaryLanguage.text.toString() + " " + baseLanguage.text.toString()
             Toast.makeText(requireContext(), enteredText, Toast.LENGTH_SHORT).show()
             //Group created
-            val group = Group(1, autoTextView1.text.toString(), autoTextView.text.toString())
+            val group = Group(1, secondaryLanguage.text.toString(), baseLanguage.text.toString())
             appendJsonFile(convertToJson(group))
-
         })
 
         return view
+
+    }
+
+    private fun insertLanguageGroupToDb() {
+
     }
 
     /**
