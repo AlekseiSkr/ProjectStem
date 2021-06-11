@@ -1,22 +1,14 @@
 package com.example.projectstem.ui.library
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.projectstem.databinding.FragmentLibraryBinding
-import com.google.gson.JsonObject
 import okhttp3.Call
 import okhttp3.Callback
-import org.json.JSONArray
-import org.json.JSONObject
-import java.net.URL
 import okhttp3.OkHttpClient
 import java.io.IOException
 
