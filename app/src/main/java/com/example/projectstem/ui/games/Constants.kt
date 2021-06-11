@@ -6,7 +6,6 @@ object Constants {
 
     // TODO (STEP 1: Create a constant variables which we required in the result screen.)
     // START
-    const val USER_NAME: String = "user_name"
     const val TOTAL_QUESTIONS: String = "total_questions"
     const val CORRECT_ANSWERS: String = "correct_answers"
     // END

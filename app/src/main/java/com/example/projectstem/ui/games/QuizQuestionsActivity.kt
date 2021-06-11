@@ -21,7 +21,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     // TODO (STEP 3: Create a variable for getting the name from intent.)
     // START
-    private var mUserName: String? = "Player"
     // END
 
     /**
@@ -126,7 +125,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun setQuestion() {
 
-        val question = mQuestionsList!!.get(mCurrentPosition - 1) // Getting the question from the list with the help of current position.
+        val question =
+            mQuestionsList!![mCurrentPosition - 1] // Getting the question from the list with the help of current position.
 
         defaultOptionsView()
 
@@ -137,7 +137,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         progressBar.progress = mCurrentPosition
-        tv_progress.text = "$mCurrentPosition" + "/" + progressBar.getMax()
+        tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         tv_question.text = question.question
         iv_image.setImageResource(question.image)

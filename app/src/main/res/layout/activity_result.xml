@@ -37,16 +37,6 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        tools:text="Username" />
-
-    <TextView
         android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"
-        android:text="FINISH"
+        android:text="@string/finish"
         android:textColor="#ffffff"
         android:backgroundTint="@color/mildGreen"
         android:textSize="18sp"
