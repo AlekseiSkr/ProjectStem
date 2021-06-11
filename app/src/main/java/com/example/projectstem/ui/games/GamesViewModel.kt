@@ -10,4 +10,5 @@ class GamesViewModel : ViewModel() {
         value = "This is games Fragment"
     }
     val text: LiveData<String> = _text
+
 }
