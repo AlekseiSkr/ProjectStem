@@ -28,6 +28,7 @@ class LibraryCategoryFragment : Fragment() {
         buttonAddWord?.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.navigation_translate)
         }
+
         return view
     }
 
