@@ -101,7 +101,7 @@ class LibraryWordFragment : Fragment() {
         val client = OkHttpClient()
         client.newCall(request).enqueue(object: Callback {
             override fun onResponse(call: Call, response: okhttp3.Response) {
-                val body = response?.body()?.string()
+                val body = response.body?.string()
                 println(body)
             }
             override fun onFailure(call: Call, e: IOException) {

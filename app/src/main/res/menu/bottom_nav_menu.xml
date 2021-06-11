@@ -17,7 +17,7 @@
         android:title="@string/title_translate" />
 
     <item
-        android:id="@+id/navigation_user"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_baseline_eco_24"
         android:title="@string/title_user" />
 
