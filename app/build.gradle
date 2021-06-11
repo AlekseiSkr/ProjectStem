@@ -2,11 +2,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-<<<<<<< Updated upstream
     id 'kotlin-kapt'
-=======
     id 'kotlin-android-extensions'
->>>>>>> Stashed changes
 }
 
 android {
