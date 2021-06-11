@@ -8,177 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.library.LibraryFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".ui.library.LibraryFragment">
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alignmentMode="alignMargins"
-            android:background="@color/white"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:rowCount="3">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12sp"
-                app:cardCornerRadius="12sp"
-                app:cardElevation="6sp">
-
-                <LinearLayout
-                    android:id="@+id/something"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16sp">
-
-                    <ImageView
-                        android:layout_width="80sp"
-                        android:layout_height="80sp"
-                        android:contentDescription="@string/Flag"
-                        android:src="@drawable/simpleflag"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/English"
-                        android:textSize="18sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/German"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12sp"
-                app:cardCornerRadius="12sp"
-                app:cardElevation="6sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16sp">
-
-                    <ImageView
-                        android:layout_width="80sp"
-                        android:layout_height="80sp"
-                        android:contentDescription="@string/Flag"
-                        android:src="@drawable/simpleflag"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/English"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/Russian"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12sp"
-                app:cardCornerRadius="12sp"
-                app:cardElevation="6sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16sp">
-
-                    <ImageView
-                        android:layout_width="80sp"
-                        android:layout_height="80sp"
-                        android:contentDescription="@string/Flag"
-                        android:src="@drawable/simpleflag"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/French"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/German"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12sp"
-                app:cardCornerRadius="12sp"
-                app:cardElevation="6sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16sp">
-
-                    <ImageView
-                        android:layout_width="80sp"
-                        android:layout_height="80sp"
-                        android:contentDescription="@string/Flag"
-                        android:src="@drawable/simpleflag"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/English"
-                        android:textSize="18sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12sp"
-                        android:text="@string/Chinese"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
-    </ScrollView>
 
     <Button
         android:id="@+id/button_lang"
@@ -193,6 +22,21 @@
         android:textColor="@android:color/white"
         app:backgroundTint="#009688"
         tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="570dp"/>
+        tools:layout_editor_absoluteY="570dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGroups"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:background="@color/white"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="3" />
+
 
 </FrameLayout>

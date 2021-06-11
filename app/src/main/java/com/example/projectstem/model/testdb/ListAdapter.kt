@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
 import com.example.projectstem.model.Group
 
-class TestListAdapter: RecyclerView.Adapter<TestListAdapter.MyViewHolder>() {
+class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var groupList = emptyList<Group>()
 
@@ -17,7 +17,7 @@ class TestListAdapter: RecyclerView.Adapter<TestListAdapter.MyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_test, parent, false))
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.libray_group_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -26,9 +26,10 @@ class TestListAdapter: RecyclerView.Adapter<TestListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = groupList[position]
-        holder.itemView.findViewById<TextView>(R.id.lId).text = currentItem.group_id.toString()
-        holder.itemView.findViewById<TextView>(R.id.testL1).text  = currentItem.language1
-        holder.itemView.findViewById<TextView>(R.id.testL2).text  = currentItem.language2
+        holder.itemView.findViewById<TextView>(R.id.tvGroupId).text = currentItem.group_id.toString()
+        holder.itemView.findViewById<TextView>(R.id.tvPrimaryLanguage).text  = currentItem.language1
+        holder.itemView.findViewById<TextView>(R.id.tvSecondaryLanguage).text  = currentItem.language2
+
     }
 
     fun setData(group: List<Group>){
