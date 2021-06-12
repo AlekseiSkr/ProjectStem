@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ListView
-        android:id="@+id/lvItems"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:divider="@color/greyBlackish"
-        android:dividerHeight="0.5dp"
-        android:entries="@array/CategoryListOfWords"
-        android:focusable="true"
-        android:listSelector="@drawable/listview_selector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
-
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="70dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -39,41 +15,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/myToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/teal_200"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:title="@string/title_library"
-                app:titleTextColor="@color/white" />
-
-            <ImageView
-                android:id="@+id/imageViewSearchIcon"
-                android:layout_width="56dp"
-                android:layout_height="43dp"
-                android:contentDescription="@string/search_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_search"
-                app:tint="@color/white" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:id="@+id/subHeaderMainLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/subHeaderLeftLL"
@@ -86,8 +36,8 @@
                     android:id="@+id/imgVFlag"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/ic_flag1"
-                    android:contentDescription="@string/flag_icon" />
+                    android:contentDescription="@string/flag_icon"
+                    app:srcCompat="@drawable/ic_flag1" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -108,32 +58,32 @@
                     android:id="@+id/knowledgeDotsLL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/imgVKnowledge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/smoothGreen"
-                        android:contentDescription="@string/knowledge_icon" />
+                        app:tint="@color/smoothGreen" />
 
                     <ImageView
                         android:id="@+id/imgVKnowledge2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/mildGreen"
-                        android:contentDescription="@string/knowledge_icon" />
+                        app:tint="@color/mildGreen" />
 
                     <ImageView
                         android:id="@+id/imgVKnowledge3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/darkGreen"
-                        android:contentDescription="@string/knowledge_icon"/>
+                        app:tint="@color/darkGreen" />
 
                 </LinearLayout>
 
@@ -148,5 +98,23 @@
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

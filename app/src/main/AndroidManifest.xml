@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectStem">
+        <activity android:name=".ui.library.LibraryCategoryWordSelected"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -20,8 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.games.QuizQuestionsActivity"></activity>
-        <activity android:name=".ui.games.ResultActivity"></activity>
+        <activity android:name=".ui.games.QuizQuestionsActivity" />
+        <activity android:name=".ui.games.ResultActivity" />
+        <activity android:name=".ui.games.HangmanGameActivity" />
     </application>
 
 </manifest>

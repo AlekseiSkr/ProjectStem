@@ -11,21 +11,23 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
 
     companion object {
-
-        // For Singleton instantiation
         @Volatile
-        private var instance: AppDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase {
-            return instance ?: synchronized(this) {
-                instance
-                    ?: buildDatabase(context).also { instance = it }
+        fun getDatabase(context: Context): AppDatabase{
+            val tempInstance = INSTANCE
+            if(tempInstance != null){
+                return tempInstance
             }
-        }
-
-        private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, "stem.db")
-                .build()
+            synchronized(this){
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "stem"
+                ).build()
+                INSTANCE = instance
+                return instance
+            }
         }
     }
 }

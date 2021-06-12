@@ -1,24 +1,20 @@
 package com.example.projectstem.ui.library
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.model.Group
-import com.example.projectstem.model.Word
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
-import java.io.File
+import com.example.projectstem.model.group.GroupViewModel
 
 
 class LibraryHover: Fragment() {
-
-
+    private lateinit var groupViewModel: GroupViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,59 +25,52 @@ class LibraryHover: Fragment() {
 /*
     Custom code
  */
-        val autoTextView1 = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2)
-        val autoTextView = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
-
+        val baseLanguage = view.findViewById<AutoCompleteTextView>(R.id.baseLanguage)
+        val secondaryLanguage = view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage)
+//cancel button
+        view.findViewById<Button>(R.id.bCancel).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigation_library)
+        }
         val languages = resources.getStringArray(R.array.lCategory)
         val arrayAdapter = ArrayAdapter(requireContext(),R.layout.dropdown_item, languages)
-        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2).setAdapter(arrayAdapter)
-        view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.baseLanguage).setAdapter(arrayAdapter)
+        view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage).setAdapter(arrayAdapter)
 
-        //convert input to json on click
-        view.findViewById<Button>(R.id.bCreate).
-        setOnClickListener(View.OnClickListener {
+/*
+database coding
+ */
 
-            //Toast with values
-            val enteredText = autoTextView1.text.toString() + " " + autoTextView.text.toString()
-            Toast.makeText(requireContext(), enteredText, Toast.LENGTH_SHORT).show()
-            //Group created
-            val group = Group(1, autoTextView1.text.toString(), autoTextView.text.toString())
-            appendJsonFile(convertToJson(group))
 
-        })
 
+        //Insert group language to database
+        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
+
+
+        view.findViewById<Button>(R.id.bCreate).setOnClickListener {
+            val language1 = baseLanguage.text.toString()
+            val language2 = secondaryLanguage.text.toString()
+            var isInserted = false;
+            //add data
+            if(!isInserted)
+            {
+                val group = Group(0, language1, language2);
+                groupViewModel.addLanguageGroup(group)
+                isInserted = true;
+            }
+            if(isInserted)
+            {
+                Toast.makeText(requireContext(),"Successfully added", Toast.LENGTH_LONG).show()
+                Navigation.findNavController(view).navigate(R.id.navigation_library)
+            }
+        }
         return view
-    }
-
-    /**
-     * Saving groups
-     *
-     * TODO:
-     * Get number of existing groups from Library Fragment via Intent
-     * Number of existing groups + 1 = new group ID
-     */
-    private fun convertToJson(group: Group): String {
-
-        val gsonPretty = GsonBuilder().setPrettyPrinting().create()
-        val json_group: String = gsonPretty.toJson(group)
-
-        //Debug
-        Log.d("saveJson", "\n" + json_group)
-
-        return json_group
-    }
-
-    private fun appendJsonFile(group: String){
-        val path = File("/storage/emulated/0/Android/data/com.example.projectstem/files/stem/stem_groups.json")
-        path.length()
-
-        path.appendText(group.plus(","))
 
     }
 
-    private fun callJson(){
-        //
+    private fun insertLanguageGroupToDb() {
+
     }
+
 
 
 }

@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_quiz_questions.*
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1 // Default and the first question position
-    private var mQuestionsList: ArrayList<Question>? = null
+    private var mQuestionsList: ArrayList<QuizQuestion>? = null
 
     private var mSelectedOptionPosition: Int = 0
     private var mCorrectAnswers: Int = 0
@@ -34,7 +34,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         // TODO (STEP 4: Get the NAME from intent and assign it the variable.)
 
-        mQuestionsList = Constants.getQuestions()
+        mQuestionsList = QuizConstants.getQuestions()
 
         setQuestion()
 
@@ -87,8 +87,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             // START
                             val intent =
                                     Intent(this@QuizQuestionsActivity, ResultActivity::class.java)
-                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
-                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                            intent.putExtra(QuizConstants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(QuizConstants.TOTAL_QUESTIONS, mQuestionsList!!.size)
                             startActivity(intent)
                             finish()
                             // END
