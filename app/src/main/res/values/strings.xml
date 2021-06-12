@@ -17,6 +17,10 @@
     <string name="submit">Submit</string>
     <string name="img_placeholder">Image</string>
     <string name="finish">FINISH</string>
+    <string name="result_result">Result</string>
+    <string name="result_img">Trophy image</string>
+    <string name="Result_congrats">Hey, Congratulations</string>
+
 
 
     <string name="English">English</string>
@@ -119,7 +123,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flash_cards">Flash Cards</string>
     <string name="multimatch">Multimatch</string>
-    <string name="polyglots_hangman">Polyglots\' Hangman</string>
+    <string name="polyglots_hangman">Hangman</string>
     <string name="guess_the_meaning">Guess the meaning</string>
     <string name="welcome_to_stem">Welcome to Stem!</string>
     <string name="personalize_your_library">Personalize your library</string>

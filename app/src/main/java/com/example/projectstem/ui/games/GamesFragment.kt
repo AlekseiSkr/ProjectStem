@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentGamesBinding
 
 class GamesFragment : Fragment() {
@@ -35,6 +33,11 @@ class GamesFragment : Fragment() {
             val intent = Intent(context, QuizQuestionsActivity::class.java)
             startActivity(intent)
 
+        }
+
+        binding.hangman.setOnClickListener {
+            val intent = Intent(context, HangmanGameActivity::class.java)
+            startActivity(intent)
         }
         return root
     }
