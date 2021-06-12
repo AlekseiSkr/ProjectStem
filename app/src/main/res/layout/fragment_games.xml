@@ -12,47 +12,50 @@
         android:layout_width="164dp"
         android:layout_height="404dp"
         android:text="@string/flash_cards"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/multimatch"
         android:layout_width="164dp"
         android:layout_height="119dp"
         android:text="@string/multimatch"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/hangman"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
+        app:layout_constraintVertical_bias="0.871" />
 
     <Button
         android:id="@+id/hangman"
         android:layout_width="164dp"
         android:layout_height="119dp"
         android:text="@string/polyglots_hangman"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/guess"
         android:layout_width="164dp"
         android:layout_height="119dp"
         android:text="@string/guess_the_meaning"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hangman"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.118" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

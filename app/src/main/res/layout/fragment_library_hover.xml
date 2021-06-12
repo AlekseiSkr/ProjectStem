@@ -26,7 +26,8 @@
             android:layout_weight="1"
             android:inputType="none"
             android:text="Select a secondary language"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -35,10 +36,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_weight="1"
         android:text="Secondary Language:"
-        android:textSize="16sp"
+        android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +61,8 @@
             android:background="#45871E"
             android:inputType="none"
             android:text="Select a base language"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,28 +70,30 @@
         android:id="@+id/bCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="104dp"
         android:text="Create Group"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/bCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="30dp"
         android:text="Cancel"
         app:layout_constraintBaseline_toBaselineOf="@+id/bCreate"
-        app:layout_constraintEnd_toStartOf="@+id/bCreate" />
+        app:layout_constraintEnd_toStartOf="@+id/bCreate"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:text="Original Language:"
-        android:textSize="16sp"
+        android:textSize="23sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -98,7 +102,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create a Language Group"
-        android:textSize="24sp"
+        android:textSize="25sp"
+        android:padding="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -107,11 +112,12 @@
         android:id="@+id/testButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="300dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="15sp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
