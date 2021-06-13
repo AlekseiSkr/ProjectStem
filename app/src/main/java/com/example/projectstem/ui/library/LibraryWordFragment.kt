@@ -82,23 +82,12 @@ class LibraryWordFragment : Fragment() {
         return "Sorry, we don't support word definition in this language"
     }
 
-    fun getWordDefinition(word: String)
+    fun getWordDefinition()
     {
         val languageCode = "en_US"
         val word = "hello"
-        val url = " https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
-        val request = okhttp3.Request.Builder().url(url).build()
+        val url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
 
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object: Callback {
-            override fun onResponse(call: Call, response: okhttp3.Response) {
-                val body = response.body?.string()
-                println(body)
-            }
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
-            }
-        })
 
     }
 }
