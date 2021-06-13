@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.translate.TranslateFragment">
+    tools:context=".ui.translate.TranslateFragment"
+    android:layout_margin="30sp">
 
     <Spinner
         android:id="@+id/spinnerFrom"
-        android:layout_width="134dp"
-        android:layout_height="34dp"
+        android:layout_width="103dp"
+        android:layout_height="33dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/spinner_background"
         android:spinnerMode="dropdown"
@@ -29,28 +30,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Translate from"
+        android:text="@string/Translate_from"
         app:layout_constraintBottom_toTopOf="@+id/spinnerFrom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="0.696"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/translateFrom"
-        android:layout_width="211dp"
-        android:layout_height="71dp"
+        android:layout_width="200dp"
+        android:layout_height="61dp"
         android:layout_marginStart="20dp"
         android:ems="10"
         android:hint="@string/translate_from"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,8 +75,8 @@
 
     <Spinner
         android:id="@+id/spinnerTo"
-        android:layout_width="134dp"
-        android:layout_height="34dp"
+        android:layout_width="107dp"
+        android:layout_height="35dp"
 
         android:layout_marginBottom="12dp"
         android:background="@drawable/spinner_background"
@@ -83,9 +87,10 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="79dp"
-        android:layout_height="22dp"
-        android:text="Translate to"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:text="@string/Translate_to"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/spinnerTo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
@@ -95,13 +100,14 @@
 
     <EditText
         android:id="@+id/translateTo"
-        android:layout_width="211dp"
-        android:layout_height="71dp"
+        android:layout_width="201dp"
+        android:layout_height="66dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/translation"
         android:inputType="textPersonName"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTranslate"
         app:layout_constraintStart_toStartOf="parent" />
 

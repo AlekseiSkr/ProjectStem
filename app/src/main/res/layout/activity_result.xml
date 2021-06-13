@@ -7,22 +7,23 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="20dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_margin="30sp">
 
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
         android:layout_marginTop="25dp"
         android:text="@string/result_result"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="80sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/iv_trophy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="227dp"
+        android:layout_height="325dp"
         android:contentDescription="@string/result_img"
         android:src="@drawable/ic_trophy" />
 
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Result_congrats"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -40,18 +41,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="23sp"
         tools:text="Your Score is 9 out of 10" />
 
     <Button
         android:id="@+id/btn_finish"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="268dp"
+        android:layout_height="51dp"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"
+        android:backgroundTint="@color/mildGreen"
         android:text="@string/finish"
         android:textColor="#ffffff"
-        android:backgroundTint="@color/mildGreen"
-        android:textSize="18sp"
+        android:textSize="23sp"
         android:textStyle="bold" />
 </LinearLayout>

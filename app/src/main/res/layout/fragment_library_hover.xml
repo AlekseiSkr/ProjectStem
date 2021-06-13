@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:layout_margin="30sp"
     tools:context=".ui.library.LibraryHover">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -26,7 +27,8 @@
             android:layout_weight="1"
             android:inputType="none"
             android:text="Select a secondary language"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -38,7 +40,8 @@
         android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:text="Secondary Language:"
-        android:textSize="16sp"
+        android:textSize="15sp"
+        android:padding="10sp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,7 +63,8 @@
             android:background="#45871E"
             android:inputType="none"
             android:text="Select a base language"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,8 +73,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="108dp"
         android:text="Create Group"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -80,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:text="Cancel"
+        android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/bCreate"
         app:layout_constraintEnd_toStartOf="@+id/bCreate" />
 
@@ -89,7 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Original Language:"
-        android:textSize="16sp"
+        android:textSize="15sp"
+        android:padding="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -98,7 +105,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create a Language Group"
-        android:textSize="24sp"
+        android:textSize="25sp"
+        android:padding="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -107,9 +115,10 @@
         android:id="@+id/testButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="288dp"
         android:text="Button"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
