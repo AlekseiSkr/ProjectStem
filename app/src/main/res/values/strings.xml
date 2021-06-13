@@ -145,4 +145,12 @@
     <string name="line" />
     <string name="welcomeheader">welcomeHeader</string>
     <string name="stem_intro">stem intro</string>
+
+
+    <string name="Translate_from">Translate from</string>
+    <string name="Translate_to">Translate to</string>
+    <string name="groupItem_origin">Origin</string>
+    <string name="groupItem_translated">Translated</string>
+    <string name="level_two">2</string>
+    <string name="level_three">/ 3</string>
 </resources>

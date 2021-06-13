@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="30sp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -30,7 +31,8 @@
             android:layout_marginLeft="2dp"
             android:ems="5"
             android:inputType="text"
-            android:text="Origin"
+            android:text="@string/groupItem_origin"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/translation" />
 
         <EditText
@@ -41,7 +43,8 @@
             android:layout_marginLeft="2dp"
             android:ems="5"
             android:inputType="text"
-            android:text="Translation"
+            android:text="@string/groupItem_translated"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Space
@@ -55,22 +58,24 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="2"
+            android:text="@string/level_two"
+            android:textSize="20sp"
             android:textAlignment="viewEnd" />
 
         <EditText
             android:id="@+id/KnowledgeCapacity"
             android:layout_width="32dp"
             android:layout_height="wrap_content"
-            android:ems="5"
+            android:ems="@string/level_three"
             android:inputType="number"
             android:text="/ 3"
+            android:textSize="20sp"
             android:textAlignment="viewEnd" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="49dp"
-            android:layout_height="46dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:textAlignment="viewEnd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
