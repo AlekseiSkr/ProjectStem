@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.games.HangmanGameActivity"
-    android:layout_margin="30sp">
+    tools:context=".ui.games.HangmanGameActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -55,7 +54,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:letterSpacing="0.3"
-        android:textSize="20sp"
+        android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         tools:text="_ _ ABCD_ _ _ _ _ _ _" />
 
@@ -75,7 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Start new game"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lettersUsedTextView"
@@ -92,7 +90,7 @@
             android:id="@+id/flow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:padding="16dp"
             app:constraint_referenced_ids="a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
             app:flow_wrapMode="chain" />
 

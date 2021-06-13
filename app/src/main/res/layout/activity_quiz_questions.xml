@@ -4,24 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".ui.games.QuizQuestionsActivity"
-    android:padding="30dp">
+    tools:context=".ui.games.QuizQuestionsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:textColor="#363A43"
-            android:textSize="30sp"
+            android:textSize="22sp"
             tools:text="What country does this flag belong to?" />
 
         <ImageView
@@ -58,7 +57,7 @@
                 android:gravity="center"
                 android:padding="15dp"
                 android:textColorHint="#7A8089"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 tools:text="0/10" />
         </LinearLayout>
 
@@ -69,9 +68,9 @@
             android:layout_margin="10dp"
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColor="#7A8089"
-            android:textSize="22sp"
+            android:textSize="18sp"
             tools:text="Apple" />
 
         <TextView
@@ -84,9 +83,9 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColor="#7A8089"
-            android:textSize="22sp"
+            android:textSize="18sp"
             tools:text="Google" />
 
         <TextView
@@ -99,9 +98,9 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColor="#7A8089"
-            android:textSize="22sp"
+            android:textSize="18sp"
             tools:text="Android Inc." />
 
         <TextView
@@ -114,9 +113,9 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/default_option_border_bg"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textColor="#7A8089"
-            android:textSize="22sp"
+            android:textSize="18sp"
             tools:text="Nokia" />
 
         <Button
@@ -127,7 +126,7 @@
             android:background="@color/colorPrimary"
             android:text="@string/submit"
             android:textColor="@android:color/white"
-            android:textSize="23sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>

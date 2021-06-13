@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded"
             android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:padding="10sp">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/subHeaderLeftLL"
@@ -38,16 +37,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/flag_icon"
-                    app:srcCompat="@drawable/ic_flag1"
-                    android:padding="10sp"/>
+                    app:srcCompat="@drawable/ic_flag1" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/word_translation"
-                    android:textSize="15sp" />
+                    android:text="@string/word_translation" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,8 +67,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/smoothGreen"
-                        android:padding="10sp" />
+                        app:tint="@color/smoothGreen" />
 
                     <ImageView
                         android:id="@+id/imgVKnowledge2"
@@ -79,8 +75,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/mildGreen"
-                        android:padding="10sp" />
+                        app:tint="@color/mildGreen" />
 
                     <ImageView
                         android:id="@+id/imgVKnowledge3"
@@ -88,8 +83,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/knowledge_icon"
                         app:srcCompat="@drawable/ic_knowledge_dot"
-                        app:tint="@color/darkGreen"
-                        android:padding="10sp" />
+                        app:tint="@color/darkGreen" />
 
                 </LinearLayout>
 
@@ -98,8 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/word_knowledge"
-                    android:textSize="15sp" />
+                    android:text="@string/word_knowledge" />
             </LinearLayout>
 
         </LinearLayout>
@@ -112,16 +105,16 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        android:layout_margin="30sp"/>
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <Button
         android:id="@+id/addBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="30sp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

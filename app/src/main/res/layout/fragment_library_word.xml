@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
+    android:layout_margin="5dp"
     android:background="@drawable/word_card">
 
     <TextView
+
         android:id="@+id/tvNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
         android:text="Note: "
         android:textSize="24sp"
@@ -23,7 +24,7 @@
         android:id="@+id/tvWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
         android:text="Word"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -34,13 +35,12 @@
         android:id="@+id/tvTranslation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginLeft="30dp"
         android:text="Translation: "
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWord"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWord" />
 
     <ImageView
         android:id="@+id/knowledgeImg"
@@ -53,10 +53,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDefinitionList"
-        android:layout_width="320dp"
-        android:layout_height="299dp"
+        android:layout_width="match_parent"
+        android:layout_height="301dp"
         android:paddingTop="12sp"
-        android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +65,7 @@
         android:id="@+id/rvTags"
         android:layout_width="171dp"
         android:layout_height="21dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
         app:layout_constraintBottom_toTopOf="@+id/tvWord"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -86,7 +85,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/bPronounciation"
         app:layout_constraintStart_toEndOf="@+id/bPronounciation"
         app:layout_constraintTop_toTopOf="@+id/bPronounciation"
