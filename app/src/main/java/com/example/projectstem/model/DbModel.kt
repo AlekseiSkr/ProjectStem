@@ -1,12 +1,15 @@
 package com.example.projectstem.model
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "group_language")
 data class Group(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name="group_id") var group_id: Int,
-    @ColumnInfo(name = "language1") var language1 : String,
-    @ColumnInfo(name = "language2") var language2: String,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name="group_id") val group_id: Int,
+    @ColumnInfo(name = "language1") val language1 : String,
+    @ColumnInfo(name = "language2") val language2: String,
 )
 
 @Entity(foreignKeys = [ForeignKey(entity = Group::class,
@@ -16,8 +19,8 @@ data class Group(
     tableName = "words"
 )
 data class Word(
-    @PrimaryKey @ColumnInfo(name = "group_language_id") var group_language_id : Int,
-    @ColumnInfo(name = "original") var original : String,
-    @ColumnInfo(name = "translation") var translation : String,
-    @ColumnInfo(name = "knowledge") var knowledge : Int,
+    @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "group_language_id") val group_language_id : Int,
+    @ColumnInfo(name = "original") val original : String,
+    @ColumnInfo(name = "translation") val translation : String,
+    @ColumnInfo(name = "knowledge") val knowledge : Int,
 )

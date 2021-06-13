@@ -34,6 +34,12 @@ class LibraryFragment : Fragment(){
         buttonLang?.setOnClickListener {
         Navigation.findNavController(view).navigate(R.id.navigation_library_hover)
         }
+
+        /*val groupSelectionButton = view.findViewById<Button>(R.id.groupButton)
+        groupSelectionButton?.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.navigation_library_category)
+        }*/
+
         //recyclerview
         val gridLayout = GridLayoutManager(requireContext(),2)
         val adapter = ListAdapter()

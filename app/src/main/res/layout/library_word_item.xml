@@ -3,68 +3,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="#EFEFEF"
-        android:backgroundTintMode="multiply"
-        android:clickable="true"
-        android:descendantFocusability="afterDescendants"
+        android:padding="5dp"
+        android:clickable="false"
         android:divider="@android:drawable/divider_horizontal_dark"
         android:elevation="6dp"
         android:focusable="auto"
         android:focusableInTouchMode="true"
         android:hapticFeedbackEnabled="true"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
+        <TextView
             android:id="@+id/origin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
             android:ems="5"
-            android:inputType="text"
-            android:text="Origin"
+            android:gravity="center|fill_horizontal"
+            android:text="@string/origin"
             app:layout_constraintStart_toStartOf="@id/translation" />
 
-        <EditText
+        <TextView
             android:id="@+id/translation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:autofillHints="@string/translate"
             android:ems="5"
-            android:inputType="text"
-            android:text="Translation"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:gravity="center|fill_horizontal"
+            android:text="@string/translation"
+            app:layout_constraintStart_toStartOf="@id/spacio"
+            tools:ignore="LabelFor" />
 
         <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/spacio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <EditText
+        <TextView
             android:id="@+id/knowledge"
             android:layout_width="27dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:ems="10"
-            android:inputType="number"
+            android:gravity="center|fill_horizontal"
             android:text="2"
             android:textAlignment="viewEnd" />
 
-        <EditText
+        <TextView
             android:id="@+id/KnowledgeCapacity"
-            android:layout_width="32dp"
-            android:layout_height="wrap_content"
+            android:layout_width="21dp"
+            android:layout_height="match_parent"
             android:ems="5"
-            android:inputType="number"
-            android:text="/ 3"
+            android:gravity="center|fill_horizontal"
+            android:text="@string/maxKnowledge"
             android:textAlignment="viewEnd" />
 
         <ImageView

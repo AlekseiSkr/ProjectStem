@@ -1,7 +1,9 @@
 package com.example.projectstem.model.group
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.example.projectstem.model.AppDatabase
 import com.example.projectstem.model.Group
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +23,18 @@ class GroupViewModel(application: Application) : AndroidViewModel(application) {
     fun addLanguageGroup(group: Group) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertLanguageGroup(group)
+        }
+    }
+
+    fun getGroupId(language1: String, language2: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getGroupId(language1, language2)
+        }
+    }
+
+    fun isRowIsExist(language1: String, language2: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.isRowIsExist(language1, language2)
         }
     }
 }
