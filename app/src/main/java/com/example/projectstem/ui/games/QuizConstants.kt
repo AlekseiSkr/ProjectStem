@@ -2,7 +2,7 @@ package com.example.projectstem.ui.games
 
 import com.example.projectstem.R
 
-object Constants {
+object QuizConstants {
 
     // TODO (STEP 1: Create a constant variables which we required in the result screen.)
     // START
@@ -10,11 +10,11 @@ object Constants {
     const val CORRECT_ANSWERS: String = "correct_answers"
     // END
     
-    fun getQuestions(): ArrayList<Question> {
-        val questionsList = ArrayList<Question>()
+    fun getQuestions(): ArrayList<QuizQuestion> {
+        val questionsList = ArrayList<QuizQuestion>()
 
         // 1
-        val que1 = Question(
+        val que1 = QuizQuestion(
             1, "What kind of animal is this?",
             R.drawable.ic_animal_opossum,
             "Racoon", "Possum",
@@ -24,7 +24,7 @@ object Constants {
         questionsList.add(que1)
 
         // 2
-        val que2 = Question(
+        val que2 = QuizQuestion(
             2, "What hand-tool is this?",
             R.drawable.ic_tool_chisel,
             "Wrench", "Chisel",
@@ -34,7 +34,7 @@ object Constants {
         questionsList.add(que2)
 
         // 3
-        val que3 = Question(
+        val que3 = QuizQuestion(
             3, "What music instrument is displayed in the image?",
             R.drawable.ic_music_trombone,
             "Trumpet", "Clarinet",
@@ -44,7 +44,7 @@ object Constants {
         questionsList.add(que3)
 
         // 4
-        val que4 = Question(
+        val que4 = QuizQuestion(
             4, "What type of vehicle is this?",
             R.drawable.ic_vehicle_front_loader,
             "Front loader", "Bulldozer",
@@ -54,7 +54,7 @@ object Constants {
         questionsList.add(que4)
 
         // 5
-        val que5 = Question(
+        val que5 = QuizQuestion(
             5, "What is displayed in this picture?",
             R.drawable.ic_animal_harambe,
             "Child", "Gorilla",
@@ -64,7 +64,7 @@ object Constants {
         questionsList.add(que5)
 
         // 6
-        val que6 = Question(
+        val que6 = QuizQuestion(
             6, "What kind of animal is this?",
             R.drawable.ic_animal_armadhillo,
             "Armadillo", "African Ratchet",
@@ -74,7 +74,7 @@ object Constants {
         questionsList.add(que6)
 
         // 7
-        val que7 = Question(
+        val que7 = QuizQuestion(
             7, "What material is displayed in the picture",
             R.drawable.ic_material_sandstone,
             "Gravel", "Obsidian",
@@ -84,7 +84,7 @@ object Constants {
         questionsList.add(que7)
 
         // 8
-        val que8 = Question(
+        val que8 = QuizQuestion(
             8, "How is this place called?",
             R.drawable.ic_place_bazzar,
             "Shop", "Supermarket",
@@ -94,7 +94,7 @@ object Constants {
         questionsList.add(que8)
 
         // 9
-        val que9 = Question(
+        val que9 = QuizQuestion(
             9, "What vegetable is displayed in the picture?",
             R.drawable.ic_vegetable_artichoke,
             "Celery", "Artichoke",
@@ -104,7 +104,7 @@ object Constants {
         questionsList.add(que9)
 
         // 10
-        val que10 = Question(
+        val que10 = QuizQuestion(
             10, "What this person is holding?",
             R.drawable.ic_tool_scythe,
             "Saw", "Scythe",

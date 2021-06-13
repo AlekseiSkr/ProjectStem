@@ -1,6 +1,6 @@
 package com.example.projectstem.ui.games
 
-data class Question(
+data class QuizQuestion(
     val id: Int,
     val question: String,
     val image: Int,
