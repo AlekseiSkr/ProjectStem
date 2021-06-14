@@ -2,14 +2,17 @@ package com.example.projectstem.model.word
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.Group
 import com.example.projectstem.model.Word
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
 
+    lateinit var getAllWords: LiveData<List<Word>>
     private val repository: WordRepository
 
     init {
@@ -17,10 +20,8 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         repository = WordRepository(wordDao)
     }
 
-    fun getWordsFromGroup(id : Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getAllWordsInGroup(id)
-        }
+    fun getWordsFromGroup(id : Int) : LiveData<List<Word>> {
+        return repository.getAllWordsInGroup(id)
     }
 
     fun addWordsToGroup(word : Word){

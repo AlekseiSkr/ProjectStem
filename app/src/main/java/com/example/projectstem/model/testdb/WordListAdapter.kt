@@ -13,7 +13,6 @@ import com.example.projectstem.model.group.GroupViewModel
 
 class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     private var wordList = emptyList<Word>()
-    public lateinit var groupListAdapter: GroupListAdapter
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){ }
 
@@ -30,13 +29,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = wordList[position]
-        val idOfGroupLanguage = groupListAdapter.getPrimaryLanguage()
-        wordList.forEach { _ ->
-            if(currentItem.group_language_id.toString() == idOfGroupLanguage)
-            {
-                holder.itemView.findViewById<TextView>(R.id.languageCat1).text = groupListAdapter.l1
-            }
-        }
+        holder.itemView.findViewById<TextView>(R.id.origin).text = currentItem.original
     }
 
     fun setData(word: List<Word>){

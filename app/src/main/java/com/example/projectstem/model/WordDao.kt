@@ -1,5 +1,6 @@
 package com.example.projectstem.model
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -8,18 +9,14 @@ import androidx.room.Query
 @Dao
 interface WordDao {
     @Query("SELECT original FROM words WHERE group_language_id IN (:group_language_id)")
-    suspend fun getOriginalByLanguageGroupId(group_language_id : Int) : List<String>
+    fun getOriginalByLanguageGroupId(group_language_id: Int): LiveData<List<String>>
 
     @Query("SELECT translation FROM words WHERE group_language_id IN (:group_language_id)")
-    suspend fun getTranslationByLanguageGroupId(group_language_id : Int) : List<String>
+    fun getTranslationByLanguageGroupId(group_language_id: Int): LiveData<List<String>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertWordIntoGroup(word: Word)
 
     @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id)")
-    suspend fun getAllWordsInLanguageGroup(group_language_id: Int) : List<Word>
-
-
-
-
+    fun getAllWordsInLanguageGroup(group_language_id: Int): LiveData<List<Word>>
 }

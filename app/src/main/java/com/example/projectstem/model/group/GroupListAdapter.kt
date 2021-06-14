@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.libray_group_item.view.*
 class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
 
     private var groupList = emptyList<Group>()
-    public lateinit var l1: String
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
@@ -54,7 +53,14 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun getPrimaryLanguage(): String {
+    fun getPrimaryLanguage(fLirst: String): String {
+        l1 = fLirst
         return l1
+    }
+    companion object {
+        fun getPrimaryLanguage(fLirst: String): String {
+            l1 = fLirst
+            return l1
+        }
     }
 }

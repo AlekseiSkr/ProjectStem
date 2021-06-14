@@ -2,6 +2,7 @@ package com.example.projectstem.ui.library
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,16 @@ import android.widget.Button
 import com.example.projectstem.R
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.model.group.GroupListAdapter
+import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.testdb.WordListAdapter
+import com.example.projectstem.model.word.WordViewModel
 
 class LibraryCategoryFragment : Fragment() {
+
+    private lateinit var wordViewModel: WordViewModel
 
     companion object {
         fun newInstance() = LibraryCategoryFragment()
@@ -37,10 +43,16 @@ class LibraryCategoryFragment : Fragment() {
         }
 
         //recyclerView connection
+        val linearLayout = LinearLayoutManager(requireContext())
         val adapter = WordListAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.catWords)
         recyclerView.adapter = adapter
+        recyclerView.layoutManager = linearLayout
 
+        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        wordViewModel.getWordsFromGroup(1).observe(viewLifecycleOwner, Observer { word ->
+            adapter.setData(word)
+        })
         return view
     }
 
