@@ -6,10 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
+import com.example.projectstem.model.Group
 import com.example.projectstem.model.Word
+import com.example.projectstem.model.group.GroupListAdapter
+import com.example.projectstem.model.group.GroupViewModel
 
 class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     private var wordList = emptyList<Word>()
+    public lateinit var groupListAdapter: GroupListAdapter
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){ }
 
@@ -26,10 +30,13 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = wordList[position]
-        holder.itemView.findViewById<TextView>(R.id.languageGroupCatID).text = currentItem.group_language_id.toString()
-        holder.itemView.findViewById<TextView>(R.id.origin).text = currentItem.original.toString()
-        holder.itemView.findViewById<TextView>(R.id.translation).text = currentItem.translation.toString()
-        holder.itemView.findViewById<TextView>(R.id.knowledge).text = currentItem.knowledge.toString()
+        val idOfGroupLanguage = groupListAdapter.getPrimaryLanguage()
+        wordList.forEach { _ ->
+            if(currentItem.group_language_id.toString() == idOfGroupLanguage)
+            {
+                holder.itemView.findViewById<TextView>(R.id.languageCat1).text = groupListAdapter.l1
+            }
+        }
     }
 
     fun setData(word: List<Word>){

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -52,8 +53,6 @@ class LibraryFragment : Fragment(){
         groupViewModel.getAllLanguageGroups.observe(viewLifecycleOwner, Observer { group ->
             adapter.setData(group)
         })
-
-
 
         return view
     }
