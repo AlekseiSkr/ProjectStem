@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.projectstem.R
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.model.group.GroupListAdapter
@@ -42,6 +41,9 @@ class LibraryCategoryFragment : Fragment() {
             return true
         }
 
+
+        val id = arguments?.getString("idOfLanguageGroup")
+
         //recyclerView connection
         val linearLayout = LinearLayoutManager(requireContext())
         val adapter = WordListAdapter()
@@ -50,9 +52,11 @@ class LibraryCategoryFragment : Fragment() {
         recyclerView.layoutManager = linearLayout
 
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
-        wordViewModel.getWordsFromGroup(1).observe(viewLifecycleOwner, Observer { word ->
-            adapter.setData(word)
-        })
+        if (id != null) {
+            wordViewModel.getWordsFromGroup(id.toInt()).observe(viewLifecycleOwner, Observer { word ->
+                adapter.setData(word)
+            })
+        }
         return view
     }
 

@@ -29,7 +29,15 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = wordList[position]
+
+        /// At the top
+//        holder.itemView.findViewById<TextView>(R.id.languageGroupCatID).text = currentItem.group_language_id.toString()
+//        holder.itemView.findViewById<TextView>(R.id.languageCat1).text = currentItem.original
+//        holder.itemView.findViewById<TextView>(R.id.languageCat2).text = currentItem.translation
+
+        // Word itself
         holder.itemView.findViewById<TextView>(R.id.origin).text = currentItem.original
+        holder.itemView.findViewById<TextView>(R.id.translation).text = currentItem.translation
     }
 
     fun setData(word: List<Word>){

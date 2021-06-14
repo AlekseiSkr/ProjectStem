@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
@@ -39,28 +40,14 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
 
         holder.itemView.setOnClickListener(View.OnClickListener {
             view ->
-            Toast.makeText(view.context,holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString(), Toast.LENGTH_SHORT).show()
-            Toast.makeText(view.context,holder.itemView.findViewById<TextView>(R.id.tvPrimaryLanguage).text.toString(), Toast.LENGTH_SHORT).show()
-            Toast.makeText(view.context,holder.itemView.findViewById<TextView>(R.id.tvSecondaryLanguage).text.toString(), Toast.LENGTH_SHORT).show()
-
-            l1 = holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString()
-            Navigation.findNavController(view).navigate(R.id.libraryCategoryFragment)
+            val id = holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString()
+            val bundle = bundleOf("idOfLanguageGroup" to id)
+            Navigation.findNavController(view).navigate(R.id.libraryCategoryFragment, bundle)
         })
-
     }
     fun setData(group: List<Group>){
         this.groupList = group
         notifyDataSetChanged()
     }
 
-    fun getPrimaryLanguage(fLirst: String): String {
-        l1 = fLirst
-        return l1
-    }
-    companion object {
-        fun getPrimaryLanguage(fLirst: String): String {
-            l1 = fLirst
-            return l1
-        }
-    }
 }

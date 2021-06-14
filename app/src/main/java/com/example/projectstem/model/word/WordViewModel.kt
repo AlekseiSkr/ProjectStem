@@ -20,7 +20,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         repository = WordRepository(wordDao)
     }
 
-    fun getWordsFromGroup(id : Int) : LiveData<List<Word>> {
+    fun getWordsFromGroup(id: Int) : LiveData<List<Word>> {
         return repository.getAllWordsInGroup(id)
     }
 
