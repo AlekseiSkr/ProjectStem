@@ -145,11 +145,8 @@
     <string name="line" />
     <string name="welcomeheader">welcomeHeader</string>
     <string name="stem_intro">stem intro</string>
-<<<<<<< HEAD
     <string name="origin">Origin</string>
     <string name="maxKnowledge">/ 3</string>
     <string name="save_to_group">Save to Group</string>
     <string name="translate_to">Translate to</string>
-=======
->>>>>>> parent of d2d72ef (Fixed, updated layouts)
 </resources>
