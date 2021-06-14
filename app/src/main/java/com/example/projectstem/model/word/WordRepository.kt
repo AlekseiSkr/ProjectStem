@@ -11,9 +11,9 @@ class WordRepository(private val wordDao: WordDao) {
         val getAllWordsInGroup : List<Word> = wordDao.getAllWordsInLanguageGroup(group_language_id)
     }
 
-    suspend fun insertWordIntoGroup(id: Int, original: String, translation: String, knowledge: Int)
+    suspend fun insertWordIntoGroup(word: Word)
     {
-        wordDao.insertWordIntoGroup(id, original, translation, knowledge)
+        wordDao.insertWordIntoGroup(word)
     }
 
 }

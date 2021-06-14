@@ -26,15 +26,13 @@ class GroupViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getGroupId(language1: String, language2: String){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.getGroupId(language1, language2)
-        }
+     suspend fun getGroupId(language1: String, language2: String) :  Int {
+        return  repository.getGroupId(language1, language2)
     }
 
     fun isRowIsExist(language1: String, language2: String){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.isRowIsExist(language1, language2)
+           repository.isRowIsExist(language1, language2)
         }
     }
 }

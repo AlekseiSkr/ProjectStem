@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentTranslateBinding
+import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.Word
 import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.word.WordViewModel
 import com.google.mlkit.common.model.DownloadConditions
@@ -98,58 +101,7 @@ database coding
                             //If a word has been translated
 
 
-                            ///Add data to database
-                            wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
-                            groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
 
-                            saveButton.setOnClickListener {
-                                Log.d("adding", "button pressed")
-                                if (translateFromField.toString()
-                                        .isNotEmpty() && translateToField.toString().isNotEmpty()
-                                ) {
-
-                                    //languages
-                                    val language1 = spinnerFrom.selectedItem.toString()
-                                    val language2 = spinnerTo.selectedItem.toString()
-                                    val sth = groupViewModel.isRowIsExist(language1, language2)
-                                    Log.d("adding", "$sth")
-
-                                    if (sth.equals(false)) {
-                                        //GROUP DOES NOT EXIST
-                                        Toast.makeText(requireContext(), "Language Group does not exist!", Toast.LENGTH_LONG).show()
-
-                                        Log.d("adding", "GROUP DOES NOT EXIST")
-
-                                    } else if (sth.equals(true)) {
-                                        //GROUP EXISTS
-                                        Log.d("adding", "GROUP EXISTS")
-
-//                                        var isInserted = false;
-//                                        //add data
-//                                        if (!isInserted) {
-//                                            wordViewModel.addWordsToGroup(
-//                                                0,
-//                                                translateFromField.toString(),
-//                                                translateToField.toString(),
-//                                                1
-//                                            )
-//                                            isInserted = true;
-//                                        }
-//                                        if (isInserted) {
-//                                            Toast.makeText(requireContext(), "$translateFromField.toString() Successfully added to group $language1 / $language2", Toast.LENGTH_LONG).show()
-//                                            Navigation.findNavController(root).navigate(R.id.navigation_library)
-//                                        }
-                                    }
-                                } else {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Please Add words to translate",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
-
-
-                            }
                         }
                         .addOnFailureListener { exception ->
                             Log.e("s", Log.getStackTraceString(exception))
@@ -159,7 +111,71 @@ database coding
                     Log.e("s", Log.getStackTraceString(exception))
                 }
 
+
+
         }
+
+        ///Add data to database
+        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
+
+        saveButton.setOnClickListener {
+            Log.d("adding", "button pressed")
+            if (translateFromField.toString()
+                    .isNotEmpty() && translateToField.toString().isNotEmpty()
+            ) {
+
+                //languages
+                val language1 = spinnerFrom.selectedItem.toString()
+                val language2 = spinnerTo.selectedItem.toString()
+                val translateFrom = translateFromField.text.toString()
+                val translateTo = translateToField.text.toString()
+
+
+//                                    val sth = groupViewModel.getGroupId(language1, language2)
+                var id =  AppDatabase.getDatabase(requireContext()).groupDao().findByLanguageGroup(language1, language2)
+                //Log.d("adding", "$id")
+
+                if (id == 0) {
+                    //GROUP DOES NOT EXIST
+                    Toast.makeText(requireContext(), "Language Group does not exist!", Toast.LENGTH_LONG).show()
+
+                    Log.d("adding", "GROUP DOES NOT EXIST")
+
+                } else {
+
+                    try{
+
+                        //GROUP EXISTS
+                        Log.d("adding", "GROUP EXISTS")
+                        Log.d("adding", "$id")
+
+                        var isInserted = false;
+                        //add data
+                        if (!isInserted) {
+                            val word = Word(0, id, translateFrom, translateTo, 1)
+                            wordViewModel.addWordsToGroup(word)
+                            isInserted = true
+                        }
+                        if (isInserted) {
+                            Toast.makeText(requireContext(), "$translateFrom Successfully added to group $language1 / $language2", Toast.LENGTH_LONG).show()
+                            Navigation.findNavController(root).navigate(R.id.navigation_library)
+                        }
+
+                    }catch (e: Exception){
+                        e.localizedMessage
+                    }
+
+                }
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Please Add words to translate",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+
         return root
     }
 

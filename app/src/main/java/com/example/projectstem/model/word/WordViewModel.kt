@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.Word
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -22,9 +23,9 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun addWordsToGroup(id: Int, original: String, translation: String, knowledge: Int){
+    fun addWordsToGroup(word : Word){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertWordIntoGroup(id, original, translation, knowledge)
+            repository.insertWordIntoGroup(word)
         }
     }
 }

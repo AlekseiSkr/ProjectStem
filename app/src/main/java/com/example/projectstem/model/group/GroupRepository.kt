@@ -12,7 +12,7 @@ class GroupRepository(private val groupDao: GroupDao) {
         groupDao.insertLanguageGroup(group)
     }
 
-    suspend fun getGroupId(language1: String, language2: String): List<Int> {
+     suspend fun getGroupId(language1: String, language2: String): Int {
         return groupDao.findByLanguageGroup(language1, language2)
     }
 
