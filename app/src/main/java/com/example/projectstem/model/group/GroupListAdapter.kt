@@ -49,5 +49,4 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
         this.groupList = group
         notifyDataSetChanged()
     }
-
 }
