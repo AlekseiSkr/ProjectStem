@@ -9,6 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.projectstem.R
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.projectstem.model.group.GroupListAdapter
+import com.example.projectstem.model.testdb.WordListAdapter
 
 class LibraryCategoryFragment : Fragment() {
 
@@ -28,14 +32,17 @@ class LibraryCategoryFragment : Fragment() {
         buttonAddWord?.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.navigation_translate)
         }
+        fun validateLoaded(): Boolean{
+            return true
+        }
+
+        //recyclerView connection
+        val adapter = WordListAdapter()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.catWords)
+        recyclerView.adapter = adapter
 
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LibraryCategoryViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
