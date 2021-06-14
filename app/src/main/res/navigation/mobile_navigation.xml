@@ -25,6 +25,15 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_library_category"
+        android:name="com.example.projectstem.ui.library.LibraryCategoryFragment"
+        android:label="@string/title_listOfWords"
+        tools:layout="@layout/fragment_library_category"
+        >
+<!--        TODO('Add actions here')    -->
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_library_hover"
         android:name="com.example.projectstem.ui.library.LibraryHover"
         android:label="AddLibrary"

@@ -15,8 +15,12 @@ interface GroupDao {
     suspend fun loadAllByIds(groupIds: IntArray): List<Group>
 
     @Query("SELECT group_id FROM group_language WHERE language1 LIKE :language1 AND language2 LIKE :language2 LIMIT 1")
-    suspend fun findByLanguageGroup(language1: String, language2: String) : List<Int>
+    fun findByLanguageGroup(language1: String, language2: String) : Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertLanguageGroup(group: Group)
+
+    @Query("SELECT EXISTS(SELECT * FROM group_language WHERE language1 LIKE :language1 AND language2 LIKE :language2)")
+    fun isRowIsExist(language1: String, language2: String) : Boolean
+
 }
