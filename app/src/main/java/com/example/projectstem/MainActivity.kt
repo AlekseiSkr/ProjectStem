@@ -12,9 +12,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.withTransaction
 import com.example.projectstem.databinding.ActivityMainBinding
+import com.example.projectstem.dictionary.Base
 import com.example.projectstem.model.AppDatabase
 import java.io.File
 import com.google.gson.GsonBuilder
+import okhttp3.*
+import java.io.IOException
 import java.lang.Exception
 
 
@@ -37,7 +40,6 @@ class MainActivity : AppCompatActivity() {
                R.id.navigation_library, R.id.navigation_games, R.id.navigation_translate, R.id.navigation_home
             )
         )
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         createJsonFile();

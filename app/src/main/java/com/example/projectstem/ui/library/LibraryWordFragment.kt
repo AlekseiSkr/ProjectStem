@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectstem.databinding.FragmentLibraryBinding
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
+import com.example.projectstem.dictionary.Base
+import com.google.gson.GsonBuilder
+import okhttp3.*
 import java.io.IOException
 
 class LibraryWordFragment : Fragment() {
@@ -39,7 +39,31 @@ class LibraryWordFragment : Fragment() {
         _binding = null
     }
 
-    fun getLanguageCode(language: String): String {
+    fun getWordDefinition(word: String, language: String)
+    {
+        val languageCode = getLanguageCode(language)
+        val url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
+        val request = Request.Builder().url(url).build()
+
+        val client = OkHttpClient()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onResponse(call: Call, response: Response) {
+                val body = response.body?.string()
+                println(body)
+
+                val gson = GsonBuilder().create()
+                val base = gson.fromJson(body, Array<Base>::class.java).toList()
+            }
+
+            override fun onFailure(call: Call, e: IOException) {
+                println("Failed to execute request")
+            }
+
+        })
+    }
+
+
+    private fun getLanguageCode(language: String): String {
         when(language)
         {
             "English" -> {
@@ -80,25 +104,5 @@ class LibraryWordFragment : Fragment() {
             }
         }
         return "Sorry, we don't support word definition in this language"
-    }
-
-    fun getWordDefinition(word: String)
-    {
-        val languageCode = "en_US"
-        val word = "hello"
-        val url = " https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
-        val request = okhttp3.Request.Builder().url(url).build()
-
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object: Callback {
-            override fun onResponse(call: Call, response: okhttp3.Response) {
-                val body = response.body?.string()
-                println(body)
-            }
-            override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
-            }
-        })
-
     }
 }

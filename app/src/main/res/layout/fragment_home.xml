@@ -5,12 +5,14 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_margin="30sp">
 
     <ImageView
         android:id="@+id/knowledgeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/knowledge_icon"
         app:layout_constraintBottom_toTopOf="@+id/enjoyMessage"
@@ -18,21 +20,21 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteDesc"
-        app:layout_constraintVertical_bias="0.458"
+        app:layout_constraintVertical_bias="0.196"
         app:srcCompat="@drawable/ic_knowledge_dot" />
 
     <ImageView
         android:id="@+id/WelcomeHeader"
         android:layout_width="348dp"
-        android:layout_height="96dp"
+        android:layout_height="116dp"
         android:contentDescription="@string/welcomeheader"
         android:src="@drawable/rectangle_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <TextView
         android:id="@+id/gameDesc"
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/test_your_skills_in_the_games"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.323"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +52,7 @@
         android:id="@+id/pencilIcon"
         android:layout_width="24dp"
         android:layout_height="23dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/edit_icon"
         app:layout_constraintBottom_toTopOf="@+id/knowledgeDesc"
@@ -64,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/personalize_your_library"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +92,7 @@
         android:id="@+id/libraryIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/library_icon"
         app:layout_constraintBottom_toTopOf="@+id/gameDesc"
@@ -103,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/add_new_languages_to_learn"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +119,7 @@
         android:layout_height="wrap_content"
         android:text="@string/here_is_how_it_works"
         android:textColor="#FFFFFF"
-        android:textSize="17sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/WelcomeHeader"
         app:layout_constraintEnd_toEndOf="@+id/WelcomeHeader"
         app:layout_constraintStart_toStartOf="@+id/WelcomeHeader"
@@ -127,7 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/translate_unknown_words_on_the_spot"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameDesc" />
@@ -136,6 +140,7 @@
         android:id="@+id/flagIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/flag_icon"
         app:layout_constraintBottom_toTopOf="@+id/noteDesc"
@@ -150,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/watch_your_knowledge_improve"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.364"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,24 +166,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enjoy_the_app_and_drink_water"
-        android:textSize="17sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/knowledgeDesc"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <ImageView
         android:id="@+id/translateIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/translate_icon"
         app:layout_constraintBottom_toTopOf="@+id/languageDesc"
         app:layout_constraintEnd_toStartOf="@+id/translateDesc"
         app:layout_constraintTop_toBottomOf="@+id/gameDesc"
-        app:layout_constraintVertical_bias="0.534"
         app:srcCompat="@drawable/ic_baseline_textsms_24" />
 
     <TextView
@@ -187,7 +192,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/create_edit_and_study_notes"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,11 +202,11 @@
         android:id="@+id/welcomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="16dp"
         android:text="@string/welcome_to_stem"
         android:textColor="#FFFFFF"
-        android:textSize="32sp"
+        android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/WelcomeHeader" />
 
@@ -209,6 +214,7 @@
         android:id="@+id/gamesIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/games_icon"
         app:layout_constraintBottom_toTopOf="@+id/translateDesc"

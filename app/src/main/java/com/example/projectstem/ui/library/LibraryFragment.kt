@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
 import com.example.projectstem.model.group.GroupViewModel
-import com.example.projectstem.model.testdb.ListAdapter
+import com.example.projectstem.model.group.GroupListAdapter
 
 class LibraryFragment : Fragment(){
     private lateinit var groupViewModel: GroupViewModel
@@ -42,7 +42,7 @@ class LibraryFragment : Fragment(){
 
         //recyclerview
         val gridLayout = GridLayoutManager(requireContext(),2)
-        val adapter = ListAdapter()
+        val adapter = GroupListAdapter()
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvGroups)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = gridLayout

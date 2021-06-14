@@ -1,4 +1,4 @@
-package com.example.projectstem.model.testdb
+package com.example.projectstem.model.group
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
 import com.example.projectstem.model.Group
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
 
     private var groupList = emptyList<Group>()
 
