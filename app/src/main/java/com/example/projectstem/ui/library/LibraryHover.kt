@@ -51,7 +51,9 @@ database coding
             val language2 = secondaryLanguage.text.toString()
             var isInserted = false;
             //add data
-            if(!isInserted)
+            if(!isInserted && isValid(language1,languages) && isValid(language2,languages)
+              && !groupViewModel.isRowIsExist(language1,language2)
+                )
             {
                 val group = Group(0, language1, language2);
                 groupViewModel.addLanguageGroup(group)
@@ -62,15 +64,22 @@ database coding
                 Toast.makeText(requireContext(),"Successfully added", Toast.LENGTH_LONG).show()
                 Navigation.findNavController(view).navigate(R.id.navigation_library)
             }
+            else{
+                Toast.makeText(requireContext(),"Invalid value", Toast.LENGTH_LONG).show()
+            }
         }
         return view
 
     }
 
-    private fun insertLanguageGroupToDb() {
-
+    private fun isValid(language :String, array: Array<out String>): Boolean{
+        for (i in array.indices){
+            if(language == array[i] ){
+                return true
+            }
+        }
+        return false
     }
-
 
 
 }
