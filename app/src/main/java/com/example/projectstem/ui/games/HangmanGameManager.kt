@@ -1,6 +1,8 @@
 package com.example.projectstem.ui.games
 
+import android.util.Log
 import com.example.projectstem.R
+import com.example.projectstem.model.Word
 import kotlin.random.Random
 
 class HangmanGameManager {
@@ -8,16 +10,24 @@ class HangmanGameManager {
     private var lettersUsed: String = ""
     private lateinit var underscoreWord: String
     private lateinit var wordToGuess: String
+    private lateinit var wordHolder: Word
     private val maxTries = 7
     private var currentTries = 0
     private var drawable: Int = R.drawable.hangman_state_0
 
-    fun startNewGame(): HangmanGameState {
+    fun startNewGame(wordList : List<Word>): HangmanGameState {
         lettersUsed = ""
         currentTries = 0
         drawable = R.drawable.hangman_state_7
-        val randomIndex = Random.nextInt(0, HangmanGameConstants.words.size)
-        wordToGuess = HangmanGameConstants.words[randomIndex]
+
+        val randomIndex = Random.nextInt(0, wordList.size)
+
+        wordHolder = wordList[randomIndex]
+
+        wordToGuess = wordHolder.translation
+
+        Log.d("epic_gamer", "$wordToGuess")
+
         generateUnderscores(wordToGuess)
         return getGameState()
     }

@@ -10,7 +10,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.example.projectstem.R
-import com.example.projectstem.ui.games.HangmanGameManager
+import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.Word
 
 class HangmanGameActivity : AppCompatActivity() {
 
@@ -34,10 +35,13 @@ class HangmanGameActivity : AppCompatActivity() {
         gameWonTextView = findViewById(R.id.gameWonTextView)
         newGameButton = findViewById(R.id.newGameButton)
         lettersLayout = findViewById(R.id.lettersLayout)
+        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(1)
+
+
         newGameButton.setOnClickListener {
-            startNewGame()
+            startNewGame(wordList)
         }
-        val gameState = gameManager.startNewGame()
+        val gameState = gameManager.startNewGame(wordList)
         updateUI(gameState)
 
         lettersLayout.children.forEach { letterView ->
@@ -76,10 +80,10 @@ class HangmanGameActivity : AppCompatActivity() {
         lettersLayout.visibility = View.GONE
     }
 
-    private fun startNewGame() {
+    private fun startNewGame(wordList: List<Word>) {
         gameLostTextView.visibility = View.GONE
         gameWonTextView.visibility = View.GONE
-        val gameState = gameManager.startNewGame()
+        val gameState = gameManager.startNewGame(wordList)
         lettersLayout.visibility = View.VISIBLE
         lettersLayout.children.forEach { letterView ->
             letterView.visibility = View.VISIBLE

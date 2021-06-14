@@ -16,4 +16,8 @@ class WordRepository(private val wordDao: WordDao) {
         wordDao.insertWordIntoGroup(word)
     }
 
+    fun getGameWords(group_language_id: Int): List<Word>{
+        return wordDao.getGameWordsInGroup(group_language_id)
+    }
+
 }

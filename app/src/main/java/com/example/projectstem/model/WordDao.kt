@@ -1,10 +1,7 @@
 package com.example.projectstem.model
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface WordDao {
@@ -19,4 +16,10 @@ interface WordDao {
 
     @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id)")
     fun getAllWordsInLanguageGroup(group_language_id: Int): LiveData<List<Word>>
+
+    @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id)")
+    fun getGameWordsInGroup(group_language_id: Int): List<Word>
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(word: Word)
 }

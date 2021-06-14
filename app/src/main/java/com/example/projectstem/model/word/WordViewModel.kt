@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.projectstem.model.AppDatabase
-import com.example.projectstem.model.Group
 import com.example.projectstem.model.Word
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,9 +23,13 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         return repository.getAllWordsInGroup(id)
     }
 
-    fun addWordsToGroup(word : Word){
+    fun addWordsToGroup(word : Word) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertWordIntoGroup(word)
         }
+    }
+
+    fun getGameWords(id: Int) : List<Word>{
+        return repository.getGameWords(id)
     }
 }

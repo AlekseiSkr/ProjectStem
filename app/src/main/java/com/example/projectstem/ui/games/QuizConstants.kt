@@ -1,6 +1,8 @@
 package com.example.projectstem.ui.games
 
 import com.example.projectstem.R
+import com.example.projectstem.model.Word
+import kotlin.random.Random
 
 object QuizConstants {
 
@@ -8,12 +10,25 @@ object QuizConstants {
     // START
     const val TOTAL_QUESTIONS: String = "total_questions"
     const val CORRECT_ANSWERS: String = "correct_answers"
+
+    var listOFWords: List<Word> = emptyList()
+    var id: Int = 0
+    var word: Word = Word(0, 1, "dab", "haters", 1)
+    val randomIndex = Random.nextInt(0, word.word_id)
+    var wordInQuestion: String = word.original
+    var correctAnwser: String = word.translation
+    var option1: String = if(listOFWords[randomIndex].translation != correctAnwser){ listOFWords[randomIndex].translation }else{ listOFWords!![randomIndex + 1].translation}
+    var option2: String = listOFWords[randomIndex].translation
+    var option3: String = listOFWords[randomIndex].translation
+
+
     // END
     
     fun getQuestions(): ArrayList<QuizQuestion> {
         val questionsList = ArrayList<QuizQuestion>()
 
         // 1
+
         val que1 = QuizQuestion(
             1, "What kind of animal is this?",
             R.drawable.ic_animal_opossum,
