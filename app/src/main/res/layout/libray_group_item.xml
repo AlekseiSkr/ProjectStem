@@ -12,7 +12,6 @@
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_margin="12sp"
-        android:onClick="groupToCategory"
         app:cardCornerRadius="12sp"
         app:cardElevation="6sp"
         tools:layout_editor_absoluteX="12dp"
