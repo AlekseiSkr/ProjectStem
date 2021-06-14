@@ -43,7 +43,7 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
             Toast.makeText(view.context,holder.itemView.findViewById<TextView>(R.id.tvPrimaryLanguage).text.toString(), Toast.LENGTH_SHORT).show()
             Toast.makeText(view.context,holder.itemView.findViewById<TextView>(R.id.tvSecondaryLanguage).text.toString(), Toast.LENGTH_SHORT).show()
 
-            l1 = holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString()
+           val l1 = holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString()
             Navigation.findNavController(view).navigate(R.id.libraryCategoryFragment)
         })
 
@@ -52,6 +52,8 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
         this.groupList = group
         notifyDataSetChanged()
     }
+/*
+
 
     fun getPrimaryLanguage(fLirst: String): String {
         l1 = fLirst
@@ -62,5 +64,5 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
             l1 = fLirst
             return l1
         }
-    }
+    } */
 }

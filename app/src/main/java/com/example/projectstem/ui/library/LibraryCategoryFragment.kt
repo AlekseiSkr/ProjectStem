@@ -50,7 +50,7 @@ class LibraryCategoryFragment : Fragment() {
         recyclerView.layoutManager = linearLayout
 
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
-        wordViewModel.getWordsFromGroup(1).observe(viewLifecycleOwner, Observer { word ->
+        wordViewModel.getWordsFromGroup(3).observe(viewLifecycleOwner, Observer { word ->
             adapter.setData(word)
         })
         return view
