@@ -21,7 +21,7 @@ class LibraryCategoryFragment : Fragment() {
     }
 
     private lateinit var viewModel: LibraryCategoryViewModel
-  
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
