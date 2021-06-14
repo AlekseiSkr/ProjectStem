@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="match_parent">
+=======
+             android:layout_height="match_parent">
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -30,8 +34,13 @@
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:ems="5"
+<<<<<<< HEAD
             android:gravity="center|fill_horizontal"
             android:text="@string/origin"
+=======
+            android:inputType="text"
+            android:text="Origin"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
             app:layout_constraintStart_toStartOf="@id/translation" />
 
         <TextView
@@ -41,10 +50,16 @@
             android:layout_marginStart="10dp"
             android:autofillHints="@string/translate"
             android:ems="5"
+<<<<<<< HEAD
             android:gravity="center|fill_horizontal"
             android:text="@string/translation"
             app:layout_constraintStart_toStartOf="@id/spacio"
             tools:ignore="LabelFor" />
+=======
+            android:inputType="text"
+            android:text="Translation"
+            app:layout_constraintStart_toStartOf="parent" />
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
 
         <Space
             android:id="@+id/spacio"
@@ -57,17 +72,29 @@
             android:layout_width="27dp"
             android:layout_height="match_parent"
             android:ems="10"
+<<<<<<< HEAD
             android:gravity="center|fill_horizontal"
+=======
+            android:inputType="number"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
             android:text="2"
             android:textAlignment="viewEnd" />
 
         <TextView
             android:id="@+id/KnowledgeCapacity"
+<<<<<<< HEAD
             android:layout_width="21dp"
             android:layout_height="match_parent"
             android:ems="5"
             android:gravity="center|fill_horizontal"
             android:text="@string/maxKnowledge"
+=======
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            android:text="/ 3"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
             android:textAlignment="viewEnd" />
 
         <ImageView

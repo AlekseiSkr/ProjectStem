@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.games.HangmanGameActivity"
-    android:layout_margin="30sp">
+    tools:context=".ui.games.HangmanGameActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -55,7 +54,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:letterSpacing="0.3"
-        android:textSize="20sp"
+        android:textSize="26sp"
         app:layout_constraintTop_toBottomOf="@id/imageView"
         tools:text="_ _ ABCD_ _ _ _ _ _ _" />
 
@@ -63,19 +62,17 @@
         android:id="@+id/lettersUsedTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/wordTextView"
-        tools:layout_editor_absoluteX="0dp"
         tools:text="Used Letters: A, B, C, D, E, F, G" />
 
     <Button
         android:id="@+id/newGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:textSize="20sp"
+        android:layout_marginTop="32dp"
         android:text="Start new game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +90,7 @@
             android:id="@+id/flow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
+            android:padding="16dp"
             app:constraint_referenced_ids="a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
             app:flow_wrapMode="chain" />
 
@@ -107,7 +104,7 @@
             android:paddingHorizontal="10dp"
             android:text="A"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/flow"
             app:layout_constraintEnd_toStartOf="@+id/b"
             tools:ignore="HardcodedText" />
@@ -121,7 +118,7 @@
             android:paddingHorizontal="10dp"
             android:text="B"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/m"
             app:layout_constraintEnd_toStartOf="@+id/c"
             tools:ignore="HardcodedText" />
@@ -136,7 +133,7 @@
             android:paddingHorizontal="10dp"
             android:text="C"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/m"
             app:layout_constraintEnd_toStartOf="@+id/d"
             tools:ignore="HardcodedText" />
@@ -151,7 +148,7 @@
             android:paddingHorizontal="10dp"
             android:text="D"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/n"
             app:layout_constraintEnd_toStartOf="@+id/e"
             tools:ignore="HardcodedText" />
@@ -165,7 +162,7 @@
             android:paddingHorizontal="10dp"
             android:text="E"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/o"
             app:layout_constraintEnd_toStartOf="@+id/f"
             tools:ignore="HardcodedText" />
@@ -179,7 +176,7 @@
             android:paddingHorizontal="10dp"
             android:text="F"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/p"
             app:layout_constraintEnd_toStartOf="@+id/g"
             tools:ignore="HardcodedText" />
@@ -193,7 +190,7 @@
             android:paddingHorizontal="10dp"
             android:text="G"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/q"
             app:layout_constraintEnd_toStartOf="@+id/h"
             tools:ignore="HardcodedText" />
@@ -208,7 +205,7 @@
             android:paddingHorizontal="10dp"
             android:text="H"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/r"
             app:layout_constraintEnd_toStartOf="@+id/i"
             tools:ignore="HardcodedText" />
@@ -222,7 +219,7 @@
             android:paddingHorizontal="10dp"
             android:text="I"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/s"
             app:layout_constraintEnd_toStartOf="@+id/j"
             tools:ignore="HardcodedText" />
@@ -237,7 +234,7 @@
             android:paddingHorizontal="10dp"
             android:text="J"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/t"
             app:layout_constraintEnd_toStartOf="@+id/k"
             tools:ignore="HardcodedText" />
@@ -252,7 +249,7 @@
             android:paddingHorizontal="10dp"
             android:text="K"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/flow"
             app:layout_constraintEnd_toStartOf="@+id/flow"
             tools:ignore="HardcodedText" />
@@ -267,7 +264,7 @@
             android:paddingHorizontal="10dp"
             android:text="L"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/m"
             app:layout_constraintTop_toBottomOf="@+id/flow"
             tools:ignore="HardcodedText" />
@@ -282,7 +279,7 @@
             android:paddingHorizontal="10dp"
             android:text="M"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/n"
             app:layout_constraintTop_toBottomOf="@+id/b"
             tools:ignore="HardcodedText" />
@@ -297,7 +294,7 @@
             android:paddingHorizontal="10dp"
             android:text="N"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/o"
             app:layout_constraintTop_toBottomOf="@+id/c"
             tools:ignore="HardcodedText" />
@@ -312,7 +309,7 @@
             android:paddingHorizontal="10dp"
             android:text="O"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/p"
             app:layout_constraintTop_toBottomOf="@+id/d"
             tools:ignore="HardcodedText" />
@@ -327,7 +324,7 @@
             android:paddingHorizontal="10dp"
             android:text="P"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/q"
             app:layout_constraintTop_toBottomOf="@+id/e"
             tools:ignore="HardcodedText" />
@@ -342,7 +339,7 @@
             android:paddingHorizontal="10dp"
             android:text="Q"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/r"
             app:layout_constraintTop_toBottomOf="@+id/f"
             tools:ignore="HardcodedText" />
@@ -357,7 +354,7 @@
             android:paddingHorizontal="10dp"
             android:text="R"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/s"
             app:layout_constraintTop_toBottomOf="@+id/g"
             tools:ignore="HardcodedText" />
@@ -372,7 +369,7 @@
             android:paddingHorizontal="10dp"
             android:text="S"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/t"
             app:layout_constraintTop_toBottomOf="@+id/h"
             tools:ignore="HardcodedText" />
@@ -387,7 +384,7 @@
             android:paddingHorizontal="10dp"
             android:text="T"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/u"
             app:layout_constraintTop_toBottomOf="@+id/i"
             tools:ignore="HardcodedText" />
@@ -402,7 +399,7 @@
             android:paddingHorizontal="10dp"
             android:text="U"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/flow"
             app:layout_constraintTop_toBottomOf="@+id/flow"
             tools:ignore="HardcodedText" />
@@ -417,7 +414,7 @@
             android:paddingHorizontal="10dp"
             android:text="V"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/w"
             app:layout_constraintTop_toBottomOf="@+id/l"
             tools:ignore="HardcodedText" />
@@ -432,7 +429,7 @@
             android:paddingHorizontal="10dp"
             android:text="W"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/x"
             app:layout_constraintTop_toBottomOf="@+id/n"
             tools:ignore="HardcodedText" />
@@ -447,7 +444,7 @@
             android:paddingHorizontal="10dp"
             android:text="X"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/y"
             app:layout_constraintTop_toBottomOf="@+id/p"
             tools:ignore="HardcodedText" />
@@ -462,7 +459,7 @@
             android:paddingHorizontal="10dp"
             android:text="Y"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/z"
             app:layout_constraintTop_toBottomOf="@+id/r"
             tools:ignore="HardcodedText" />
@@ -477,7 +474,7 @@
             android:paddingHorizontal="10dp"
             android:text="Z"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/flow"
             app:layout_constraintTop_toBottomOf="@+id/t"
             tools:ignore="HardcodedText" />

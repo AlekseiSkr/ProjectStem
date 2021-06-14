@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.translate.TranslateFragment">
+<<<<<<< HEAD
 
     <TextView
         android:id="@+id/textView4"
@@ -17,12 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523" />
+=======
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
 
     <Spinner
         android:id="@+id/spinnerFrom"
         android:layout_width="134dp"
         android:layout_height="34dp"
+<<<<<<< HEAD
         android:layout_marginBottom="108dp"
+=======
+        android:layout_marginBottom="40dp"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
         android:background="@drawable/spinner_background"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/divider"
@@ -47,15 +54,38 @@
         android:id="@+id/buttonSaveTranslation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="424dp"
         android:backgroundTint="@color/colorado_500"
         android:text="@string/save_to_group"
         android:textColor="@color/white"
         android:visibility="invisible"
+=======
+        android:text="Translate from"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerFrom"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent" />
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.696" />
+
+    <EditText
+        android:id="@+id/translateFrom"
+        android:layout_width="211dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:hint="@string/translate_from"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.809" />
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
 
     <View
         android:id="@+id/divider"
@@ -86,7 +116,11 @@
         android:id="@+id/textView3"
         android:layout_width="79dp"
         android:layout_height="22dp"
+<<<<<<< HEAD
         android:text="@string/translate_to"
+=======
+        android:text="Translate to"
+>>>>>>> parent of d2d72ef (Fixed, updated layouts)
         app:layout_constraintBottom_toTopOf="@+id/spinnerTo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
