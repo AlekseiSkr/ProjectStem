@@ -1,4 +1,4 @@
-package com.example.projectstem.model.testdb
+package com.example.projectstem.model.word
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -47,6 +47,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
             wordAndLanguage.setOriginal(holder.itemView.findViewById<TextView>(R.id.origin).text.toString())
             wordAndLanguage.setTranslation(holder.itemView.findViewById<TextView>(R.id.translation).text.toString())
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())
+            wordAndLanguage.setKnowledge(holder.itemView.findViewById<TextView>(R.id.knowledge).text.toString())
             Navigation.findNavController(view).navigate(R.id.library_word, b)
         } )
 
@@ -59,6 +60,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     class WordAndLanguage: Serializable {
         private lateinit var word: String
         private lateinit var original: String
+        private lateinit var knowledge: String
         private lateinit var translation: String
         private lateinit var languageFirst: String
         private lateinit var languageSecond: String
@@ -100,6 +102,14 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
 
         fun setLanguageSecond(language: String?) {
             this.languageSecond = language!!
+        }
+
+        fun getKnowledge(): String? {
+            return knowledge
+        }
+
+        fun setKnowledge(knowledge: String?) {
+            this.knowledge = knowledge!!
         }
     }
 }

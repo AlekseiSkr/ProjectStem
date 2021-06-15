@@ -107,10 +107,6 @@ class TranslateFragment : Fragment() {
                         .addOnSuccessListener { translatedText ->
                             translateToField.setText(translatedText)
                             progressBar.visibility = View.INVISIBLE
-                            //If a word has been translated
-
-
-
                         }
                         .addOnFailureListener { exception ->
                             Log.e("s", Log.getStackTraceString(exception))
@@ -119,9 +115,6 @@ class TranslateFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.e("s", Log.getStackTraceString(exception))
                 }
-
-
-
         }
 
         ///Add data to database
@@ -141,25 +134,18 @@ class TranslateFragment : Fragment() {
                 val translateTo = translateToField.text.toString()
 
 
-//                                    val sth = groupViewModel.getGroupId(language1, language2)
-                var id =  AppDatabase.getDatabase(requireContext()).groupDao().findByLanguageGroup(language1, language2)
-                //Log.d("adding", "$id")
+                val id =  AppDatabase.getDatabase(requireContext()).groupDao().findByLanguageGroup(language1, language2)
 
                 if (id == 0) {
-                    //GROUP DOES NOT EXIST
                     Toast.makeText(requireContext(), "Language Group does not exist!", Toast.LENGTH_LONG).show()
-
                     Log.d("adding", "GROUP DOES NOT EXIST")
-
                 } else {
-
                     try{
-
                         //GROUP EXISTS
                         Log.d("adding", "GROUP EXISTS")
                         Log.d("adding", "$id")
 
-                        var isInserted = false;
+                        var isInserted = false
                         //add data
                         if (!isInserted) {
                             val word = Word(0, id, translateFrom, translateTo, 1)
@@ -174,7 +160,6 @@ class TranslateFragment : Fragment() {
                     }catch (e: Exception){
                         e.localizedMessage
                     }
-
                 }
             } else {
                 Toast.makeText(
@@ -184,7 +169,6 @@ class TranslateFragment : Fragment() {
                 ).show()
             }
         }
-
         return root
     }
 

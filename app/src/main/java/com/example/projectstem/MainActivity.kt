@@ -1,25 +1,13 @@
 package com.example.projectstem
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.room.withTransaction
 import com.example.projectstem.databinding.ActivityMainBinding
-import com.example.projectstem.dictionary.Base
-import com.example.projectstem.model.AppDatabase
-import java.io.File
-import com.google.gson.GsonBuilder
-import okhttp3.*
-import java.io.IOException
-import java.lang.Exception
-
 
 class MainActivity : AppCompatActivity() {
 

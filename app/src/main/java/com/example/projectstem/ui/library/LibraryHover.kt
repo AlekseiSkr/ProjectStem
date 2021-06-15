@@ -20,11 +20,11 @@ class LibraryHover : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//Creating the dropdown menu
+        //Creating the dropdown menu
         val view = inflater.inflate(R.layout.fragment_library_hover, container, false)
         val baseLanguage = view.findViewById<AutoCompleteTextView>(R.id.baseLanguage)
         val secondaryLanguage = view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage)
-//cancel button
+        //cancel button
         view.findViewById<Button>(R.id.bCancel).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.navigation_library)
         }
@@ -40,14 +40,14 @@ class LibraryHover : Fragment() {
         view.findViewById<Button>(R.id.bCreate).setOnClickListener {
             val language1 = baseLanguage.text.toString()
             val language2 = secondaryLanguage.text.toString()
-            var isInserted = false;
+            var isInserted = false
             //add data if successful
             if (!isInserted && isValid(language1, languages) && isValid(language2, languages)
                 && !groupViewModel.isRowIsExist(language1, language2)
             ) {
-                val group = Group(0, language1, language2);
+                val group = Group(0, language1, language2)
                 groupViewModel.addLanguageGroup(group)
-                isInserted = true;
+                isInserted = true
             }
             if (isInserted) {
                 Toast.makeText(requireContext(), "Successfully added", Toast.LENGTH_LONG).show()
@@ -57,9 +57,11 @@ class LibraryHover : Fragment() {
             }
         }
         return view
-
     }
-// function to see if the languages inputted are supported
+
+    /**
+     * Check if languages inputted are supported
+     */
     private fun isValid(language: String, array: Array<out String>): Boolean {
         for (i in array.indices) {
             if (language == array[i]) {

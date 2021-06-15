@@ -51,7 +51,7 @@
         android:text="Word"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/knowledgeImg"
+        app:layout_constraintEnd_toStartOf="@+id/knowledgeImg1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,24 +80,52 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTranslation" />
 
     <ImageView
-        android:id="@+id/knowledgeImg"
+        android:id="@+id/knowledgeImg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/alert_light_frame" />
+        app:srcCompat="@drawable/ic_knowledge_dot"
+        app:tint="@color/smoothGreen" />
+
+    <ImageView
+        android:id="@+id/knowledgeImg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_knowledge_dot"
+        app:tint="@color/mildGreen" />
+
+    <ImageView
+        android:id="@+id/knowledgeImg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_knowledge_dot"
+        app:tint="@color/darkGreen" />
 
     <Button
         android:id="@+id/bPronounciation"
         android:layout_width="43dp"
         android:layout_height="40dp"
 
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="24dp"
         app:icon="@drawable/low_volume"
         app:iconTint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvWordO"
-        app:layout_constraintTop_toBottomOf="@+id/knowledgeImg" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvPhonetic"
@@ -141,6 +169,18 @@
         android:text="Delete Word"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/notSupported"
+        android:layout_width="205dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="456dp"
+        android:text="We don't support word definition feature for this language yet"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

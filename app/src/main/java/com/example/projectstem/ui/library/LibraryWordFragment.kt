@@ -1,14 +1,16 @@
 package com.example.projectstem.ui.library
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.media.AudioAttributes
 import android.media.MediaPlayer
-import android.media.session.MediaSession
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -17,10 +19,10 @@ import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.dictionary.Base
 import com.example.projectstem.model.AppDatabase
-import com.example.projectstem.model.group.GroupViewModel
-import com.example.projectstem.model.testdb.WordListAdapter
+import com.example.projectstem.model.word.WordListAdapter
 import com.example.projectstem.model.word.WordViewModel
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.fragment_library_word.*
 import okhttp3.*
 import java.io.IOException
 
@@ -36,10 +38,10 @@ class LibraryWordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_library_word,container, false)
-
         val response = arguments?.getSerializable("wordAndLanguage") as WordListAdapter.WordAndLanguage
         val word = response.getOriginal()
         val language = response.getLanguageGroupId()?.toInt()
+        val knowledge = response.getKnowledge()?.toInt()
         val id =  AppDatabase.getDatabase(requireContext()).groupDao().findById(language)
 
 
@@ -52,9 +54,18 @@ class LibraryWordFragment : Fragment() {
         }
         val languageCode = getLanguageCode(id)
         if(languageCode == "X") {
-              // We need to navigate back to category page
-            Toast.makeText(context, "We don't have word definition feature for this language yet", Toast.LENGTH_SHORT).show()
-          //  Navigation.findNavController(view).navigate(R.id.navigation_library)
+            view.findViewById<TextView>(R.id.tvWordO).visibility = View.GONE
+            view.findViewById<TextView>(R.id.partOfSpeech).visibility = View.GONE
+            view.findViewById<TextView>(R.id.tvPhonetic).visibility = View.GONE
+            view.findViewById<TextView>(R.id.definition).visibility = View.GONE
+            view.findViewById<TextView>(R.id.example).visibility = View.GONE
+            view.findViewById<TextView>(R.id.tvNote).visibility = View.GONE
+            view.findViewById<TextView>(R.id.tvNote2).visibility = View.GONE
+            view.findViewById<TextView>(R.id.tvTranslation).visibility = View.GONE
+            view.findViewById<TextView>(R.id.translationWord).visibility = View.GONE
+            view.findViewById<TextView>(R.id.example).visibility = View.GONE
+            view.findViewById<Button>(R.id.bPronounciation).visibility = View.GONE
+            view.findViewById<TextView>(R.id.notSupported).visibility = View.VISIBLE
         } else {
             view.findViewById<TextView>(R.id.translationWord).text = response.getTranslation().toString()
             url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
@@ -77,14 +88,25 @@ class LibraryWordFragment : Fragment() {
                             base[0].meanings[0].definitions[0].definition
                         view.findViewById<TextView>(R.id.example).text =
                             base[0].meanings[0].definitions[0].example
+                        when (knowledge) {
+                            1 -> {
+                                view.findViewById<ImageView>(R.id.knowledgeImg1).visibility = View.VISIBLE
+                            }
+                            2 -> {
+                                view.findViewById<ImageView>(R.id.knowledgeImg2).visibility = View.VISIBLE
+                            }
+                            else -> {
+                                view.findViewById<ImageView>(R.id.knowledgeImg3).visibility = View.VISIBLE
+                            }
+                        }
                     })
                 }
-
                 override fun onFailure(call: Call, e: IOException) {
                     println("Failed to execute request")
                 }
 
             })
+
 
             view.findViewById<Button>(R.id.bPronounciation).setOnClickListener {
                 if (languageCode == "en_US") {
@@ -103,9 +125,13 @@ class LibraryWordFragment : Fragment() {
         return view
     }
 
+    private fun checkKnowledge(knowledge: Int)
+    {
+    }
+
     private fun applyAudio(url: String)
     {
-        val mediaPlayer = MediaPlayer().apply {
+        MediaPlayer().apply {
             setAudioAttributes(
                 AudioAttributes.Builder()
                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -113,7 +139,7 @@ class LibraryWordFragment : Fragment() {
                     .build()
             )
             setDataSource(url)
-            prepare() // might take long! (for buffering, etc)
+            prepare()
             start()
         }
 

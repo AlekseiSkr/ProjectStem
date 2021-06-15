@@ -15,9 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.model.group.GroupListAdapter
 import com.example.projectstem.model.group.GroupViewModel
-import com.example.projectstem.model.testdb.WordListAdapter
+import com.example.projectstem.model.word.WordListAdapter
 import com.example.projectstem.model.word.WordViewModel
-import org.w3c.dom.Text
 import java.io.Serializable
 
 class LibraryCategoryFragment : Fragment() {
