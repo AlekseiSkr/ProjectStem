@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.projectstem.R
+import com.example.projectstem.model.AppDatabase
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,8 +34,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_quiz_questions)
 
         // TODO (STEP 4: Get the NAME from intent and assign it the variable.)
-
-        mQuestionsList = QuizConstants.getQuestions()
+        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(1)
+        mQuestionsList = QuizConstants.getQuestions(wordList)
 
         setQuestion()
 
@@ -140,7 +141,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         tv_question.text = question.question
-        iv_image.setImageResource(question.image)
+        iv_image.text = question.wordInQuestion
         tv_option_one.text = question.optionOne
         tv_option_two.text = question.optionTwo
         tv_option_three.text = question.optionThree

@@ -23,13 +23,14 @@
             android:textSize="22sp"
             tools:text="What country does this flag belong to?" />
 
-        <ImageView
+        <TextView
             android:id="@+id/iv_image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/img_placeholder"
-            tools:src="@drawable/ic_animal_opossum" />
+            android:contentDescription="@string/origin"
+            android:text="@string/origin"
+            android:textAlignment="center"
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/ll_progress_details"
