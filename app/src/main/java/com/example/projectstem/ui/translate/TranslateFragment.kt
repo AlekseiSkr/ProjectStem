@@ -13,7 +13,6 @@ import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentTranslateBinding
 import com.example.projectstem.model.AppDatabase
 import com.example.projectstem.model.Word
-import com.example.projectstem.model.group.GroupListAdapter
 import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.word.WordViewModel
 import com.example.projectstem.ui.library.LibraryCategoryFragment
@@ -80,6 +79,7 @@ class TranslateFragment : Fragment() {
         //Insert word to group
 
         val saveButton = root.findViewById<Button>(R.id.buttonSaveTranslation)
+        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar2)
         saveButton.visibility = View.VISIBLE
         val button = root.findViewById<Button>(R.id.buttonTranslate)
 
@@ -88,6 +88,7 @@ class TranslateFragment : Fragment() {
 
         button.setOnClickListener {
             //saveButton.visibility = View.INVISIBLE
+            progressBar.visibility = View.VISIBLE
             val translateFromLanguage = spinnerFrom.selectedItem.toString()
             val translateToLanguage = spinnerTo.selectedItem.toString()
             val wordToBeTranslated = translateFromField.text.toString()
@@ -105,7 +106,7 @@ class TranslateFragment : Fragment() {
                     translator.translate(wordToBeTranslated)
                         .addOnSuccessListener { translatedText ->
                             translateToField.setText(translatedText)
-
+                            progressBar.visibility = View.INVISIBLE
                             //If a word has been translated
 
 
