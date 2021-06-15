@@ -58,7 +58,11 @@
         android:id="@+id/library_word"
         android:name="com.example.projectstem.ui.library.LibraryWordFragment"
         android:label="@string/library_word"
-        tools:layout="@layout/fragment_library_word" />
+        tools:layout="@layout/fragment_library_word" >
+        <action
+            android:id="@+id/action_library_word_to_navigation_library_category"
+            app:destination="@id/navigation_library_category" />
+    </fragment>
 
     <fragment
         android:id="@+id/libraryHover"

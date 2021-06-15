@@ -1,5 +1,6 @@
 package com.example.projectstem.ui.library
 
+import android.annotation.SuppressLint
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.session.MediaSession
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.dictionary.Base
 import com.example.projectstem.model.AppDatabase
@@ -23,6 +25,7 @@ import java.io.IOException
 class LibraryWordFragment : Fragment() {
     private lateinit var base: List<Base>
     private lateinit var url: String
+    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,6 +45,7 @@ class LibraryWordFragment : Fragment() {
         val id =  AppDatabase.getDatabase(requireContext()).groupDao().findById(language)
         val languageCode = getLanguageCode(id)
         if(languageCode == "X") {
+              // We need to navigate back to category page
             Toast.makeText(context, "We don't have word definition feature for this language yet", Toast.LENGTH_SHORT).show()
         } else {
             view.findViewById<TextView>(R.id.translationWord).text = response.getTranslation().toString()
