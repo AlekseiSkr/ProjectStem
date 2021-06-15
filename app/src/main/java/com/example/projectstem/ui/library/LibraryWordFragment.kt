@@ -33,12 +33,6 @@ class LibraryWordFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_library_word,container, false)
 
-//        var tvWord = view.findViewById<TextView>(R.id.tvWord).text
-//        val partOfSpeech = view.findViewById<TextView>(R.id.partOfSpeech).text
-//        val phonetic = view.findViewById<TextView>(R.id.tvPhonetic).text
-//        val definition = view.findViewById<TextView>(R.id.definition).text
-//        val example = view.findViewById<TextView>(R.id.example).text
-
         val response = arguments?.getSerializable("wordAndLanguage") as WordListAdapter.WordAndLanguage
         val word = response.getOriginal()
         val language = response.getLanguageGroupId()?.toInt()
@@ -80,11 +74,6 @@ class LibraryWordFragment : Fragment() {
 
             })
 
-            fun preparePostAsync(callback: (MediaSession.Token) -> Unit) {
-                // make request and return immediately
-                // arrange callback to be invoked later
-            }
-
             view.findViewById<Button>(R.id.bPronounciation).setOnClickListener {
                 if (languageCode == "en_US") {
                     url = base[0].phonetics[0].audio
@@ -100,34 +89,6 @@ class LibraryWordFragment : Fragment() {
         }
 
         return view
-    }
-
-    fun getWordDefinition(word: String, language: String) : Boolean
-    {
-        val languageCode = getLanguageCode(language)
-        url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
-        val request = Request.Builder().url(url).build()
-        var hasResponse = false;
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                val body = response.body?.string()
-                println(body)
-                val gson = GsonBuilder().create()
-                base = gson.fromJson(body, Array<Base>::class.java).toList()
-                hasResponse = true
-            }
-
-            override fun onFailure(call: Call, e: IOException) {
-                println("Failed to execute request")
-            }
-
-        })
-        if(hasResponse)
-        {
-            return true
-        }
-        return false
     }
 
     private fun applyAudio(url: String)

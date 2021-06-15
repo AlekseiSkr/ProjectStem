@@ -6,14 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
-import com.example.projectstem.model.Group
 import com.example.projectstem.model.Word
-import com.example.projectstem.model.group.GroupListAdapter
-import com.example.projectstem.model.group.GroupViewModel
 import java.io.Serializable
 
 class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
@@ -53,7 +49,6 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())
             Navigation.findNavController(view).navigate(R.id.library_word, b)
         } )
-
 
     }
     fun setData(word: List<Word>){
