@@ -5,7 +5,7 @@
     android:id="@+id/flScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/stem_logo_mockup"
+    android:background="@drawable/stem_logo_mockupv2"
     tools:context=".ui.library.LibraryFragment">
 
 
@@ -27,8 +27,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroups"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/stem_logo_mockupv2"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 
     <GridLayout
         android:layout_width="match_parent"
