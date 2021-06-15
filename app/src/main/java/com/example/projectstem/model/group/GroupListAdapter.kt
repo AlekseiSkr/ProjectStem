@@ -1,19 +1,18 @@
 package com.example.projectstem.model.group
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
 import com.example.projectstem.model.Group
-import kotlinx.android.synthetic.main.libray_group_item.view.*
+import java.io.Serializable
+import kotlin.properties.Delegates
 
 class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
 
@@ -40,13 +39,48 @@ class GroupListAdapter: RecyclerView.Adapter<GroupListAdapter.MyViewHolder>() {
 
         holder.itemView.setOnClickListener(View.OnClickListener {
             view ->
-            val id = holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString()
-            val bundle = bundleOf("idOfLanguageGroup" to id)
-            Navigation.findNavController(view).navigate(R.id.libraryCategoryFragment, bundle)
+            val idAndLanguage = IdAndLanguage()
+            idAndLanguage.setId(holder.itemView.findViewById<TextView>(R.id.tvGroupId).text.toString())
+            idAndLanguage.setLanguageFirst(holder.itemView.findViewById<TextView>(R.id.tvPrimaryLanguage).text.toString())
+            idAndLanguage.setLanguageSecond(holder.itemView.findViewById<TextView>(R.id.tvSecondaryLanguage).text.toString())
+            val b = Bundle()
+            b.putSerializable("idAndLanguage", idAndLanguage)
+            Navigation.findNavController(view).navigate(R.id.libraryCategoryFragment, b)
         })
     }
     fun setData(group: List<Group>){
         this.groupList = group
         notifyDataSetChanged()
+    }
+
+    class IdAndLanguage : Serializable
+    {
+        private lateinit var id: String
+        private lateinit var languageFirst: String
+        private lateinit var languageSecond: String
+
+        fun getId(): String? {
+            return id
+        }
+
+        fun setId(id: String) {
+            this.id = id
+        }
+
+        fun getLanguageFirst(): String? {
+            return languageFirst
+        }
+
+        fun setLanguageFirst(language: String?) {
+            this.languageFirst = language!!
+        }
+
+        fun getLanguageSecond(): String? {
+            return languageSecond
+        }
+
+        fun setLanguageSecond(language: String?) {
+            this.languageSecond = language!!
+        }
     }
 }

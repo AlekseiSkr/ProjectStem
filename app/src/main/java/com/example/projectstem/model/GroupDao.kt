@@ -17,6 +17,9 @@ interface GroupDao {
     @Query("SELECT group_id FROM group_language WHERE language1 LIKE :language1 AND language2 LIKE :language2 LIMIT 1")
     fun findByLanguageGroup(language1: String, language2: String) : Int
 
+    @Query("SELECT language1 FROM group_language WHERE group_id LIKE :id LIMIT 1")
+    fun findById(id: Int?) : String
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertLanguageGroup(group: Group)
 

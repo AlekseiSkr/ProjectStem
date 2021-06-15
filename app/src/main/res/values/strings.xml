@@ -149,4 +149,5 @@
     <string name="maxKnowledge">/ 3</string>
     <string name="save_to_group">Save to Group</string>
     <string name="translate_to">Translate to</string>
+    <string name="library_word" />
 </resources>
