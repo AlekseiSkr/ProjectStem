@@ -45,9 +45,9 @@ class TranslateFragment : Fragment() {
         val root: View = binding.root
 
         //grabbing the languages from the bundle
-        val response = arguments?.getSerializable("languages") as LibraryCategoryFragment.Languages
-        val l1 = response.getFirstLanguage()!!
-        val l2 = response.getSecondLanguage()!!
+        val response = arguments?.getSerializable("languages") as? LibraryCategoryFragment.Languages
+        val l1 = response?.getFirstLanguage()
+        val l2 = response?.getSecondLanguage()
 
 
         //Drop down menu of languages - From

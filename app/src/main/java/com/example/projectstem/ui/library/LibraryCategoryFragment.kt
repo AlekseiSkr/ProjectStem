@@ -91,10 +91,10 @@ class LibraryCategoryFragment : Fragment() {
         private lateinit var languageFirst: String
         private lateinit var languageSecond: String
 
-        fun getFirstLanguage():String{
+        fun getFirstLanguage():String?{
             return languageFirst
         }
-        fun getSecondLanguage():String{
+        fun getSecondLanguage():String?{
             return languageSecond
         }
         fun setFirstLanguage(firstLanguage :String){
