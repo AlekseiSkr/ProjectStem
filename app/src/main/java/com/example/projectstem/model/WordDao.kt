@@ -25,4 +25,10 @@ interface WordDao {
 
     @Query("DELETE FROM words WHERE word_id = :wordId")
     fun deleteWord(wordId: Int)
+
+    @Query("SELECT knowledge FROM words WHERE translation IN (:word)")
+    fun getKnowledgeFromTranslation(word: String) : Int
+
+    @Query("UPDATE words SET knowledge = (SELECT knowledge FROM words WHERE translation IN (:word)) + 1 WHERE translation IN (:word)")
+    fun updateKnowledgeFromWord(word: String)
 }

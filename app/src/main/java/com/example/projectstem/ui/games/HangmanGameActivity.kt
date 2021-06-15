@@ -63,7 +63,14 @@ class HangmanGameActivity : AppCompatActivity() {
                 lettersUsedTextView.text = "Letters used: ${hangmanGameState.lettersUsed}"
                 imageView.setImageDrawable(ContextCompat.getDrawable(this, hangmanGameState.drawable))
             }
-            is HangmanGameState.Won -> showGameWon(hangmanGameState.wordToGuess)
+            is HangmanGameState.Won -> {
+                showGameWon(hangmanGameState.wordToGuess)
+                if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(hangmanGameState.wordToGuess) < 3) {
+                    AppDatabase.getDatabase(applicationContext).wordDao()
+                        .updateKnowledgeFromWord(hangmanGameState.wordToGuess)
+                }
+            }
+
         }
     }
 
