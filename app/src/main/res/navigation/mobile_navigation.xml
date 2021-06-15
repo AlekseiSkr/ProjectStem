@@ -61,11 +61,6 @@
         tools:layout="@layout/fragment_library_word" />
 
     <fragment
-        android:id="@+id/navigation_user"
-        android:name="com.example.projectstem.ui.user.UserFragment"
-        android:label="@string/title_user"
-        tools:layout="@layout/fragment_user" />
-    <fragment
         android:id="@+id/libraryHover"
         android:name="com.example.projectstem.ui.library.LibraryHover"
         android:label="fragment_library_hover"
