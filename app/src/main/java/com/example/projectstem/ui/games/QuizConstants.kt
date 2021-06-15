@@ -14,6 +14,11 @@ object QuizConstants {
 
 
     // END
+
+    fun randomNumber(list: List<Word>) : Int{
+        return Random.nextInt(0, list.size)
+    }
+
     
     fun getQuestions(wordList: List<Word>): ArrayList<QuizQuestion> {
 
@@ -32,8 +37,8 @@ object QuizConstants {
                 } else {
                     listOFWords!![randomIndex + 1].translation
                 }
-                var option2: String = listOFWords[randomIndex].translation
-                var option3: String = listOFWords[randomIndex].translation
+                var option2: String = listOFWords[randomNumber(wordList)].translation
+                var option3: String = listOFWords[randomNumber(wordList)].translation
 
                 val newQuestion = QuizQuestion(id, "What does this word mean?", wordInQuestion, correctAnwser, option1, option2, option3, 1)
                 questionsList.add(newQuestion)

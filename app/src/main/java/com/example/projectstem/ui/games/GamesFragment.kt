@@ -32,7 +32,6 @@ class GamesFragment : Fragment() {
         binding.flashCards.setOnClickListener{
             val intent = Intent(context, QuizQuestionsActivity::class.java)
             startActivity(intent)
-
         }
 
         binding.hangman.setOnClickListener {

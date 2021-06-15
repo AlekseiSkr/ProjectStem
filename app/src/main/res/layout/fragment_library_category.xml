@@ -9,7 +9,8 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded"
+        android:background="@color/silkyMint_200"
+        android:paddingTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,7 +22,7 @@
             android:id="@+id/subHeaderMainLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded"
+            android:background="@android:drawable/screen_background_light_transparent"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
@@ -128,14 +129,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/catWords"
-        android:layout_width="411dp"
-        android:layout_height="593dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/addBtn"
@@ -143,7 +145,15 @@
         android:layout_height="69dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="70dp"
-        android:background="@drawable/ic_add"
+        android:background="@android:drawable/presence_invisible"
+        android:backgroundTint="@color/black"
+        android:backgroundTintMode="multiply"
+        android:outlineProvider="background"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="64dp"
+        app:iconTint="@color/design_default_color_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

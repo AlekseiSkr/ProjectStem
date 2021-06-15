@@ -3,23 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#EFEFEF"
-        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:drawable/toast_frame"
         android:clickable="false"
+        android:clipToPadding="false"
         android:divider="@android:drawable/divider_horizontal_dark"
         android:elevation="6dp"
         android:focusable="auto"
         android:focusableInTouchMode="true"
         android:hapticFeedbackEnabled="true"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,10 +31,11 @@
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="35dp"
             android:ems="5"
             android:gravity="center|fill_horizontal"
             android:text="@string/origin"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/translation" />
 
         <TextView
@@ -43,6 +47,7 @@
             android:ems="5"
             android:gravity="center|fill_horizontal"
             android:text="@string/translation"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/spacio"
             tools:ignore="LabelFor" />
 
@@ -73,7 +78,8 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="49dp"
-            android:layout_height="46dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:textAlignment="viewEnd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,15 +90,26 @@
             android:layout_width="wrap_content"
             android:layout_height="26dp"
             android:layout_weight="1"
-            android:visibility="gone"
-            android:text="" />
+            android:text=""
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/wordId"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:visibility="gone" />
+
     </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
