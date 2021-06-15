@@ -43,9 +43,11 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.translation).text = currentItem.translation
         holder.itemView.findViewById<TextView>(R.id.knowledge).text = currentItem.knowledge.toString()
         holder.itemView.findViewById<TextView>(R.id.groupLanguage).text = currentItem.group_language_id.toString()
+        holder.itemView.findViewById<TextView>(R.id.wordId).text = currentItem.word_id.toString()
 
         holder.itemView.setOnClickListener ( View.OnClickListener {
             view ->
+            wordAndLanguage.setWord(holder.itemView.findViewById<TextView>(R.id.wordId).text.toString())
             wordAndLanguage.setOriginal(holder.itemView.findViewById<TextView>(R.id.origin).text.toString())
             wordAndLanguage.setTranslation(holder.itemView.findViewById<TextView>(R.id.translation).text.toString())
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())

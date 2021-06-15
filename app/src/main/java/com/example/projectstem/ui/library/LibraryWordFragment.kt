@@ -43,6 +43,8 @@ class LibraryWordFragment : Fragment() {
         val word = response.getOriginal()
         val language = response.getLanguageGroupId()?.toInt()
         val id =  AppDatabase.getDatabase(requireContext()).groupDao().findById(language)
+        //Thats for you Jeremi
+        val wordId = response.getWord()
         val languageCode = getLanguageCode(id)
         if(languageCode == "X") {
               // We need to navigate back to category page
