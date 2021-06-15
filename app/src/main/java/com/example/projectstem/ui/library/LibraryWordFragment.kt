@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projectstem.R
 import com.example.projectstem.dictionary.Base
@@ -40,41 +41,56 @@ class LibraryWordFragment : Fragment() {
         val language = response.getLanguageGroupId()?.toInt()
         val id =  AppDatabase.getDatabase(requireContext()).groupDao().findById(language)
         val languageCode = getLanguageCode(id)
-        url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
-        val request = Request.Builder().url(url).build()
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                val body = response.body?.string()
-                println(body)
-                val gson = GsonBuilder().create()
-                base = gson.fromJson(body, Array<Base>::class.java).toList()
-                
-                activity?.runOnUiThread(java.lang.Runnable {
-                    view.findViewById<TextView>(R.id.tvWordO).text = base[0].word
-                    view.findViewById<TextView>(R.id.partOfSpeech).text = base[0].meanings[0].partOfSpeech
-                    view.findViewById<TextView>(R.id.tvPhonetic).text = base[0].phonetics[0].text
-                    view.findViewById<TextView>(R.id.definition).text =
-                        base[0].meanings[0].definitions[0].definition
-                    view.findViewById<TextView>(R.id.example).text =
-                        base[0].meanings[0].definitions[0].example
-                })
+        if(languageCode == "X") {
+            Toast.makeText(context, "We don't have word definition feature for this language yet", Toast.LENGTH_SHORT).show()
+        } else {
+            view.findViewById<TextView>(R.id.translationWord).text = response.getTranslation().toString()
+            url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";
+            val request = Request.Builder().url(url).build()
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onResponse(call: Call, response: Response) {
+                    val body = response.body?.string()
+                    println(body)
+                    val gson = GsonBuilder().create()
+                    base = gson.fromJson(body, Array<Base>::class.java).toList()
+
+                    activity?.runOnUiThread(java.lang.Runnable {
+                        view.findViewById<TextView>(R.id.tvWordO).text = base[0].word
+                        view.findViewById<TextView>(R.id.partOfSpeech).text =
+                            base[0].meanings[0].partOfSpeech
+                        view.findViewById<TextView>(R.id.tvPhonetic).text =
+                            base[0].phonetics[0].text
+                        view.findViewById<TextView>(R.id.definition).text =
+                            base[0].meanings[0].definitions[0].definition
+                        view.findViewById<TextView>(R.id.example).text =
+                            base[0].meanings[0].definitions[0].example
+                    })
+                }
+
+                override fun onFailure(call: Call, e: IOException) {
+                    println("Failed to execute request")
+                }
+
+            })
+
+            fun preparePostAsync(callback: (MediaSession.Token) -> Unit) {
+                // make request and return immediately
+                // arrange callback to be invoked later
             }
 
-            override fun onFailure(call: Call, e: IOException) {
-                println("Failed to execute request")
+            view.findViewById<Button>(R.id.bPronounciation).setOnClickListener {
+                if (languageCode == "en_US") {
+                    url = base[0].phonetics[0].audio
+                    applyAudio(url)
+                } else {
+                    Toast.makeText(
+                        context,
+                        "We don't have audio feature for this language yet",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
-        })
-
-        fun preparePostAsync(callback: (MediaSession.Token) -> Unit) {
-            // make request and return immediately
-            // arrange callback to be invoked later
-        }
-
-        view.findViewById<Button>(R.id.bPronounciation).setOnClickListener {
-            url = base[0].phonetics[0].audio
-            applyAudio(url)
         }
 
         return view
@@ -164,6 +180,6 @@ class LibraryWordFragment : Fragment() {
                 return "tr"
             }
         }
-        return "Sorry, we don't support word definition in this language"
+        return "X"
     }
 }
