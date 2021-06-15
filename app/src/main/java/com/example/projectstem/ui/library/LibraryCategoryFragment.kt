@@ -18,6 +18,7 @@ import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.testdb.WordListAdapter
 import com.example.projectstem.model.word.WordViewModel
 import org.w3c.dom.Text
+import java.io.Serializable
 
 class LibraryCategoryFragment : Fragment() {
     private lateinit var groupViewModel: GroupViewModel
@@ -34,15 +35,8 @@ class LibraryCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_library_category, container, false)
-        val buttonAddWord = view?.findViewById<Button>(R.id.addBtn)
-        buttonAddWord?.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigation_translate)
-        }
-        fun validateLoaded(): Boolean{
-            return true
-        }
-        
 
+        //changing the view based on information gotten from the group
         val response = arguments?.getSerializable("idAndLanguage") as GroupListAdapter.IdAndLanguage
         val id = response.getId()
         val l1 = response.getLanguageFirst()
@@ -66,12 +60,48 @@ class LibraryCategoryFragment : Fragment() {
                 adapter.setData(word)
             })
 
-        }//delete the group
+        }
+        //bundling the languages for the new word button
+        val buttonAddWord = view?.findViewById<Button>(R.id.addBtn)
+        val languages = Languages()
+        languages.setFirstLanguage(view.findViewById<TextView>(R.id.languageCat1).text.toString())
+        languages.setSecondLanguage(view.findViewById<TextView>(R.id.languageCat2).text.toString())
+        val b = Bundle()
+        b.putSerializable("languages", languages)
+        //add new word button
+        buttonAddWord?.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigation_translate,b)
+        }
+
+        fun validateLoaded(): Boolean{
+            return true
+        }
+        
+
+        //delete the group
         groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
         view.findViewById<Button>(R.id.bDeleteGroup).setOnClickListener{
             groupViewModel.deleteByGroupId(id!!.toInt())
             Navigation.findNavController(view).navigate(R.id.navigation_library)
         }
         return view
+    }
+    class Languages : Serializable{
+
+        private lateinit var languageFirst: String
+        private lateinit var languageSecond: String
+
+        fun getFirstLanguage():String{
+            return languageFirst
+        }
+        fun getSecondLanguage():String{
+            return languageSecond
+        }
+        fun setFirstLanguage(firstLanguage :String){
+            this.languageFirst = firstLanguage!!
+        }
+        fun setSecondLanguage(secondLanguage: String){
+            this.languageSecond = secondLanguage!!
+        }
     }
 }

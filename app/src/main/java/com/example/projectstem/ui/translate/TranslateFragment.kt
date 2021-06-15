@@ -13,8 +13,10 @@ import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentTranslateBinding
 import com.example.projectstem.model.AppDatabase
 import com.example.projectstem.model.Word
+import com.example.projectstem.model.group.GroupListAdapter
 import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.word.WordViewModel
+import com.example.projectstem.ui.library.LibraryCategoryFragment
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage.*
 import com.google.mlkit.nl.translate.Translation
@@ -42,6 +44,11 @@ class TranslateFragment : Fragment() {
         _binding = FragmentTranslateBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        //grabbing the languages from the bundle
+        val response = arguments?.getSerializable("languages") as LibraryCategoryFragment.Languages
+        val l1 = response.getFirstLanguage()!!
+        val l2 = response.getSecondLanguage()!!
+
 
         //Drop down menu of languages - From
         val spinnerFrom: Spinner = root.findViewById(R.id.spinnerFrom)
@@ -52,6 +59,8 @@ class TranslateFragment : Fragment() {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerFrom.adapter = adapter
+            val spinnerPosition = adapter.getPosition(l1)
+            spinnerFrom.setSelection(spinnerPosition)
         }
         //Drop down menu of languages - To
         val spinnerTo: Spinner = root.findViewById(R.id.spinnerTo)
@@ -62,12 +71,11 @@ class TranslateFragment : Fragment() {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
             spinnerTo.adapter = adapter
+
+            val spinnerPosition = adapter.getPosition(l2)
+            spinnerTo.setSelection(spinnerPosition)
         }
 
-
-        /*
-database coding
- */
 
         //Insert word to group
 
