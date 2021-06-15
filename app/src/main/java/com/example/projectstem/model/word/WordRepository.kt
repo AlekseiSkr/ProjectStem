@@ -19,5 +19,8 @@ class WordRepository(private val wordDao: WordDao) {
     fun getGameWords(group_language_id: Int): List<Word>{
         return wordDao.getGameWordsInGroup(group_language_id)
     }
+    fun deleteWord(wordId: Int){
+        return wordDao.deleteWord(wordId)
+    }
 
 }

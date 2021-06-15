@@ -19,4 +19,7 @@ class GroupRepository(private val groupDao: GroupDao) {
     fun isRowIsExist(language1: String, language2: String) : Boolean{
         return groupDao.isRowIsExist(language1, language2)
     }
+    fun deleteByGroupId(groupId: Int):Unit{
+        return groupDao.deleteByGroupId(groupId)
+    }
 }

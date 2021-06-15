@@ -22,4 +22,7 @@ interface WordDao {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(word: Word)
+
+    @Query("DELETE FROM words WHERE word_id = :wordId")
+    fun deleteWord(wordId: Int)
 }

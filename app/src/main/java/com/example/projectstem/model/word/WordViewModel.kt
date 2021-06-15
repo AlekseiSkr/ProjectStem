@@ -32,4 +32,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     fun getGameWords(id: Int) : List<Word>{
         return repository.getGameWords(id)
     }
+    fun deleteWord(wordId : Int){
+        return repository.deleteWord(wordId)
+    }
 }

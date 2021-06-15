@@ -26,4 +26,8 @@ interface GroupDao {
     @Query("SELECT EXISTS(SELECT * FROM group_language WHERE language1 LIKE :language1 AND language2 LIKE :language2)")
     fun isRowIsExist(language1: String, language2: String) : Boolean
 
+    @Query("DELETE FROM group_language WHERE group_id = :groupId")
+    fun deleteByGroupId(groupId: Int)
+
+
 }

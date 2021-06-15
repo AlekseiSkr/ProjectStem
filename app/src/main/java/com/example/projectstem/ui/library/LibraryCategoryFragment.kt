@@ -20,7 +20,7 @@ import com.example.projectstem.model.word.WordViewModel
 import org.w3c.dom.Text
 
 class LibraryCategoryFragment : Fragment() {
-
+    private lateinit var groupViewModel: GroupViewModel
     private lateinit var wordViewModel: WordViewModel
 
     companion object {
@@ -35,7 +35,6 @@ class LibraryCategoryFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_library_category, container, false)
         val buttonAddWord = view?.findViewById<Button>(R.id.addBtn)
-        // TODO: Get languages from specific group and apply them
         buttonAddWord?.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.navigation_translate)
         }
@@ -66,6 +65,12 @@ class LibraryCategoryFragment : Fragment() {
             wordViewModel.getWordsFromGroup(id.toInt()).observe(viewLifecycleOwner, Observer { word ->
                 adapter.setData(word)
             })
+
+        }//delete the group
+        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
+        view.findViewById<Button>(R.id.bDeleteGroup).setOnClickListener{
+            groupViewModel.deleteByGroupId(id!!.toInt())
+            Navigation.findNavController(view).navigate(R.id.navigation_library)
         }
         return view
     }

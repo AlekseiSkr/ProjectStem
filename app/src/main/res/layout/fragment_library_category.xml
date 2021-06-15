@@ -147,4 +147,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/bDeleteGroup"
+        android:layout_width="116dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="70dp"
+        android:text="Delete Group"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
