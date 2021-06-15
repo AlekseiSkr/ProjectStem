@@ -48,8 +48,8 @@
 
         <Space
             android:id="@+id/spacio"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="77dp"
+            android:layout_height="22dp"
             android:layout_weight="1" />
 
         <TextView
@@ -78,5 +78,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/presence_online" />
+
+        <TextView
+            android:id="@+id/groupLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

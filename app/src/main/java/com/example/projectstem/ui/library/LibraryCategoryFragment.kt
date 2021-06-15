@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.example.projectstem.R
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ import com.example.projectstem.model.group.GroupListAdapter
 import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.testdb.WordListAdapter
 import com.example.projectstem.model.word.WordViewModel
+import org.w3c.dom.Text
 
 class LibraryCategoryFragment : Fragment() {
 
@@ -40,9 +42,16 @@ class LibraryCategoryFragment : Fragment() {
         fun validateLoaded(): Boolean{
             return true
         }
+        
 
+        val response = arguments?.getSerializable("idAndLanguage") as GroupListAdapter.IdAndLanguage
+        val id = response.getId()
+        val l1 = response.getLanguageFirst()
+        val l2 = response.getLanguageSecond()
 
-        val id = arguments?.getString("idOfLanguageGroup")
+        view.findViewById<TextView>(R.id.languageGroupCatID).text = id
+        view.findViewById<TextView>(R.id.languageCat1).text = l1
+        view.findViewById<TextView>(R.id.languageCat2).text = l2
 
         //recyclerView connection
         val linearLayout = LinearLayoutManager(requireContext())
@@ -50,6 +59,7 @@ class LibraryCategoryFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.catWords)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = linearLayout
+
 
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         if (id != null) {
@@ -59,6 +69,4 @@ class LibraryCategoryFragment : Fragment() {
         }
         return view
     }
-
-
 }
