@@ -12,17 +12,21 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.projectstem.R
 import com.example.projectstem.dictionary.Base
 import com.example.projectstem.model.AppDatabase
+import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.testdb.WordListAdapter
+import com.example.projectstem.model.word.WordViewModel
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
 
 class LibraryWordFragment : Fragment() {
+    private lateinit var wordViewModel: WordViewModel
     private lateinit var base: List<Base>
     private lateinit var url: String
     @SuppressLint("ResourceType")
@@ -37,12 +41,20 @@ class LibraryWordFragment : Fragment() {
         val word = response.getOriginal()
         val language = response.getLanguageGroupId()?.toInt()
         val id =  AppDatabase.getDatabase(requireContext()).groupDao().findById(language)
-        //Thats for you Jeremi
+
+
+        //deleting the word
         val wordId = response.getWord()
+        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        view.findViewById<Button>(R.id.bDeleteWord).setOnClickListener{
+            wordViewModel.deleteWord(wordId!!.toInt())
+            Navigation.findNavController(view).navigate(R.id.navigation_library_category)
+        }
         val languageCode = getLanguageCode(id)
         if(languageCode == "X") {
               // We need to navigate back to category page
             Toast.makeText(context, "We don't have word definition feature for this language yet", Toast.LENGTH_SHORT).show()
+          //  Navigation.findNavController(view).navigate(R.id.navigation_library)
         } else {
             view.findViewById<TextView>(R.id.translationWord).text = response.getTranslation().toString()
             url = "https://api.dictionaryapi.dev/api/v2/entries/$languageCode/$word";

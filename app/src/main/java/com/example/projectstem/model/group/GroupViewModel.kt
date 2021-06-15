@@ -36,4 +36,7 @@ class GroupViewModel(application: Application) : AndroidViewModel(application) {
 
 
     }
+    fun deleteByGroupId(groupId: Int){
+        return repository.deleteByGroupId(groupId)
+    }
 }
