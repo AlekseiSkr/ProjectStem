@@ -48,7 +48,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
             wordAndLanguage.setTranslation(holder.itemView.findViewById<TextView>(R.id.translation).text.toString())
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())
             wordAndLanguage.setKnowledge(holder.itemView.findViewById<TextView>(R.id.knowledge).text.toString())
-            Navigation.findNavController(view).navigate(R.id.library_word, b)
+            Navigation.findNavController(view).navigate(R.id.action_libraryCategoryFragment_to_libraryWordFragment, b)
         } )
 
     }

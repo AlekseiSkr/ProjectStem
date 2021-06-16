@@ -50,7 +50,7 @@ class LibraryWordFragment : Fragment() {
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         view.findViewById<Button>(R.id.bDeleteWord).setOnClickListener{
             wordViewModel.deleteWord(wordId!!.toInt())
-            Navigation.findNavController(view).navigate(R.id.navigation_library_category)
+            Navigation.findNavController(view).navigate(R.id.action_libraryWordFragment_to_navigation_library)
         }
         val languageCode = getLanguageCode(id)
         if(languageCode == "X") {
