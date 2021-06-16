@@ -22,18 +22,6 @@
         <action
             android:id="@+id/action_grp2cat"
             app:destination="@id/libraryCategoryFragment" />
-        <action
-            android:id="@+id/action_navigation_library_to_library_word"
-            app:destination="@id/library_word" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_library_category"
-        android:name="com.example.projectstem.ui.library.LibraryCategoryFragment"
-        android:label="@string/title_listOfWords"
-        tools:layout="@layout/fragment_library_category"
-        >
-<!--        TODO('Add actions here')    -->
     </fragment>
 
     <fragment
@@ -55,16 +43,6 @@
         tools:layout="@layout/fragment_translate" />
 
     <fragment
-        android:id="@+id/library_word"
-        android:name="com.example.projectstem.ui.library.LibraryWordFragment"
-        android:label="@string/library_word"
-        tools:layout="@layout/fragment_library_word" >
-        <action
-            android:id="@+id/action_library_word_to_navigation_library_category"
-            app:destination="@id/navigation_library_category" />
-    </fragment>
-
-    <fragment
         android:id="@+id/libraryHover"
         android:name="com.example.projectstem.ui.library.LibraryHover"
         android:label="fragment_library_hover"
@@ -80,13 +58,16 @@
         <action
             android:id="@+id/action_libraryCategoryFragment_to_libraryWordFragment"
             app:destination="@id/libraryWordFragment" />
+        <action
+            android:id="@+id/action_libraryCategoryFragment_to_navigation_library"
+            app:destination="@id/navigation_library" />
     </fragment>
     <fragment
         android:id="@+id/libraryWordFragment"
         android:name="com.example.projectstem.ui.library.LibraryWordFragment"
         android:label="LibraryWordFragment" >
         <action
-            android:id="@+id/action_libWord2libCat"
-            app:destination="@id/libraryCategoryFragment" />
+            android:id="@+id/action_libraryWordFragment_to_navigation_library"
+            app:destination="@id/navigation_library" />
     </fragment>
 </navigation>

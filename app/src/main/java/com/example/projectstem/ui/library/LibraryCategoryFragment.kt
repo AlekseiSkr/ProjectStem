@@ -81,7 +81,7 @@ class LibraryCategoryFragment : Fragment() {
         groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
         view.findViewById<Button>(R.id.bDeleteGroup).setOnClickListener{
             groupViewModel.deleteByGroupId(id!!.toInt())
-            Navigation.findNavController(view).navigate(R.id.navigation_library)
+            Navigation.findNavController(view).navigate(R.id.action_libraryCategoryFragment_to_navigation_library)
         }
         return view
     }

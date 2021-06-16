@@ -32,7 +32,7 @@ class LibraryFragment : Fragment(){
 
         val buttonLang = view.findViewById<Button>(R.id.button_lang)
         buttonLang?.setOnClickListener {
-        Navigation.findNavController(view).navigate(R.id.navigation_library_hover)
+        Navigation.findNavController(view).navigate(R.id.action_grp2hvr)
         }
 
         //recyclerview

@@ -26,7 +26,7 @@ class LibraryHover : Fragment() {
         val secondaryLanguage = view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage)
         //cancel button
         view.findViewById<Button>(R.id.bCancel).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigation_library)
+            Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
         }
         val languages = resources.getStringArray(R.array.lCategory)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languages)
@@ -51,7 +51,7 @@ class LibraryHover : Fragment() {
             }
             if (isInserted) {
                 Toast.makeText(requireContext(), "Successfully added", Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view).navigate(R.id.navigation_library)
+                Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
             } else {
                 Toast.makeText(requireContext(), "Invalid value", Toast.LENGTH_LONG).show()
             }
