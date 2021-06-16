@@ -17,20 +17,20 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
     private var wordList = emptyList<Word>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){ }
-
+    
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
+    
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.library_word_item, parent, false))
     }
-
+    
     override fun getItemCount(): Int {
-
+    
         return wordList.size
     }
-
+    
     @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
+    
         val currentItem = wordList[position]
         val wordAndLanguage = WordAndLanguage()
         val b = Bundle()
@@ -41,7 +41,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.knowledge).text = currentItem.knowledge.toString()
         holder.itemView.findViewById<TextView>(R.id.groupLanguage).text = currentItem.group_language_id.toString()
         holder.itemView.findViewById<TextView>(R.id.wordId).text = currentItem.word_id.toString()
-
+    
         when (currentItem.knowledge) {
             1 -> {
                 holder.itemView.findViewById<ImageView>(R.id.knowledgeStatus1).visibility = View.VISIBLE
@@ -53,7 +53,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
                 holder.itemView.findViewById<ImageView>(R.id.knowledgeStatus3).visibility = View.VISIBLE
             }
         }
-
+    
         holder.itemView.setOnClickListener ( View.OnClickListener {
             view ->
             wordAndLanguage.setWord(holder.itemView.findViewById<TextView>(R.id.wordId).text.toString())
@@ -61,8 +61,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
             wordAndLanguage.setTranslation(holder.itemView.findViewById<TextView>(R.id.translation).text.toString())
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())
             wordAndLanguage.setKnowledge(holder.itemView.findViewById<TextView>(R.id.knowledge).text.toString())
-
-            Navigation.findNavController(view).navigate(R.id.action_libraryCategoryFragment_to_libraryWordFragment, b)
+      Navigation.findNavController(view).navigate(R.id.action_libraryCategoryFragment_to_libraryWordFragment, b)
 
         } )
 
@@ -74,7 +73,7 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
 
 
     }
-
+    
     class WordAndLanguage: Serializable {
         private lateinit var word: String
         private lateinit var original: String
@@ -82,50 +81,50 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
         private lateinit var translation: String
         private lateinit var languageFirst: String
         private lateinit var languageSecond: String
-
+    
         fun getWord(): String? {
             return word
         }
-
+    
         fun setWord(word: String) {
             this.word = word
         }
-
+    
         fun getOriginal(): String? {
             return original
         }
-
+    
         fun setOriginal(original: String) {
             this.original = original
         }
-
+    
         fun getTranslation(): String? {
             return translation
         }
-
+    
         fun setTranslation(translation: String) {
             this.translation = translation
         }
         fun getLanguageGroupId(): String? {
             return languageFirst
         }
-
+    
         fun setLanguageGroupId(language: String?) {
             this.languageFirst = language!!
         }
-
+    
         fun getLanguageSecond(): String? {
             return languageSecond
         }
-
+    
         fun setLanguageSecond(language: String?) {
             this.languageSecond = language!!
         }
-
+    
         fun getKnowledge(): String? {
             return knowledge
         }
-
+    
         fun setKnowledge(knowledge: String?) {
             this.knowledge = knowledge!!
         }
