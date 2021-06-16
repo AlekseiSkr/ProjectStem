@@ -75,10 +75,12 @@ class GamesFragment : Fragment() {
             binding.lang2.text = selectedGroup!!.language2
             binding.lang1.visibility = View.VISIBLE
             binding.lang2.visibility = View.VISIBLE
-            loadBundle(groupId, b)
-        }
 
-        b.putInt("grpId", groupId)
+            if (loadBundle(groupId, b)) {
+                binding.flashCards.setBackgroundTintList(requireContext().getResources().getColorStateList(R.color.colorado_500))
+                binding.hangman.setBackgroundTintList(requireContext().getResources().getColorStateList(R.color.colorado_500))
+            }
+        }
 
         binding.flashCards.setOnClickListener{
             if (b.getInt("grpId", groupId) !=0 ){
@@ -106,14 +108,16 @@ class GamesFragment : Fragment() {
         return root
     }
 
-    fun loadBundle(data: Int, bundle: Bundle){
+    fun loadBundle(data: Int, bundle: Bundle) : Boolean{
 
         if (data != 0) {
             bundle.putInt("grpId", data)
+            return true
         }else{
             Toast.makeText(requireContext(),
                 "Please Select a language group", Toast.LENGTH_LONG
             ).show()
+            return false
         }
     }
 
