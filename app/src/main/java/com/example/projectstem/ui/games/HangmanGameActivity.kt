@@ -1,6 +1,7 @@
 package com.example.projectstem.ui.games
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -24,8 +25,10 @@ class HangmanGameActivity : AppCompatActivity() {
     private lateinit var gameWonTextView: TextView
     private lateinit var newGameButton: Button
     private lateinit var lettersLayout: ConstraintLayout
+    private var groupId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hangman)
         imageView = findViewById(R.id.imageView)
@@ -35,8 +38,15 @@ class HangmanGameActivity : AppCompatActivity() {
         gameWonTextView = findViewById(R.id.gameWonTextView)
         newGameButton = findViewById(R.id.newGameButton)
         lettersLayout = findViewById(R.id.lettersLayout)
-        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(1)
 
+
+
+
+        val bundle = intent.extras
+        val groupId = bundle!!.getInt("grpId", 0)
+        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(groupId)
+
+        Log.d("DataPass", "datapass : $groupId")
 
         newGameButton.setOnClickListener {
             startNewGame(wordList)
@@ -67,7 +77,7 @@ class HangmanGameActivity : AppCompatActivity() {
                 showGameWon(hangmanGameState.wordToGuess)
                 if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(hangmanGameState.wordToGuess) < 3) {
                     AppDatabase.getDatabase(applicationContext).wordDao()
-                        .updateKnowledgeFromWord(hangmanGameState.wordToGuess)
+                        .incrementKnowledgeFromWord(hangmanGameState.wordToGuess)
                 }
             }
 

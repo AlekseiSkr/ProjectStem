@@ -34,7 +34,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_quiz_questions)
 
         // TODO (STEP 4: Get the NAME from intent and assign it the variable.)
-        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(1)
+
+        val bundle = intent.extras
+        val groupId = bundle!!.getInt("grpId", 0)
+        val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(groupId)
+
         mQuestionsList = QuizConstants.getQuestions(wordList)
 
         setQuestion()

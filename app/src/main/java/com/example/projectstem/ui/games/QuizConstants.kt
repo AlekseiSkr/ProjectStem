@@ -11,8 +11,6 @@ object QuizConstants {
     const val TOTAL_QUESTIONS: String = "total_questions"
     const val CORRECT_ANSWERS: String = "correct_answers"
 
-
-
     // END
 
     fun randomNumber(list: List<Word>) : Int{
@@ -28,15 +26,10 @@ object QuizConstants {
             try {
                 var listOFWords = wordList
                 var id: Int = 1
-                var randomIndex = Random.nextInt(0, listOFWords.size)
-                val word = listOFWords[randomIndex]
+                val word = listOFWords[randomNumber(wordList)]
                 var wordInQuestion: String = word.original
                 var correctAnwser: String = word.translation
-                var option1: String = if (listOFWords[randomIndex].translation != correctAnwser) {
-                    listOFWords[randomIndex].translation
-                } else {
-                    listOFWords!![randomIndex + 1].translation
-                }
+                var option1: String = listOFWords[randomNumber(wordList)].translation
                 var option2: String = listOFWords[randomNumber(wordList)].translation
                 var option3: String = listOFWords[randomNumber(wordList)].translation
 
@@ -50,7 +43,7 @@ object QuizConstants {
             }
 
                 //INITIALIZE VARS
-                if (i == 6) break
+                if (i == 10) break
             }
 
         return questionsList

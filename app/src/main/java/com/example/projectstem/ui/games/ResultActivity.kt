@@ -25,6 +25,7 @@ class ResultActivity : AppCompatActivity() {
 
         tv_score.text = "Your Score is $correctAnswers out of $totalQuestions."
 
+
         btn_finish.setOnClickListener {
             startActivity(Intent(this@ResultActivity, MainActivity::class.java))
         }
