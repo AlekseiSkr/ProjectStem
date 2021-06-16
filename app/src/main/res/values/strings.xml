@@ -148,4 +148,6 @@
     <string name="save_to_group">Save to Group</string>
     <string name="translate_to">Translate to</string>
     <string name="library_word" />
+    <string name="please_select_a_group">Please Select a Group</string>
+    <string name="selected_group">Selected Group:</string>
 </resources>

@@ -19,10 +19,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mSelectedOptionPosition: Int = 0
     private var mCorrectAnswers: Int = 0
+    private var groupId: Int = 0
 
-    // TODO (STEP 3: Create a variable for getting the name from intent.)
-    // START
-    // END
 
     /**
      * This function is auto created by Android when the Activity Class is created.
@@ -33,10 +31,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         // This is used to align the xml view to this class
         setContentView(R.layout.activity_quiz_questions)
 
-        // TODO (STEP 4: Get the NAME from intent and assign it the variable.)
 
+        //Initiate Bundle
         val bundle = intent.extras
-        val groupId = bundle!!.getInt("grpId", 0)
+        //Get groupId From bundle
+        groupId = bundle!!.getInt("grpId", 0)
+        //Get List of words with selected id
         val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(groupId)
 
         mQuestionsList = QuizConstants.getQuestions(wordList)
@@ -88,15 +88,13 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         else -> {
 
-                            // TODO (STEP 5: Now remove the toast message and launch the result screen which we have created and also pass the user name and score details to it.)
-                            // START
+                            // Launch the result screen which we have created and also pass the user name and score details to it.
                             val intent =
                                     Intent(this@QuizQuestionsActivity, ResultActivity::class.java)
                             intent.putExtra(QuizConstants.CORRECT_ANSWERS, mCorrectAnswers)
                             intent.putExtra(QuizConstants.TOTAL_QUESTIONS, mQuestionsList!!.size)
                             startActivity(intent)
                             finish()
-                            // END
                         }
                     }
                 } else {
@@ -112,6 +110,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
                     // This is for correct answer
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                    if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(question.optionOne) < 3) {
+                        AppDatabase.getDatabase(applicationContext).wordDao()
+                            .incrementKnowledgeFromWord(question.wordInQuestion, groupId)
+                    }
 
                     if (mCurrentPosition == mQuestionsList!!.size) {
                         btn_submit.text = "FINISH"

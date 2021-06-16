@@ -9,17 +9,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.projectstem.R
 import com.example.projectstem.databinding.FragmentGamesBinding
 import com.example.projectstem.model.AppDatabase
 import com.example.projectstem.model.Group
-import com.example.projectstem.model.group.GroupViewModel
 
 class GamesFragment : Fragment() {
 
-    private lateinit var gamesViewModel: GamesViewModel
-    private lateinit var groupViewModel: GroupViewModel
     private var _binding: FragmentGamesBinding? = null
     private var groupId: Int = 0
 
@@ -33,21 +29,24 @@ class GamesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
-        //array adapter for the dropown list
-
-
-        gamesViewModel = ViewModelProvider(this).get(GamesViewModel::class.java)
-
         _binding = FragmentGamesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // var languageGroups =  ArrayList<Group>()
-
         val groups = AppDatabase.getDatabase(requireContext()).groupDao().getAllGroupsForGames()
+
+        if (groups == emptyArray<Group>()){
+            binding.hangman.visibility = View.GONE
+            binding.flashCards.visibility = View.GONE
+            binding.lang1.visibility = View.GONE
+            binding.textView2.text = "Please Have at least 2 words In your groups to play games!"
+            binding.autoCompleteTextView2.visibility = View.GONE
+            binding.lang2.visibility = View.GONE
+            binding.textInputLayout3.visibility = View.GONE
+        }
+
+
         var languageGroups =  ArrayList<Group>()
         for (group in groups) {
-            //languageGroups.add(" ${group.language1} ${group.language2} ")
             if (groups.isNotEmpty()) {
                 languageGroups.add(group)
             }else{
@@ -58,14 +57,20 @@ class GamesFragment : Fragment() {
             }
         }
 
-            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languageGroups)
+
+        //Loading Data into the DropDown
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languageGroups)
                 Log.d("GamesFrag", "line 1: ${languageGroups[0]}")
 
         val autoCompTextView = binding.autoCompleteTextView2
         autoCompTextView.setAdapter(arrayAdapter)
 
+        //Initiate Bundle
         val b = Bundle()
-
+        /**
+         * This Listener recieves the selected group
+         * if loadBundle() is successful, allow navigation to games
+         */
         var selectedGroup: Group? = null
         autoCompTextView.setOnItemClickListener { parent, view, position, id ->
             selectedGroup = parent.getItemAtPosition(position) as Group
@@ -76,12 +81,17 @@ class GamesFragment : Fragment() {
             binding.lang1.visibility = View.VISIBLE
             binding.lang2.visibility = View.VISIBLE
 
+            //if groupId not 0
             if (loadBundle(groupId, b)) {
                 binding.flashCards.setBackgroundTintList(requireContext().getResources().getColorStateList(R.color.colorado_500))
                 binding.hangman.setBackgroundTintList(requireContext().getResources().getColorStateList(R.color.colorado_500))
             }
         }
 
+        /**
+         * The listener to navigate to Flash Cards Game
+         * Loads the Intent with the groupId
+         */
         binding.flashCards.setOnClickListener{
             if (b.getInt("grpId", groupId) !=0 ){
                 val intent = Intent(context, QuizQuestionsActivity::class.java)
@@ -89,11 +99,15 @@ class GamesFragment : Fragment() {
                 startActivity(intent)
             }else{
                 Toast.makeText(requireContext(),
-                    "Please Select a language group with words in it", Toast.LENGTH_LONG
+                    "Please Select a language group with words in it", Toast.LENGTH_SHORT
                 ).show()
             }
         }
 
+        /**
+         * The listener to navigate to Hangman game
+         * Loads the Intent with the groupId
+         */
         binding.hangman.setOnClickListener {
             if (b.getInt("grpId", groupId) !=0 ){
                 val intent = Intent(context, HangmanGameActivity::class.java)
@@ -101,13 +115,20 @@ class GamesFragment : Fragment() {
                 startActivity(intent)
             }else{
                 Toast.makeText(requireContext(),
-                "Please Select a language group with words in it", Toast.LENGTH_LONG
+                "Please Select a language group with words in it", Toast.LENGTH_SHORT
                 ).show()
             }
         }
         return root
     }
 
+    /**
+     * @Data : Int
+     * @Bundle : Bundle
+     * @return Boolean
+     * On Success Loads the bundle with parsed int Data, return true
+     * On fail notify user, return false
+     */
     fun loadBundle(data: Int, bundle: Bundle) : Boolean{
 
         if (data != 0) {
@@ -115,7 +136,7 @@ class GamesFragment : Fragment() {
             return true
         }else{
             Toast.makeText(requireContext(),
-                "Please Select a language group", Toast.LENGTH_LONG
+                "Please Select a language group", Toast.LENGTH_SHORT
             ).show()
             return false
         }

@@ -1,18 +1,18 @@
 package com.example.projectstem.ui.library
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import com.example.projectstem.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projectstem.R
 import com.example.projectstem.model.group.GroupListAdapter
 import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.word.WordListAdapter
@@ -60,6 +60,7 @@ class LibraryCategoryFragment : Fragment() {
             })
 
         }
+
         //bundling the languages for the new word button
         val buttonAddWord = view?.findViewById<Button>(R.id.addBtn)
         val languages = Languages()
@@ -75,7 +76,6 @@ class LibraryCategoryFragment : Fragment() {
         fun validateLoaded(): Boolean{
             return true
         }
-        
 
         //delete the group
         groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,8 +12,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectstem.R
-import com.example.projectstem.model.group.GroupViewModel
 import com.example.projectstem.model.group.GroupListAdapter
+import com.example.projectstem.model.group.GroupViewModel
 
 class LibraryFragment : Fragment(){
     private lateinit var groupViewModel: GroupViewModel
@@ -35,11 +34,6 @@ class LibraryFragment : Fragment(){
         buttonLang?.setOnClickListener {
         Navigation.findNavController(view).navigate(R.id.action_grp2hvr)
         }
-
-        /*val groupSelectionButton = view.findViewById<Button>(R.id.groupButton)
-        groupSelectionButton?.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.navigation_library_category)
-        }*/
 
         //recyclerview
         val gridLayout = GridLayoutManager(requireContext(),2)

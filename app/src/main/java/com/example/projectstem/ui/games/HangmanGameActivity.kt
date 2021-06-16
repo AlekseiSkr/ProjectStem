@@ -1,7 +1,6 @@
 package com.example.projectstem.ui.games
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -39,14 +38,14 @@ class HangmanGameActivity : AppCompatActivity() {
         newGameButton = findViewById(R.id.newGameButton)
         lettersLayout = findViewById(R.id.lettersLayout)
 
-
-
-
+        //Initiate Bundle
         val bundle = intent.extras
-        val groupId = bundle!!.getInt("grpId", 0)
+        //Get groupId From bundle
+        groupId = bundle!!.getInt("grpId", 0)
+        //Get List of words with selected id
         val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(groupId)
 
-        Log.d("DataPass", "datapass : $groupId")
+        //Log.d("DataPass", "datapass : $groupId")
 
         newGameButton.setOnClickListener {
             startNewGame(wordList)
@@ -73,11 +72,13 @@ class HangmanGameActivity : AppCompatActivity() {
                 lettersUsedTextView.text = "Letters used: ${hangmanGameState.lettersUsed}"
                 imageView.setImageDrawable(ContextCompat.getDrawable(this, hangmanGameState.drawable))
             }
+            //On Win
             is HangmanGameState.Won -> {
                 showGameWon(hangmanGameState.wordToGuess)
+                //Increment Word Knowledge if knowledge is not max
                 if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(hangmanGameState.wordToGuess) < 3) {
                     AppDatabase.getDatabase(applicationContext).wordDao()
-                        .incrementKnowledgeFromWord(hangmanGameState.wordToGuess)
+                        .incrementKnowledgeFromWord(hangmanGameState.wordToGuess, groupId)
                 }
             }
 

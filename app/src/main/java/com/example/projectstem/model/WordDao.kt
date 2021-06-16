@@ -29,7 +29,7 @@ interface WordDao {
     @Query("SELECT knowledge FROM words WHERE translation IN (:word)")
     fun getKnowledgeFromTranslation(word: String) : Int
 
-    @Query("UPDATE words SET knowledge = (SELECT knowledge FROM words WHERE translation IN (:word)) + 1 WHERE translation IN (:word)")
-    fun incrementKnowledgeFromWord(word: String)
+    @Query("UPDATE words SET knowledge = (SELECT knowledge FROM words WHERE original IN (:word)) + 1 WHERE original IN (:word) AND  group_language_id IN (:group_language_id)")
+    fun incrementKnowledgeFromWord(word: String, group_language_id: Int)
 
 }

@@ -24,7 +24,7 @@ class HangmanGameManager {
 
         wordHolder = wordList[randomIndex]
 
-        wordToGuess = wordHolder.translation
+        wordToGuess = wordHolder.original
 
         Log.d("epic_gamer", "$wordToGuess")
 

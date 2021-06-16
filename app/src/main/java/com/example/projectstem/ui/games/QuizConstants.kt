@@ -6,12 +6,9 @@ import kotlin.random.Random
 
 object QuizConstants {
 
-    // TODO (STEP 1: Create a constant variables which we required in the result screen.)
-    // START
+    // Create a constant variables which we required in the result screen
     const val TOTAL_QUESTIONS: String = "total_questions"
     const val CORRECT_ANSWERS: String = "correct_answers"
-
-    // END
 
     fun randomNumber(list: List<Word>) : Int{
         return Random.nextInt(0, list.size)

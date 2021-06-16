@@ -108,6 +108,9 @@ class LibraryWordFragment : Fragment() {
             })
 
 
+            /**
+             * Play pronunciation for a word if supported
+             */
             view.findViewById<Button>(R.id.bPronounciation).setOnClickListener {
                 if (languageCode == "en_US") {
                     url = base[0].phonetics[0].audio

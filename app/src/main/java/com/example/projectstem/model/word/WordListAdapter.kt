@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,18 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
         holder.itemView.findViewById<TextView>(R.id.groupLanguage).text = currentItem.group_language_id.toString()
         holder.itemView.findViewById<TextView>(R.id.wordId).text = currentItem.word_id.toString()
 
+        when (currentItem.knowledge) {
+            1 -> {
+                holder.itemView.findViewById<ImageView>(R.id.knowledgeStatus1).visibility = View.VISIBLE
+            }
+            2 -> {
+                holder.itemView.findViewById<ImageView>(R.id.knowledgeStatus2).visibility = View.VISIBLE
+            }
+            else -> {
+                holder.itemView.findViewById<ImageView>(R.id.knowledgeStatus3).visibility = View.VISIBLE
+            }
+        }
+
         holder.itemView.setOnClickListener ( View.OnClickListener {
             view ->
             wordAndLanguage.setWord(holder.itemView.findViewById<TextView>(R.id.wordId).text.toString())
@@ -48,13 +61,18 @@ class WordListAdapter: RecyclerView.Adapter<WordListAdapter.MyViewHolder>() {
             wordAndLanguage.setTranslation(holder.itemView.findViewById<TextView>(R.id.translation).text.toString())
             wordAndLanguage.setLanguageGroupId(holder.itemView.findViewById<TextView>(R.id.groupLanguage).text.toString())
             wordAndLanguage.setKnowledge(holder.itemView.findViewById<TextView>(R.id.knowledge).text.toString())
+
             Navigation.findNavController(view).navigate(R.id.action_libraryCategoryFragment_to_libraryWordFragment, b)
+
         } )
 
     }
     fun setData(word: List<Word>){
         this.wordList = word
         notifyDataSetChanged()
+
+
+
     }
 
     class WordAndLanguage: Serializable {

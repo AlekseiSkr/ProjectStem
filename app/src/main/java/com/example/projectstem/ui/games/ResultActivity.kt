@@ -15,8 +15,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        // TODO (STEP 6: Hide the status bar and get the details from intent and set it to the UI. And also add a click event to the finish button.)
-        // START
+        // Hide the status bar and get the details from intent and set it to the UI. And also add a click event to the finish button
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
@@ -29,6 +28,5 @@ class ResultActivity : AppCompatActivity() {
         btn_finish.setOnClickListener {
             startActivity(Intent(this@ResultActivity, MainActivity::class.java))
         }
-        // END
     }
 }
