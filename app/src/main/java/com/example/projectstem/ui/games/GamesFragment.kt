@@ -2,7 +2,6 @@ package com.example.projectstem.ui.games
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +17,7 @@ class GamesFragment : Fragment() {
 
     private var _binding: FragmentGamesBinding? = null
     private var groupId: Int = 0
+    private var groups: List<Group> = emptyList()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,17 +32,24 @@ class GamesFragment : Fragment() {
         _binding = FragmentGamesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val groups = AppDatabase.getDatabase(requireContext()).groupDao().getAllGroupsForGames()
 
-        if (groups == emptyArray<Group>()){
-            binding.hangman.visibility = View.GONE
-            binding.flashCards.visibility = View.GONE
-            binding.lang1.visibility = View.GONE
-            binding.textView2.text = "Please Have at least 2 words In your groups to play games!"
-            binding.autoCompleteTextView2.visibility = View.GONE
-            binding.lang2.visibility = View.GONE
-            binding.textInputLayout3.visibility = View.GONE
-        }
+            groups = AppDatabase.getDatabase(requireContext()).groupDao().getAllGroupsForGames()
+
+            if (groups.isEmpty()) {
+                binding.hangman.visibility = View.GONE
+                binding.flashCards.visibility = View.GONE
+                binding.lang1.visibility = View.GONE
+                binding.textView7.text = ("Please Have at least 2 words In your groups to play games!")
+                binding.textView7.visibility = View.VISIBLE
+                binding.autoCompleteTextView2.visibility = View.GONE
+                binding.lang2.visibility = View.GONE
+                binding.textInputLayout3.visibility = View.GONE
+
+                Toast.makeText(
+                    requireContext(),
+                    "Not enough words to play games with", Toast.LENGTH_LONG
+                ).show()
+            }
 
 
         var languageGroups =  ArrayList<Group>()
@@ -60,7 +67,6 @@ class GamesFragment : Fragment() {
 
         //Loading Data into the DropDown
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languageGroups)
-                Log.d("GamesFrag", "line 1: ${languageGroups[0]}")
 
         val autoCompTextView = binding.autoCompleteTextView2
         autoCompTextView.setAdapter(arrayAdapter)

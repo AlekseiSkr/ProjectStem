@@ -123,4 +123,20 @@
         app:layout_constraintStart_toEndOf="@+id/lang1"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/mint_200"
+        android:padding="10dp"
+        android:text="TextView"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
