@@ -76,7 +76,7 @@ class HangmanGameActivity : AppCompatActivity() {
             is HangmanGameState.Won -> {
                 showGameWon(hangmanGameState.wordToGuess)
                 //Increment Word Knowledge if knowledge is not max
-                if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(hangmanGameState.wordToGuess) < 3) {
+                if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromWord(hangmanGameState.wordToGuess, groupId) < 3) {
                     AppDatabase.getDatabase(applicationContext).wordDao()
                         .incrementKnowledgeFromWord(hangmanGameState.wordToGuess, groupId)
                 }

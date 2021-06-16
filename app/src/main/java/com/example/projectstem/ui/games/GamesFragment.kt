@@ -39,7 +39,7 @@ class GamesFragment : Fragment() {
                 binding.hangman.visibility = View.GONE
                 binding.flashCards.visibility = View.GONE
                 binding.lang1.visibility = View.GONE
-                binding.textView7.text = ("Please Have at least 2 words In your groups to play games!")
+                binding.textView7.text = ("Please Have at least 5 words In your groups to play games!")
                 binding.textView7.visibility = View.VISIBLE
                 binding.autoCompleteTextView2.visibility = View.GONE
                 binding.lang2.visibility = View.GONE

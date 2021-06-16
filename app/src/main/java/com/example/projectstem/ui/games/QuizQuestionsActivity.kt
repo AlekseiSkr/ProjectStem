@@ -111,7 +111,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     // This is for correct answer
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
-                    if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromTranslation(question.optionOne) < 3) {
+                    if (AppDatabase.getDatabase(applicationContext).wordDao().getKnowledgeFromWord(question.wordInQuestion, groupId) < 3) {
                         AppDatabase.getDatabase(applicationContext).wordDao()
                             .incrementKnowledgeFromWord(question.wordInQuestion, groupId)
                     }

@@ -29,7 +29,7 @@ interface GroupDao {
     @Query("DELETE FROM group_language WHERE group_id = :groupId")
     fun deleteByGroupId(groupId: Int)
 
-    @Query("SELECT * FROM group_language WHERE EXISTS (SELECT count(*) FROM words WHERE group_language.group_id = words.group_language_id group by group_language_id having count(*) > 1)")
+    @Query("SELECT * FROM group_language WHERE EXISTS (SELECT count(*) FROM words WHERE group_language.group_id = words.group_language_id group by group_language_id having count(*) > 4)")
     fun getAllGroupsForGames(): List<Group>
 
 

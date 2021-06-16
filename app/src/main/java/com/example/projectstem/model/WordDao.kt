@@ -17,7 +17,7 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id)")
     fun getAllWordsInLanguageGroup(group_language_id: Int): LiveData<List<Word>>
 
-    @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id)")
+    @Query("SELECT * FROM words WHERE group_language_id IN (:group_language_id) AND knowledge < 3")
     fun getGameWordsInGroup(group_language_id: Int): List<Word>
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
@@ -26,8 +26,8 @@ interface WordDao {
     @Query("DELETE FROM words WHERE word_id = :wordId")
     fun deleteWord(wordId: Int)
 
-    @Query("SELECT knowledge FROM words WHERE translation IN (:word)")
-    fun getKnowledgeFromTranslation(word: String) : Int
+    @Query("SELECT knowledge FROM words WHERE original IN (:word) AND  group_language_id IN (:group_language_id)")
+    fun getKnowledgeFromWord(word: String, group_language_id: Int) : Int
 
     @Query("UPDATE words SET knowledge = (SELECT knowledge FROM words WHERE original IN (:word)) + 1 WHERE original IN (:word) AND  group_language_id IN (:group_language_id)")
     fun incrementKnowledgeFromWord(word: String, group_language_id: Int)
