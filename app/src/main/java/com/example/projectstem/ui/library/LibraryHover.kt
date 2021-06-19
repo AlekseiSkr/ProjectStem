@@ -20,14 +20,21 @@ class LibraryHover : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //Creating the dropdown menu
+
         val view = inflater.inflate(R.layout.fragment_library_hover, container, false)
+        //Creating the dropdown menu
+        /** baseLanguage = the element of the first dropdown menu
+         * secondaryLanguage = the element of the second dropdown menu
+         */
         val baseLanguage = view.findViewById<AutoCompleteTextView>(R.id.baseLanguage)
         val secondaryLanguage = view.findViewById<AutoCompleteTextView>(R.id.secondaryLanguage)
         //cancel button
         view.findViewById<Button>(R.id.bCancel).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
         }
+        /** languages = arraylist in the resources Strings.xml file
+         * arrayAdapter = custom array adapter
+         */
         val languages = resources.getStringArray(R.array.lCategory)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languages)
         view.findViewById<AutoCompleteTextView>(R.id.baseLanguage).setAdapter(arrayAdapter)
@@ -38,6 +45,7 @@ class LibraryHover : Fragment() {
         groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
         //validation upon pressing button
         view.findViewById<Button>(R.id.bCreate).setOnClickListener {
+            // language values inside the dropdown menus
             val language1 = baseLanguage.text.toString()
             val language2 = secondaryLanguage.text.toString()
             var isInserted = false
@@ -53,6 +61,7 @@ class LibraryHover : Fragment() {
                 Toast.makeText(requireContext(), "Successfully added", Toast.LENGTH_LONG).show()
                 Navigation.findNavController(view).navigate(R.id.action_hvr2grp)
             } else {
+                //if data is invalid returns error message to the user
                 Toast.makeText(requireContext(), "Invalid value", Toast.LENGTH_LONG).show()
             }
         }
