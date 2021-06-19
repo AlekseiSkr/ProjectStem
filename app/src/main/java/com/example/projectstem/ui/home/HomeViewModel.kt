@@ -9,7 +9,7 @@ class HomeViewModel : ViewModel() {
     /**
      * This function write out the text of the home page
      * MutableLiveData a class that extends the LiveData type class
-     *
+     * @constructor value includes the general welcome text
      * @return a welcome text and a list with logos
      */
     private val _text = MutableLiveData<String>().apply {
