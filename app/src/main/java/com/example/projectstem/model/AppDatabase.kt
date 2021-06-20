@@ -5,6 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+
+/**
+ * This class is responsible for the initialization of the database
+ * @return The database connection
+ */
 @Database(entities = [Group::class, Word::class], version = 4)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun groupDao(): GroupDao
