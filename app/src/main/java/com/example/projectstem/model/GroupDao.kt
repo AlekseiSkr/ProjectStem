@@ -6,13 +6,14 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * This DAO of Group table interface is responsible for initializing and holding all queries which
+ * are needed for the application to interact with the database
+ */
 @Dao
 interface GroupDao {
     @Query("SELECT * FROM group_language")
     fun getAll(): LiveData<List<Group>>
-
-    @Query("SELECT * FROM group_language WHERE group_id IN (:groupIds)")
-    suspend fun loadAllByIds(groupIds: IntArray): List<Group>
 
     @Query("SELECT group_id FROM group_language WHERE language1 LIKE :language1 AND language2 LIKE :language2 LIMIT 1")
     fun findByLanguageGroup(language1: String, language2: String) : Int
@@ -31,7 +32,4 @@ interface GroupDao {
 
     @Query("SELECT * FROM group_language WHERE EXISTS (SELECT count(*) FROM words WHERE group_language.group_id = words.group_language_id group by group_language_id having count(*) > 4)")
     fun getAllGroupsForGames(): List<Group>
-
-
-
 }

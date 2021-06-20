@@ -3,6 +3,10 @@ package com.example.projectstem.model
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
+/**
+ * This DAO of Word table interface is responsible for initializing and holding all queries which
+ * are needed for the application to interact with the database
+ */
 @Dao
 interface WordDao {
     @Query("SELECT original FROM words WHERE group_language_id IN (:group_language_id)")
@@ -31,5 +35,4 @@ interface WordDao {
 
     @Query("UPDATE words SET knowledge = (SELECT knowledge FROM words WHERE original IN (:word)) + 1 WHERE original IN (:word) AND  group_language_id IN (:group_language_id)")
     fun incrementKnowledgeFromWord(word: String, group_language_id: Int)
-
 }

@@ -21,6 +21,10 @@ import com.google.mlkit.nl.translate.TranslateLanguage.*
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
 
+
+/**
+ * This class fragment is responsible for translation feature. Here we translate a word and save it to a chosen group language
+ */
 class TranslateFragment : Fragment() {
 
     private lateinit var notificationsViewModel: TranslateViewModel
@@ -47,6 +51,12 @@ class TranslateFragment : Fragment() {
         val response = arguments?.getSerializable("languages") as? LibraryCategoryFragment.Languages
         val l1 = response?.getFirstLanguage()
         val l2 = response?.getSecondLanguage()
+        val saveButton = root.findViewById<Button>(R.id.buttonSaveTranslation)
+        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar2)
+        saveButton.visibility = View.VISIBLE
+        val button = root.findViewById<Button>(R.id.buttonTranslate)
+        val translateFromField = root.findViewById<EditText>(R.id.translateFrom)
+        val translateToField = root.findViewById<EditText>(R.id.translateTo)
 
 
         //Drop down menu of languages - From
@@ -75,19 +85,10 @@ class TranslateFragment : Fragment() {
             spinnerTo.setSelection(spinnerPosition)
         }
 
-
-        //Insert word to group
-
-        val saveButton = root.findViewById<Button>(R.id.buttonSaveTranslation)
-        val progressBar = root.findViewById<ProgressBar>(R.id.progressBar2)
-        saveButton.visibility = View.VISIBLE
-        val button = root.findViewById<Button>(R.id.buttonTranslate)
-
-        val translateFromField = root.findViewById<EditText>(R.id.translateFrom)
-        val translateToField = root.findViewById<EditText>(R.id.translateTo)
-
+        /**
+         * On translate button click translate the word given
+         */
         button.setOnClickListener {
-            //saveButton.visibility = View.INVISIBLE
             progressBar.visibility = View.VISIBLE
             val translateFromLanguage = spinnerFrom.selectedItem.toString()
             val translateToLanguage = spinnerTo.selectedItem.toString()
@@ -100,10 +101,11 @@ class TranslateFragment : Fragment() {
             val conditions = DownloadConditions.Builder()
                 .requireWifi()
                 .build()
+            // Download translation modules if not present on device
             translator.downloadModelIfNeeded(conditions)
                 .addOnSuccessListener {
-                    //Success downloading model. Continue to translation
                     translator.translate(wordToBeTranslated)
+                            // If modules downloaded successfully translate the word
                         .addOnSuccessListener { translatedText ->
                             translateToField.setText(translatedText)
                             progressBar.visibility = View.INVISIBLE
@@ -117,54 +119,49 @@ class TranslateFragment : Fragment() {
                 }
         }
 
-        ///Add data to database
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
 
+        /**
+         * On save button click save word original and word translation to the chosen group language if exists
+         */
         saveButton.setOnClickListener {
-            Log.d("adding", "button pressed")
             if (translateFromField.toString()
                     .isNotEmpty() && translateToField.toString().isNotEmpty()
             ) {
-
-                //languages
+                // Get language group selected with word original and word translation
                 val language1 = spinnerFrom.selectedItem.toString()
                 val language2 = spinnerTo.selectedItem.toString()
                 val translateFrom = translateFromField.text.toString()
                 val translateTo = translateToField.text.toString()
-
-
-                val id =  AppDatabase.getDatabase(requireContext()).groupDao().findByLanguageGroup(language1, language2)
+                // Initialize database query
+                val id = AppDatabase.getDatabase(requireContext()).groupDao()
+                    .findByLanguageGroup(language1, language2)
 
                 if (id == 0) {
-                    Toast.makeText(requireContext(), "Language Group does not exist!", Toast.LENGTH_LONG).show()
-                    Log.d("adding", "GROUP DOES NOT EXIST")
+                    Toast.makeText(
+                        requireContext(),
+                        "Language group does not exist!",
+                        Toast.LENGTH_LONG
+                    ).show()
                 } else {
-                    try{
-                        //GROUP EXISTS
-                        Log.d("adding", "GROUP EXISTS")
-                        Log.d("adding", "$id")
-
-                        var isInserted = false
-                        //add data
-                        if (!isInserted) {
-                            val word = Word(0, id, translateFrom, translateTo, 1)
-                            wordViewModel.addWordsToGroup(word)
-                            isInserted = true
-                        }
-                        if (isInserted) {
-                            Toast.makeText(requireContext(), "$translateFrom Successfully added to group $language1 / $language2", Toast.LENGTH_LONG).show()
-                            Navigation.findNavController(root).navigate(R.id.navigation_library)
-                        }
-
-                    }catch (e: Exception){
+                    try {
+                        val word = Word(0, id, translateFrom, translateTo, 1)
+                        wordViewModel.addWordsToGroup(word)
+                        Toast.makeText(
+                            requireContext(),
+                            "$translateFrom Successfully added to group $language1 / $language2",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Navigation.findNavController(root).navigate(R.id.navigation_library)
+                    } catch (e: Exception) {
                         e.localizedMessage
                     }
                 }
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Please Add words to translate",
+                    "Please add words to translate",
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -172,6 +169,11 @@ class TranslateFragment : Fragment() {
         return root
     }
 
+    /**
+     * This method is responsible for getting the language based on the drop down menu
+     * @param language The language input from the drop down
+     * @return The language from the MLKit API if existent. If not returns X as language not supported
+     */
     private fun getLanguageFromDropDownMenu(language: String): String {
         when (language) {
             "Afrikaans" -> {
@@ -351,6 +353,7 @@ class TranslateFragment : Fragment() {
         }
         return "Language not found"
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

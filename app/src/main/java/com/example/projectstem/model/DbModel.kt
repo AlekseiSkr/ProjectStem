@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Data class responsible for modelling and creating a table for the Room Database
+ */
 @Entity(tableName = "group_language")
 data class Group(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name="group_id") val group_id: Int,
@@ -11,14 +14,9 @@ data class Group(
     @ColumnInfo(name = "language2") val language2: String,
 )
 
-//@Entity(foreignKeys = [ForeignKey(entity = Group::class,
-//    parentColumns = arrayOf("group_id"),
-//    childColumns = arrayOf("group_language_id"),
-//    onDelete = ForeignKey   .CASCADE)],
-//    indices = [Index(value = ["group_language_id"], unique = false)],
-//    tableName = "words"
-//)
-
+/**
+ * Data class responsible for modelling and creating a table for the Room Database
+ */
 @Entity(tableName = "words")
 data class Word(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "word_id") val word_id : Int,
