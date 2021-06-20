@@ -90,13 +90,13 @@ class LibraryWordFragment : Fragment() {
                             base[0].meanings[0].definitions[0].example
                         when (knowledge) {
                             1 -> {
-                                view.findViewById<ImageView>(R.id.knowledgeImg1).visibility = View.VISIBLE
+                                view.findViewById<ImageView>(R.id.knowledgeImg3).visibility = View.VISIBLE
                             }
                             2 -> {
                                 view.findViewById<ImageView>(R.id.knowledgeImg2).visibility = View.VISIBLE
                             }
                             else -> {
-                                view.findViewById<ImageView>(R.id.knowledgeImg3).visibility = View.VISIBLE
+                                view.findViewById<ImageView>(R.id.knowledgeImg1).visibility = View.VISIBLE
                             }
                         }
                     })
@@ -127,11 +127,7 @@ class LibraryWordFragment : Fragment() {
 
         return view
     }
-
-    private fun checkKnowledge(knowledge: Int)
-    {
-    }
-
+    
     private fun applyAudio(url: String)
     {
         MediaPlayer().apply {

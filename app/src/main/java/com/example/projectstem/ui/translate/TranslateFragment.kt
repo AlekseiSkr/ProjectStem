@@ -111,11 +111,11 @@ class TranslateFragment : Fragment() {
                             progressBar.visibility = View.INVISIBLE
                         }
                         .addOnFailureListener { exception ->
-                            Log.e("s", Log.getStackTraceString(exception))
+                            exception.localizedMessage
                         }
                 }
                 .addOnFailureListener { exception ->
-                    Log.e("s", Log.getStackTraceString(exception))
+                    exception.localizedMessage
                 }
         }
 
