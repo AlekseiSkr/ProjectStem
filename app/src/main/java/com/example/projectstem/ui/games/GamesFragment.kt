@@ -32,7 +32,6 @@ class GamesFragment : Fragment() {
         _binding = FragmentGamesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
             groups = AppDatabase.getDatabase(requireContext()).groupDao().getAllGroupsForGames()
 
             if (groups.isEmpty()) {

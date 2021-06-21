@@ -15,6 +15,11 @@ class HangmanGameManager {
     private var currentTries = 0
     private var drawable: Int = R.drawable.hangman_state_0
 
+    /**
+     * Main initialization of the game
+     * @param lettersUsed gets the number of letters currently used out of the maximum amount
+     * @param currentTries shows the tries remaining until the player loses
+     */
     fun startNewGame(wordList : List<Word>): HangmanGameState {
         lettersUsed = ""
         currentTries = 0
@@ -31,7 +36,9 @@ class HangmanGameManager {
         generateUnderscores(wordToGuess)
         return getGameState()
     }
-
+    /**
+     * @function replaces the letters of the correct word with underscores
+     */
     fun generateUnderscores(word: String) {
         val sb = StringBuilder()
         word.forEach { char ->
@@ -43,6 +50,13 @@ class HangmanGameManager {
         }
         underscoreWord = sb.toString()
     }
+
+    /**
+     * Checks if the game state is running
+     * Checks if the selected letter corresponds to a letter in the word
+     * Replaces the underscores with the correct letters when guessed
+     * Draws the hangman
+     */
 
     fun play(letter: Char): HangmanGameState {
         if (lettersUsed.contains(letter)) {
@@ -72,6 +86,10 @@ class HangmanGameManager {
         return getGameState()
     }
 
+    /**
+     * Gets the images of the hangman
+     */
+
     private fun getHangmanDrawable(): Int {
         return when (currentTries) {
             0 -> R.drawable.hangman_state_0
@@ -85,6 +103,10 @@ class HangmanGameManager {
             else -> R.drawable.hangman_state_7
         }
     }
+
+    /**
+     * Gets the current game state (eg. lost/won/running)
+     */
 
     private fun getGameState(): HangmanGameState {
         if (underscoreWord.equals(wordToGuess, true)) {
