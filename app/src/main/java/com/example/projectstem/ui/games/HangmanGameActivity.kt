@@ -16,7 +16,6 @@ import com.example.projectstem.model.Word
 class HangmanGameActivity : AppCompatActivity() {
 
     private val gameManager = HangmanGameManager()
-
     private lateinit var wordTextView: TextView
     private lateinit var lettersUsedTextView: TextView
     private lateinit var imageView: ImageView
@@ -46,7 +45,6 @@ class HangmanGameActivity : AppCompatActivity() {
         val wordList = AppDatabase.getDatabase(applicationContext).wordDao().getGameWordsInGroup(groupId)
 
         //Log.d("DataPass", "datapass : $groupId")
-
         newGameButton.setOnClickListener {
             startNewGame(wordList)
         }
@@ -64,6 +62,12 @@ class HangmanGameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * This private function shows the updating User Interface
+     * @property updateUI the name of the function
+     * @constructor see if the user won or lost in the hangman game
+     * @return the result of the game
+     */
     private fun updateUI(hangmanGameState: HangmanGameState) {
         when (hangmanGameState) {
             is HangmanGameState.Lost -> showGameLost(hangmanGameState.wordToGuess)
@@ -85,6 +89,12 @@ class HangmanGameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * This private function shows if the user lost
+     * @property showGameLost is the name of this function
+     * @constructor get the user's guesses
+     * @return show the user's losing result
+     */
     private fun showGameLost(wordToGuess: String) {
         wordTextView.text = wordToGuess
         gameLostTextView.visibility = View.VISIBLE
@@ -92,12 +102,26 @@ class HangmanGameActivity : AppCompatActivity() {
         lettersLayout.visibility = View.GONE
     }
 
+    /**
+     * This private function shows if the user won
+     * @property showGameWon is the name of this function
+     * @constructor get the user's guesses
+     * @return show the user's winning result
+     */
     private fun showGameWon(wordToGuess: String) {
         wordTextView.text = wordToGuess
         gameWonTextView.visibility = View.VISIBLE
         lettersLayout.visibility = View.GONE
     }
 
+    /**
+     * This private function starts a new game after the user already finished the one
+     * @param gameState starts a game using the word list
+     * @property startNewGame is the name of this function
+     * @constructor The previous game's lost / won page will be gone
+     * The letters' layout will be visible again
+     * @return updateUI function
+     */
     private fun startNewGame(wordList: List<Word>) {
         gameLostTextView.visibility = View.GONE
         gameWonTextView.visibility = View.GONE
