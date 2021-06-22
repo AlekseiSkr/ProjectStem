@@ -31,7 +31,6 @@ class HangmanGameManager {
 
         wordToGuess = wordHolder.original
 
-        Log.d("epic_gamer", "$wordToGuess")
 
         generateUnderscores(wordToGuess)
         return getGameState()
