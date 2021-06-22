@@ -1,5 +1,9 @@
 package com.example.projectstem.ui.games
 
+/**
+ * Data class of the Quiz game which is used to define the structure along with the datatype for the Quiz Game
+ */
+
 data class QuizQuestion(
     val id: Int,
     val question: String,

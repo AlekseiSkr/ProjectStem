@@ -14,6 +14,11 @@ object QuizConstants {
         return Random.nextInt(0, list.size)
     }
 
+    /**
+     *  initialization of the quiz game questions along with the answer options
+     * @param wordList is the list of words that is used to store word values for the Quiz
+     * @return returns questions compiled from the QuizQuestion Class
+     */
     
     fun getQuestions(wordList: List<Word>): ArrayList<QuizQuestion> {
 
