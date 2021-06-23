@@ -13,6 +13,11 @@ import com.example.projectstem.R
 import com.example.projectstem.model.AppDatabase
 import com.example.projectstem.model.Word
 
+/**
+ * Main initialization of the game activity
+ * In the onCreate method xml elements are assigned to a variables by taking them by ID
+ */
+
 class HangmanGameActivity : AppCompatActivity() {
 
     private val gameManager = HangmanGameManager()
